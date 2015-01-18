@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Creative Deletion</title>
+    <description>Lau Taarnskov&#39;s blog on tech
+</description>
+    <link>http://www.creativedeletion.com/</link>
+    <atom:link href="http://www.creativedeletion.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 18 Jan 2015 19:19:55 -0200</pubDate>
+    <lastBuildDate>Sun, 18 Jan 2015 19:19:55 -0200</lastBuildDate>
+    <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>World time is more than GMT offsets</title>
+        <description>&lt;p&gt;A lot of technology today seems to ignore the complexities of world time, timezones and daylight savings. In fact, as far as I know, there doesn’t even seem to exist a good watch that makes it easy to accurately know the time around the world.&lt;/p&gt;
+
+&lt;p&gt;The following picture is from Montevideo, Uruguay. It is 3 hours from GMT. And so is Nuuk (aka. Godthåb), Greenland. So while I am in Montevideo in South America I am sort of in the same time zone as Denmark - how about that? This time of year, though, most of Greenland observes DST, so local time in Nuuk is now GMT-2, not -3.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/clock.jpg&quot; width=&quot;452&quot; height=&quot;320&quot; alt=&quot;Clock in Montevideo&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If only adjusting your clock to local time around the world was a question of offsets from GMT, figuring out the local time around the would be relatively easy. What really complicates things is summertime (aka. Daylight Savings Time or DST).&lt;/p&gt;
+
+&lt;p&gt;In Venezuala there is a certain mad man in charge that wants to create a new seperate time zone! The timezones don’t change that often, but recently there has been changes regarding DST. In USA the days when DST starts and stops was changed in 2007. DST starts and begins on different dates in different countries. Some countries within a certain timezone have DST and some don’t. A European I know asked a local person in a northern African country “Tomorrow at this time, what time is it?” The local person looked very puzzled after hearing the odd question. DST isn’t used in that particular country.&lt;/p&gt;
+
+&lt;p&gt;I don’t wear a watch regularly, but use my iPhone to get the time. When travelling to a different time zone, I can go to the time settings in the phone and select the city that I am in or a city that I think is in the same time zone. The iPhone will then use it’s internal clock and timezone information for the different cities to calculate the local time in the city in question.&lt;/p&gt;
+
+&lt;p&gt;Recently I was in Buenos Aires and, since it is a big city, of course I could find it in the settings on the iPhone. But… I came to find out that my clock was not showing the correct local time. I talked to an employee in the hotel about it and he said that Argentina in 2007 had readopted DST.&lt;/p&gt;
+
+&lt;p&gt;This change made by Argentina had not been reflected in my iPhone nor my MacBook Pro.&lt;/p&gt;
+
+&lt;p&gt;I learned that political changes can unexpectedly change timezones and DST. And current “world time” clocks don’t seem reflect these changes.&lt;/p&gt;
+
+&lt;p&gt;A lot of technology is developed in Europe or the US, where timezones don’t change that often. And some software developers seem to assume that it works the same way around the world. For instance there is JavaScript software that get a visitors local time from his browser and compare it to GMT to get the visitors GMT offset. That’s fine if you know that the user is in the US for instance. But in most of the Carribean DST isn’t used and in some parts of South America DST is reversed along with summer and winter.&lt;/p&gt;
+
+&lt;p&gt;Here’s the lesson for software developers: To accurately calculate a users time zone, knowing a GMT offset is not enough. Getting the closest (politically and geographically) city is best. Furthermore, time zones and DST policies change, so for a world clock to be up-to-date it should probably be updated with the newest time zone changes once a year or so.&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 09 Apr 2008 23:50:00 -0300</pubDate>
+        <link>http://www.creativedeletion.com/2008/04/09/world-time-is-more-than-gmt-offsets.html</link>
+        <guid isPermaLink="true">http://www.creativedeletion.com/2008/04/09/world-time-is-more-than-gmt-offsets.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>My iPhone working with my Danish operator without hardware mods</title>
+        <description>&lt;p&gt;I recently got a chance to buy an iPhone. After I had made sure that doable iPhone unlocking methods existed, I went for it.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/iphone.jpg&quot; width=&quot;434&quot; height=&quot;270&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;unlocking&quot;&gt;Unlocking&lt;/h2&gt;
+&lt;p&gt;Engadget recently announced a software unlock. Mainstream media (MSM) has been picking up this story as well as different hardware based unlocks. The only problem with the software unlocks is that they are not available yet.&lt;/p&gt;
+
+&lt;p&gt;But it has been possible to use your iPhone with other operators than AT&amp;amp;T for quite some time now, before the ones that mainstream media is currently talking about. One hack is to use a small sim card enclosure called the “turbosim”, but they are sold out. Another one is called the “supersim”. Neither of these methods require you to modify the iPhone hardware. Basically the supersim method works like this: You create a new SIM card that works like your existing local SIM card. Then you use software to activate the iPhone in a way that makes it compatible with this new SIM card. I used the supersim method, and have been using the iPhone with my Danish mobile phone operator since wednesday last week. As far as I know there are only about 5 unlocked iPhones in Denmark right now.&lt;/p&gt;
+
+&lt;h2 id=&quot;interface-and-exterior&quot;&gt;Interface and exterior&lt;/h2&gt;
+&lt;p&gt;The interface is awesome. It’s fun to flick between the pictures and music albums, to zoom in and out on pictures and websites etc. This is really a big step up from the interface of other phones. Like the interface from the Minority Report movie. My previous phone - a Nokia 7610 smartphone feels very 20th century in comparison.&lt;/p&gt;
+
+&lt;p&gt;The virtual keyboard works OK - much better than a numeric keyboard with T9. I learned that to avoid typos, you can make sure that the correct key is selected before you lift your finger from the screen - if you hit the wrong key you can slide to a different key before lifting.&lt;/p&gt;
+
+&lt;p&gt;The exterior is awesome too. It’s not all hard plastic like my old Nokia, but mostly glass and aluminium and a little chrome and rubber-ish plastic. Like a Mac, Apple has been careful about all aspects of the product and how it all works together. That said, it’s not perfect of course. There is plenty of room for improvement and refinement. I welcome software updates with new features. Preferably those updates should be compatible with the SIM unlock hacks ;-)&lt;/p&gt;
+
+&lt;h2 id=&quot;email-spam-filtering&quot;&gt;Email spam filtering&lt;/h2&gt;
+&lt;p&gt;There’s an email application called “Mail” similar to the Mac “Mail.app”. It doesn’t have a spam filter like Mail.app does though. So what I did, was to run my email through a GMail account and use setup the GMail account with POP and SMTP on my iPhone. That’s an easy way to get server based spam filtering.&lt;/p&gt;
+
+&lt;h2 id=&quot;missing-features&quot;&gt;“Missing features”&lt;/h2&gt;
+&lt;p&gt;The iPhone doesn’t do everything. You can’t use custom ring tones (without hacking it), it doesn’t send MMS etc. But I don’t care, those features aren’t important to me. On the other hand the iPhone has features that no other phones have, but it is really about the product as a whole and not a checklist of features. For what it is the iPhone is really good. Interacting with my phone is now fun instead of being a bit of a pain. If you want a nice phone with a nice interface, email, a proper web browser and an integrated portable music &amp;amp; video player, the iPhone does a good job.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 03 Sep 2007 06:00:00 -0300</pubDate>
+        <link>http://www.creativedeletion.com/2007/09/03/my-iphone-working-with-my-danish-operator-without-hardware-mods.html</link>
+        <guid isPermaLink="true">http://www.creativedeletion.com/2007/09/03/my-iphone-working-with-my-danish-operator-without-hardware-mods.html</guid>
+        
+        
+      </item>
+    
+  </channel>
+</rss>
