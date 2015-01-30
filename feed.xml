@@ -6,8 +6,8 @@
 </description>
     <link>http://www.creativedeletion.com/</link>
     <atom:link href="http://www.creativedeletion.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 29 Jan 2015 15:07:27 -0200</pubDate>
-    <lastBuildDate>Thu, 29 Jan 2015 15:07:27 -0200</lastBuildDate>
+    <pubDate>Fri, 30 Jan 2015 12:25:16 -0200</pubDate>
+    <lastBuildDate>Fri, 30 Jan 2015 12:25:16 -0200</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -40,7 +40,7 @@
   &lt;li&gt;&lt;strong&gt;If I know what time zone someone is in and they just tell me the date and local time, I can always use software to find out what time that is in UTC&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;If they are in the middle of changing from summertime to wintertime, the clock will be set back one hour. This means that an hour exists twice, so to speak. If the clock is set back at 2:00 and someone tells you that the local time was 2:17 for instance, you do not know if he is talking about 2:17 before the clocks were set back or 2:17 after the clocks were set back.&lt;/p&gt;
+&lt;p&gt;If they are in the middle of changing from summertime to wintertime, the clock will be set back one hour. This means that an hour exists twice, so to speak. If the clock is set back to 2:00 and someone tells you that the local time was 2:17 for instance, you do not know if he is talking about 2:17 before the clocks were set back or 2:17 after the clocks were set back.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;DST always sets the clock back and forth by exactly one hour&lt;/strong&gt;&lt;/li&gt;
