@@ -120,8 +120,12 @@ the time zone in Chile is actually announced to be changing as described.</p>
 
 <p>Instead of saving the time in UTC along with the time zone, developers can save
 what the user expects us to save: the wall time. Ie. what the clock on the wall will say. In the example that would be 10:00. And we also save the timezone (Santiago/Chile).
-To avoid ambigiuty we also save a third piece of data: the UTC offset.
 This way we can convert back to UTC or any other timezone.</p>
+
+<p>To avoid ambigiuty we also save a third piece of data: the UTC offset. Note that the UTC offset is only
+there for the rare cases when the timezone does not change, but when there is an ambiguity we know about at scheduling
+time - that will usually be when the timezone goes off of DST and a range of time (usually an hour) happens twice
+in autumn when clocks are set back. In this example though this third piece of data is not used for anything.</p>
 
 <p>In the rare cases where the time zone rules change such that the saved wall time
 suddenly becomes <a href="/2015/01/28/falsehoods-programmers-date-time-zones.html">ambiguous or non existant</a>, the saved UTC offset will not help us.
