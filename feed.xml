@@ -6,9 +6,103 @@
 </description>
     <link>http://www.creativedeletion.com/</link>
     <atom:link href="http://www.creativedeletion.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 16 Feb 2015 13:12:28 -0200</pubDate>
-    <lastBuildDate>Mon, 16 Feb 2015 13:12:28 -0200</lastBuildDate>
+    <pubDate>Mon, 23 Mar 2015 12:07:23 -0300</pubDate>
+    <lastBuildDate>Mon, 23 Mar 2015 12:07:23 -0300</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>How to save datetimes for future events - (when UTC is not the right answer)</title>
+        <description>&lt;p&gt;Imagine that it’s January 2015 and you’re making an appointment in a calendar application for a
+meeting that will take place in Santiago, Chile on the April 30th at 10:00 in the morning.&lt;/p&gt;
+
+&lt;p&gt;Your calendar software saves the appointment and you can see that it’s there
+with the description that you made. 2015-04-30 10:00 in Chile. You even checked the box
+to get a reminder and think to yourself: “What a time to be alive”. Software
+can remind us of meetings and keep track of timezones and we no longer have to
+carry around big bulky paper calendars.&lt;/p&gt;
+
+&lt;h2 id=&quot;software-saves-the-day&quot;&gt;Software saves the day?&lt;/h2&gt;
+
+&lt;p&gt;April comes around and you are in Santiago and ready for the meeting you made.
+You forgot the exact time of the meeting so you check your trusty calendar
+software on your phone. “Ah yes, it’s at 11:00, exactly the time I saved.”&lt;/p&gt;
+
+&lt;p&gt;But when you show up for your meeting you are surprised that actually the
+meeting was at 10:00 and you are an hour late! How did that happen?&lt;/p&gt;
+
+&lt;h2 id=&quot;the-deceit&quot;&gt;The deceit&lt;/h2&gt;
+
+&lt;p&gt;&lt;img title=&quot;Santiago de Chile&quot; alt=&quot;Santiago de Chile&quot; src=&quot;/assets/santiago.jpg&quot; srcset=&quot;/assets/santiago2x.jpg 2x&quot; width=&quot;512&quot; height=&quot;303&quot; class=&quot;right_img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The software did not actually save the time 10:00.
+Instead it converted the time to UTC (14:00) and saved that along with the timezone
+of Santiago/Chile.&lt;/p&gt;
+
+&lt;p&gt;But the software is smart and can convert it
+back from UTC right? Well that just so happens to be a &lt;a href=&quot;/2015/01/28/falsehoods-programmers-date-time-zones.html&quot;&gt;falsehood&lt;/a&gt;.
+In most cases, yes, you can convert back from UTC to the original timezone.
+But when timezone rules change, converting back to the original timezone
+can mean that you get a different result.&lt;/p&gt;
+
+&lt;p&gt;And that is just what happens in this case. Because Chile
+has decided to stop using Daylight Saving Time. Good for them. Instead of
+going off of DST, Chile will essentially keep using the same offset
+as they are currently on and not set their clock forward in the autumn.
+But back in the middle of January they were supposed to go off of DST
+and set their clocks forward an hour.&lt;/p&gt;
+
+&lt;p&gt;So what happened was that your software got the newest timezone update. And then
+when converting back from UTC it used the new rules, while the saved UTC time (14:00)
+were based on the old rules. With the old rules you would have to subtract 4 hours,
+but with the new rules only 3. And subtracting 3 hours from 14:00 you get 11:00
+instead of 10:00.&lt;/p&gt;
+
+&lt;p&gt;This story is not pure fantasy. You might not be going to Chile in April. But a lot of software actually works this way and
+the time zone in Chile is actually announced to be changing as described.&lt;/p&gt;
+
+&lt;h2 id=&quot;a-solution&quot;&gt;A solution&lt;/h2&gt;
+
+&lt;p&gt;Instead of saving the time in UTC along with the time zone, developers can save
+what the user expects us to save: the wall time. And we also save the timezone.
+To avoid ambigiuty we also save a third piece of data: the UTC offset.
+This way we can convert back to UTC or any other timezone.&lt;/p&gt;
+
+&lt;p&gt;In the rare cases where the time zone rules change such that the saved wall time
+suddenly becomes &lt;a href=&quot;/2015/01/28/falsehoods-programmers-date-time-zones.html&quot;&gt;ambiguous or non existant&lt;/a&gt;, the saved UTC offset will not help us.
+There is not
+much we can do about that though, since we cannot foresee the future. If the
+saved datetime becomes ambiguous or non existing, we will have to deal with
+that situation by alerting the user.&lt;/p&gt;
+
+&lt;p&gt;You could argue that converting to UTC and saving UTC you will never have an ambiguous or
+non-existing datetime. That is true, but you have to ask yourself whether it is
+better to tell the user something incorrect or tell the user the truth. If
+you want your software to provide the most correct answers, this method is
+superior to just saving UTC and a timezone.&lt;/p&gt;
+
+&lt;p&gt;This solution is implemented in &lt;a href=&quot;https://github.com/lau/kalecto&quot;&gt;Kalecto&lt;/a&gt;: A &lt;a href=&quot;https://github.com/lau/kalends&quot;&gt;Kalends&lt;/a&gt;-Ecto plugin made by yours truly
+for the &lt;a href=&quot;http://elixir-lang.org/&quot;&gt;Elixir language&lt;/a&gt;.
+If you use Elixir with PostgreSQL and Ecto you can use &lt;a href=&quot;https://github.com/lau/kalecto&quot;&gt;Kalecto&lt;/a&gt; to avoid giving the
+wrong answers when timezone change. Just use the Kalecto.DateTime type.&lt;/p&gt;
+
+&lt;h2 id=&quot;rule-of-thumb&quot;&gt;Rule of thumb&lt;/h2&gt;
+
+&lt;p&gt;What if you are not saving a future time for a meeting? As a rule of thumb:
+events that have happened in the recent past can safely be saved as UTC.
+Examples are timestamps for when an email has been sent or a database
+record has been saved. Your system knows the time in UTC and can save it in
+UTC. And later you can always convert it to any other time zone.&lt;/p&gt;
+
+&lt;p&gt;But in the case of future datetimes such as meetings: converting to UTC and
+saving UTC + timezone name is not resistant to changes in time zone rules.
+And remember, time zone rules change all the time.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 19 Mar 2015 21:00:00 -0300</pubDate>
+        <link>http://www.creativedeletion.com/2015/03/19/persisting_future_datetimes.html</link>
+        <guid isPermaLink="true">http://www.creativedeletion.com/2015/03/19/persisting_future_datetimes.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>Falsehoods programmers believe about time and time zones</title>
@@ -63,7 +157,7 @@
 &lt;p&gt;Except for Morocco, where in the middle of summer, DST is suspended for a month during Ramadan.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;If I have a timestamp for a future event, I can convert it to UTC, store it as UTC along with the time zone and be sure that I can reliably convert it back to the correct “local time” in the future&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;If I have a timestamp for a future event, I can convert it to UTC, store it as UTC along with the time zone and be sure that I can reliably convert it back to the correct “wall time” in the future&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;If time zone rules change in the mean time for the time zone in question, converting back from UTC to “local time” might produce a different result.&lt;/p&gt;
