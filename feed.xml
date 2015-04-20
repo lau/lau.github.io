@@ -6,9 +6,197 @@
 </description>
     <link>http://www.creativedeletion.com/</link>
     <atom:link href="http://www.creativedeletion.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 24 Mar 2015 21:03:56 -0300</pubDate>
-    <lastBuildDate>Tue, 24 Mar 2015 21:03:56 -0300</lastBuildDate>
+    <pubDate>Mon, 20 Apr 2015 00:06:53 -0300</pubDate>
+    <lastBuildDate>Mon, 20 Apr 2015 00:06:53 -0300</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Elixir - The next big language for the web</title>
+        <description>&lt;p&gt;In this article I will explain why
+I think
+the &lt;a href=&quot;http://elixir-lang.org&quot;&gt;Elixir language&lt;/a&gt;
+ will make a big
+impact in the world of web development.&lt;/p&gt;
+
+&lt;h2 id=&quot;from-obscurity-to-the-default-choice&quot;&gt;From obscurity to the default choice&lt;/h2&gt;
+
+&lt;p&gt;First a short tale of another language that went from being largely
+unknown to very well known:&lt;/p&gt;
+
+&lt;p&gt;In 2003 I started using Ruby. A classmate from university was about to
+release a web framework for it. You could
+write software with much fewer lines of code than in Java. The combination
+of Ruby and this new web framework felt so much better for web development
+than what I had been using before - PHP.&lt;/p&gt;
+
+&lt;p&gt;So when a client wanted to redo an e-commerce site, I convinced them to
+rewrite it in Ruby and use this new framework that was now called Rails.
+Ever since I have been programming Ruby professionally.&lt;/p&gt;
+
+&lt;p&gt;Back then you could look at the download graphs of Rails and Ruby and it was
+obvious that Rails was driving downloads of Ruby. Rails took Ruby out of
+obscurity and some years later even many non-programmers had heard about this
+web framework.&lt;/p&gt;
+
+&lt;p&gt;It was very interesting to see how quickly Rails went from being used by a handful
+of people to being the “it-framework” and the default choice for startups
+that needed web based software. And some of them are now traded on the stock
+market with market caps in the billions of dollars.&lt;/p&gt;
+
+&lt;p&gt;One of them is Twitter. In 2009 Twitter had been experiencing a tremendous
+growth of users and traffic. They decided to change core parts of their
+infrastructure from Ruby to Scala.
+The way Scala handles concurrency made it easier for Twitter to handle the
+growth.&lt;/p&gt;
+
+&lt;h2 id=&quot;erlang&quot;&gt;Erlang&lt;/h2&gt;
+
+&lt;figure class=&quot;picture right_img&quot;&gt;
+  &lt;img src=&quot;/assets/ericsson_box.jpg&quot; srcset=&quot;/assets/ericsson_box.jpg 1x, /assets/ericsson_box2x.jpg 2x&quot; /&gt;
+  &lt;figcaption&gt;Ericsson equipment mounted on a lighthouse in Cabo Polonio, Uruguay&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&quot;picture right_img&quot;&gt;
+  &lt;img src=&quot;/assets/cabo_polonio.jpg&quot; srcset=&quot;/assets/cabo_polonio.jpg 1x, /assets/cabo_polonio2x.jpg 2x&quot; /&gt;
+  &lt;figcaption&gt;View from the same lighthouse in Cabo Polonio, Uruguay&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;There is another language that is both functional and has an even longer
+history of handling massive concurrency: Erlang.
+It was made at Ericsson in the 1980s to allow for better
+development of telephony applications.&lt;/p&gt;
+
+&lt;p&gt;If you use 4G data on your phone it is more likely than not that the data is
+going through equipment from Ericsson. And it runs Erlang. Have you ever thought about how
+phone operators do not disconnect everyone’s phonecalls in order to apply software updates?
+Erlang is made to allow phone switch system to run continuously
+and supports hotswapping: software updates while the software is running.&lt;/p&gt;
+
+&lt;p&gt;Whatsapp have hundreds of millions of users.
+On most other platforms &lt;a href=&quot;https://en.wikipedia.org/wiki/C10k_problem&quot;&gt;handling more than ten thousand concurrent connections
+on one machine is seen as challenging&lt;/a&gt;, but Whatsapp have individual servers with more than 2
+million concurrent connections. 2 million connections on a single server, handled by Erlang.&lt;/p&gt;
+
+&lt;p&gt;Erlang is also popular for game servers. Millions of users
+play multiplayer games with &lt;a href=&quot;http://www.erlang-factory.com/upload/presentations/395/ErlangandFirst-PersonShooters.pdf&quot;&gt;game server infrastructure handled by Erlang&lt;/a&gt;
+for titles such as Call of Duty and Game of War.&lt;/p&gt;
+
+&lt;p&gt;The Erlang platform has many advantages for serving reliable, scalable
+internet applications, it has a proven track record and has been around for
+decades. So why is it not a more popular choice for web development?&lt;/p&gt;
+
+&lt;p&gt;I think part of it is that with Erlang it is not as easy to get up and running
+with a new website. I do not think it is because the language is very hard to learn - it is not,
+but often people will take the path of least resistance.
+The Erlang syntax looks a bit strange if you are used to looking at languages
+such as C, Java, JavaScript, PHP, Ruby, Perl etc. And things like package management,
+build tools, meta-programming, unicode handling and web frameworks are not as straight forward as
+in languages such as Ruby.&lt;/p&gt;
+
+&lt;h2 id=&quot;elixir&quot;&gt;Elixir&lt;/h2&gt;
+
+&lt;p&gt;But those areas are all addressed in Elixir. Elixir creator José Valim said: “I liked everything I saw in Erlang, but I
+hated the things that I didn’t see”. Elixir has its own package management system,
+macros, an easy to use build tool and unicode handling.&lt;/p&gt;
+
+&lt;p&gt;Elixir is a language that runs on the Erlang VM. So it has all of the benefits
+of the mature, battle proven system and you can use the existing Erlang
+libraries with no performance penalty. And Elixir adds a bunch of niceties.
+One of them is the &lt;a href=&quot;http://elixir-lang.org/docs/stable/elixir/Kernel.html#|&amp;gt;/2&quot;&gt;pipe operator&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The difference between Erlang and Elixir is not just the syntax. But syntax
+does matter, and especially for Ruby developers the Elixir syntax will be very
+familiar.&lt;/p&gt;
+
+&lt;h2 id=&quot;immutability-and-functional-programming&quot;&gt;Immutability and functional programming&lt;/h2&gt;
+
+&lt;p&gt;Elixir is a functional language with immutability.&lt;/p&gt;
+
+&lt;p&gt;After having worked with immutable data for a while, I have realized how
+beneficial it is. Even for single threaded
+programming, mutability brings an uncertainty about how a program will execute.
+And I do not miss the mutability at all. Functional programming
+and immutability helps to clarify things and makes it easier to reason about code.&lt;/p&gt;
+
+&lt;h2 id=&quot;concurrency&quot;&gt;Concurrency&lt;/h2&gt;
+
+&lt;p&gt;Another strong point for Elixir is concurrency. Concurrency is here to stay, for several reasons.
+To mention a few: The trend in hardware
+is more and more CPU cores. The CPU manufacturers are not going
+to improve single core performance at the same rate as before. Instead they are
+adding more cores. Also the world is concurrent and you do not want to
+end users or other software services needlessly wait for a response because your
+single threaded software is busy.&lt;/p&gt;
+
+&lt;p&gt;In most languages concurrency is a bit of a pain. Not only is it dangerous and
+hard to do syncronization. With mutable state and forking of native processes it
+is also often slow and uses a lot of memory.&lt;/p&gt;
+
+&lt;p&gt;Doing concurrency in Erlang or Elixir versus other langauges is a bit like
+doing branches in &lt;a href=&quot;https://en.wikipedia.org/wiki/Git_software&quot;&gt;Git&lt;/a&gt; vs &lt;a href=&quot;https://en.wikipedia.org/wiki/Apache_Subversion&quot;&gt;Subversion&lt;/a&gt;. In subversion it was very complicated to
+do - and I never did it. In Git it is a lot easier and I do it all the time.&lt;/p&gt;
+
+&lt;p&gt;In Elixir it is very easy to create a new process and it performs
+very well, so if the situation calls for it, it is straightforward to do.
+It is an integral part of the platform and does not require a separate library.
+Note that Erlang/Elixir processes are not native processes, they are much more light
+weight and are scheduled by the Erlang BEAM virtual machine.&lt;/p&gt;
+
+&lt;h2 id=&quot;web-framework&quot;&gt;Web framework&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.phoenixframework.org&quot;&gt;Phoenix&lt;/a&gt; is the most popular web framework for Elixir right now.
+The creator of Elixir is a Rails core member and the creator of Phoenix
+also has a background of working with Rails. While there is no desire to
+simply recreate Rails in Elixir, it means that Phoenix is also
+relatively easy to get started with because Rails has set certain minimum standards
+in that regard.&lt;/p&gt;
+
+&lt;p&gt;One of the most exciting features is the real time capabilities with channels
+between javascript on the client and Elixir on any of the servers in the cluster.
+Each single visitor to a website can have its own process on the server and its
+own real time connection. This opens up possibilities that are not present in
+traditional web frameworks.&lt;/p&gt;
+
+&lt;p&gt;By the way, seeing &lt;strong&gt;μs&lt;/strong&gt; (the microsecond symbol) in web server logs
+because of sub 1ms response times is quite nice ;) Efficiency and speed
+are important for the end user experience, and also means less waste of
+energy and money on servers.&lt;/p&gt;
+
+&lt;h2 id=&quot;programmer-happiness-and-beautiful-code&quot;&gt;Programmer happiness and beautiful code&lt;/h2&gt;
+
+&lt;p&gt;There are other languages that are faster than Ruby, but there are still
+good reasons to use for instance Ruby over Java: it is a nice language to work with and you
+can relatively quickly write concise code. Maybe Java code could perform better,
+but in many cases the Java code would
+not be as fun or quick to write, nor as easily maintainable.
+So the argument of just buying more powerful
+servers to make up for it can be a reasonable tradeoff in some cases. But what if you
+did not have to make such a choice?&lt;/p&gt;
+
+&lt;p&gt;With Elixir I do not feel like I trade any joy or speed of development for the
+performance, reliability and concurrency benefits of the Erlang VM.
+Elixir provides all of the Erlang benefits such as performance and reliability
+without giving up the productivity benefits of Ruby.&lt;/p&gt;
+
+&lt;h2 id=&quot;dj-vu&quot;&gt;Déjà vu&lt;/h2&gt;
+
+&lt;p&gt;Like with Ruby 12 years ago, once again I feel that this new platform is so
+much better than the other solutions. And it is not just a gut feeling, there
+are rational arguments to back it up. Another simiilarity is that Dave Thomas
+is also excited about Elixir and has written &lt;a href=&quot;http://www.amazon.com/gp/product/1937785580/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=390957&amp;amp;creativeASIN=1937785580&amp;amp;linkCode=as2&amp;amp;tag=creatdelet-20&amp;amp;linkId=WZ5O2FFECAC3DXQC&quot;&gt;a book about the language&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;It it is as if everything is aligned for Elixir to be the next new big thing
+for web development.
+In the last 10 year Ruby and Python have been popular choices for the web.
+I think it is likely that in a few years Elixir instead will be the go-to
+language for new web projects.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 19 Apr 2015 19:00:00 -0300</pubDate>
+        <link>http://www.creativedeletion.com/2015/04/19/elixir_next_language.html</link>
+        <guid isPermaLink="true">http://www.creativedeletion.com/2015/04/19/elixir_next_language.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>How to save datetimes for future events - (when UTC is not the right answer)</title>
