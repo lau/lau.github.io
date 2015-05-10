@@ -6,9 +6,115 @@
 </description>
     <link>http://www.creativedeletion.com/</link>
     <atom:link href="http://www.creativedeletion.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 04 May 2015 22:24:06 -0300</pubDate>
-    <lastBuildDate>Mon, 04 May 2015 22:24:06 -0300</lastBuildDate>
+    <pubDate>Sun, 10 May 2015 18:10:32 -0300</pubDate>
+    <lastBuildDate>Sun, 10 May 2015 18:10:32 -0300</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>The need for timezone awareness</title>
+        <description>&lt;p&gt;A good way to avoid some of the &lt;a href=&quot;/2015/01/28/falsehoods-programmers-date-time-zones.html&quot;&gt;pitfalls of time in computer software&lt;/a&gt; is to be explicit about timezones and to use a library that can handle timezones.&lt;/p&gt;
+
+&lt;p&gt;If your software is only used in a single timezone, you might think that timezones are not necessary to think about. But being aware of the timezone is necessary in more situations than what most people assume.&lt;/p&gt;
+
+&lt;p&gt;If both of these statements are true you probably need to use a timezone aware date-time library:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;You need to validate a datetime that is not UTC&lt;/li&gt;
+  &lt;li&gt;That non-UTC datetime is from a location that observes Daylight Saving Time (DST). For instance most of Europe and North America.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If you make software that only operates in a single timezone do you really need
+a timezone library? Most likely. If that timezone observes Daylight Saving Time
+it is very hard to validate any given point in time without it. &lt;strong&gt;To validate a datetime for a place that observes DST your code has to take DST into account.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The timezone aware datetime library is not just there to compare one timezone to
+another. It also knows about when DST happens in any timezone.&lt;/p&gt;
+
+&lt;p&gt;The following happens in countries that observe DST:
+In the spring, an hour (usually) is skipped when the clocks are set forward. That hour
+simply does not exist in “wall time”. So if your end users work with their
+local time and you want to make sure if the time they entered is valid,
+it is not enough to simply check if it is between 00:00:00 and 23:59:59.&lt;/p&gt;
+
+&lt;p&gt;02:30:00 on March 30th 2014 might be a valid time, but in some timezones it is not.
+With a timezone aware timezone library you can validate that.&lt;/p&gt;
+
+&lt;p&gt;Here is an example of doing that in &lt;a href=&quot;https://github.com/lau/kalends&quot;&gt;Kalends&lt;/a&gt;, an Elixir date time library I designed. A “wall time” can be valid in one timezone but not in another:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-elixir&quot; data-lang=&quot;elixir&quot;&gt;&lt;span class=&quot;nc&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from_erl&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2014&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;00&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}},&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Europe/Copenhagen&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:invalid_datetime_for_timezone&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nc&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from_erl&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2014&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mo&quot;&gt;00&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}},&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Europe/London&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:ok&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Kalends.DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;day&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;hour&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;timezone&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Europe/London&amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...}}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Furthermore if the entered date and time is during a switch off of DST - usually in the autumn -
+the time will be ambiguous. So if you need to compare the entered datetime to other
+datetimes, you need to ask the user if it the entered datetime was before or after the clocks
+were set back.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-elixir&quot; data-lang=&quot;elixir&quot;&gt;&lt;span class=&quot;nc&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from_erl&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2014&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;26&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mo&quot;&gt;00&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}},&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Europe/Copenhagen&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:ambiguous&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Kalends.AmbiguousDateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;possible_date_times&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;[%&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Kalends.DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;abbr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;CEST&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;std_off&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3600&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...},&lt;/span&gt;
+   &lt;span class=&quot;p&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Kalends.DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;abbr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;CET&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;std_off&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;]}}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;utc-and-the-user-time-zone&quot;&gt;UTC and the user time zone&lt;/h2&gt;
+
+&lt;p&gt;Even if all of the users of a system are in the same timezone, you probably want your server software to work with UTC. UTC does not have the ambiguity that other timezones have. If a user has entered a future datetime and wants to be alerted an hour before, you can compare the server time to the entered datetime and then issue an alert one hour before. But in order to compare UTC to the entered datetime, you need to know what the timezone is. And by timezone I do not mean simply an integer with the UTC offset on a certain date. Because UTC offsets can change. You want a timezone name from the &lt;a href=&quot;https://www.iana.org/time-zones&quot;&gt;tz database&lt;/a&gt; such as &lt;code&gt;America/New_York&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;measuring-the-interval-between-to-datetimes&quot;&gt;Measuring the interval between to datetimes&lt;/h2&gt;
+
+&lt;p&gt;Imagine that a user enters two datetimes:
+&lt;code&gt;2014 March 30, 01:00:00&lt;/code&gt; and &lt;code&gt;2014 March 30, 04:00:00&lt;/code&gt;.
+You need to find out how much time there is between the two.
+Usually the difference would be exactly three hours. But for some timezones,
+the “spring forward” event, where
+the clocks are set forward one hour, took place between those two datetimes. For those zones the difference between the two
+datetimes is two hours, not three. That is quite a big difference.&lt;/p&gt;
+
+&lt;p&gt;So if your users, like most people, do not have their watch set to UTC, you would need to know which timezone the entered times belong to in order to do that calculation correctly.&lt;/p&gt;
+
+&lt;p&gt;Again, there are timezone libraries that can handle that.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-elixir&quot; data-lang=&quot;elixir&quot;&gt;&lt;span class=&quot;n&quot;&gt;iex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;at_four&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from_erl!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2014&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;00&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;00&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}},&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Europe/Stockholm&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;iex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;at_one&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;nc&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from_erl!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2014&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;00&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;00&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}},&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Europe/Stockholm&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;iex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;diff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;at_four&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;at_one&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:ok&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# 7200 seconds is two hours&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In that example you do not really have to check if the timezone uses DST,
+and if so when it switches back and forth from DST. All you have to do
+is input the “wall time” and the timezone. The library will handle the rest.&lt;/p&gt;
+
+&lt;h2 id=&quot;adding-another-timezone&quot;&gt;Adding another timezone&lt;/h2&gt;
+
+&lt;p&gt;So far the examples have showed examples of when timezone awareness is necessary even if you have just one user that only uses one timezone. If you suddenly need your software to be used by people in other timezones, it is of course easier if your software has already taken timezones into account.&lt;/p&gt;
+
+&lt;h2 id=&quot;timezone-aware-as-the-default&quot;&gt;Timezone aware as the default&lt;/h2&gt;
+
+&lt;p&gt;When I made &lt;a href=&quot;https://github.com/lau/kalends&quot;&gt;Kalends&lt;/a&gt;, I made sure that the
+API was designed with timezone awareness as the default.&lt;/p&gt;
+
+&lt;p&gt;If you have a datetime and do not explicitly tell the library which timezone it belongs
+to, you cannot create a valid &lt;code&gt;DateTime&lt;/code&gt; struct.&lt;/p&gt;
+
+&lt;p&gt;So you have to either
+provide a valid timezone name or use another module called &lt;code&gt;NaiveDateTime&lt;/code&gt;.
+Naïve - it sounds a bit less confidence inspiring than just &lt;code&gt;DateTime&lt;/code&gt; does it not? And it takes longer to type. That is
+on purpose. My hope is that the name alone makes people
+think twice before using it over &lt;code&gt;DateTime&lt;/code&gt;. There are a few cases where you
+can get away with ignoring timezones and DST, but you really have to be
+sure you know what you are doing.&lt;/p&gt;
+
+&lt;p&gt;Working with date and time is not easy, but it is not all rocket science either. It is not a secret that DST means that hours are skipped and repeated. Programmers can ignore it and live with the consequences.
+Or use a library that can handle it.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 10 May 2015 15:10:00 -0300</pubDate>
+        <link>http://www.creativedeletion.com/2015/05/10/the-need-timezones.html</link>
+        <guid isPermaLink="true">http://www.creativedeletion.com/2015/05/10/the-need-timezones.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>Elixir - The next big language for the web</title>
