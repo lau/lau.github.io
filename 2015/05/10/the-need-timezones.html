@@ -95,10 +95,10 @@ it is not enough to simply check if it is between 00:00:00 and 23:59:59.</p>
 <p>02:30:00 on March 30th 2014 might be a valid time, but in some timezones it is not.
 With a timezone aware timezone library you can validate that.</p>
 
-<p>Here is an example of doing that in <a href="https://github.com/lau/kalends">Kalends</a>, an Elixir date time library I designed. A “wall time” can be valid in one timezone but not in another:</p>
+<p>Here is an example of doing that in <a href="https://github.com/lau/calendar">Calendar</a>, an Elixir date time library I designed. A “wall time” can be valid in one timezone but not in another:</p>
 
 <div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="nc">DateTime</span><span class="p">.</span><span class="n">from_erl</span> <span class="p">{{</span><span class="mi">2014</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">30</span><span class="p">},</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mo">00</span><span class="p">}},</span> <span class="s2">&quot;Europe/London&quot;</span>
-<span class="p">{</span><span class="ss">:ok</span><span class="p">,</span> <span class="p">%</span><span class="nc">Kalends.DateTime</span><span class="p">{</span><span class="ss">day</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="ss">hour</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="ss">min</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="ss">timezone</span><span class="p">:</span> <span class="s2">&quot;Europe/London&quot;</span> <span class="p">...}}</span>
+<span class="p">{</span><span class="ss">:ok</span><span class="p">,</span> <span class="p">%</span><span class="nc">Calendar.DateTime</span><span class="p">{</span><span class="ss">day</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="ss">hour</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="ss">min</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="ss">timezone</span><span class="p">:</span> <span class="s2">&quot;Europe/London&quot;</span> <span class="p">...}}</span>
 
 <span class="nc">DateTime</span><span class="p">.</span><span class="n">from_erl</span> <span class="p">{{</span><span class="mi">2014</span><span class="p">,</span> <span class="mi">3</span> <span class="p">,</span><span class="mi">30</span><span class="p">},</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mo">00</span><span class="p">}},</span> <span class="s2">&quot;Europe/Copenhagen&quot;</span>
 <span class="p">{</span><span class="ss">:error</span><span class="p">,</span> <span class="ss">:invalid_datetime_for_timezone</span><span class="p">}</span></code></pre></div>
@@ -109,9 +109,9 @@ datetimes, you need to ask the user if it the entered datetime was before or aft
 were set back.</p>
 
 <div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="nc">DateTime</span><span class="p">.</span><span class="n">from_erl</span> <span class="p">{{</span><span class="mi">2014</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">26</span><span class="p">},</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mo">00</span><span class="p">}},</span> <span class="s2">&quot;Europe/Copenhagen&quot;</span>
-<span class="p">{</span><span class="ss">:ambiguous</span><span class="p">,</span> <span class="p">%</span><span class="nc">Kalends.AmbiguousDateTime</span><span class="p">{</span><span class="ss">possible_date_times</span><span class="p">:</span>
-  <span class="p">[%</span><span class="nc">Kalends.DateTime</span><span class="p">{</span><span class="ss">abbr</span><span class="p">:</span> <span class="s2">&quot;CEST&quot;</span><span class="p">,</span> <span class="ss">std_off</span><span class="p">:</span> <span class="mi">3600</span><span class="p">,</span> <span class="p">...},</span>
-   <span class="p">%</span><span class="nc">Kalends.DateTime</span><span class="p">{</span><span class="ss">abbr</span><span class="p">:</span> <span class="s2">&quot;CET&quot;</span><span class="p">,</span> <span class="ss">std_off</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="p">...}</span>
+<span class="p">{</span><span class="ss">:ambiguous</span><span class="p">,</span> <span class="p">%</span><span class="nc">Calendar.AmbiguousDateTime</span><span class="p">{</span><span class="ss">possible_date_times</span><span class="p">:</span>
+  <span class="p">[%</span><span class="nc">Calendar.DateTime</span><span class="p">{</span><span class="ss">abbr</span><span class="p">:</span> <span class="s2">&quot;CEST&quot;</span><span class="p">,</span> <span class="ss">std_off</span><span class="p">:</span> <span class="mi">3600</span><span class="p">,</span> <span class="p">...},</span>
+   <span class="p">%</span><span class="nc">Calendar.DateTime</span><span class="p">{</span><span class="ss">abbr</span><span class="p">:</span> <span class="s2">&quot;CET&quot;</span><span class="p">,</span> <span class="ss">std_off</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="p">...}</span>
   <span class="p">]}}</span></code></pre></div>
 
 <h2 id="utc-and-the-user-time-zone">UTC and the user time zone</h2>
@@ -136,7 +136,7 @@ datetimes is two hours, not three. That is quite a big difference.</p>
 <span class="n">iex</span><span class="o">&gt;</span> <span class="n">at_one</span> <span class="p">=</span>  <span class="nc">DateTime</span><span class="p">.</span><span class="n">from_erl!</span><span class="p">({{</span><span class="mi">2014</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">30</span><span class="p">},{</span><span class="mi">1</span><span class="p">,</span><span class="mo">00</span><span class="p">,</span><span class="mo">00</span><span class="p">}},</span> <span class="s2">&quot;Europe/Stockholm&quot;</span><span class="p">)</span>
 <span class="n">iex</span><span class="o">&gt;</span> <span class="nc">DateTime</span><span class="p">.</span><span class="n">diff</span><span class="p">(</span><span class="n">at_four</span><span class="p">,</span> <span class="n">at_one</span><span class="p">)</span>
 <span class="p">{</span><span class="ss">:ok</span><span class="p">,</span> <span class="mi">7200</span><span class="p">,</span> <span class="mi">0</span><span class="p">}</span>
-<span class="c1"># 7200 seconds is two hours</span></code></pre></div>
+<span class="c1"># 7200 seconds is two hours in this case</span></code></pre></div>
 
 <p>In that example you do not really have to check if the timezone uses DST,
 and if so when it switches back and forth from DST. All you have to do
@@ -148,7 +148,7 @@ is input the “wall time” and the timezone. The library will handle the rest.
 
 <h2 id="timezone-aware-as-the-default">Timezone aware as the default</h2>
 
-<p>When I made <a href="https://github.com/lau/kalends">Kalends</a>, I made sure that the
+<p>When I made <a href="https://github.com/lau/calendar">Calendar</a>, I made sure that the
 API was designed with timezone awareness as the default.</p>
 
 <p>If you have a datetime and do not explicitly tell the library which timezone it belongs
