@@ -1,4 +1,9 @@
+/** Make headers, site title and footer use a sans-serif font */
+h1, h2, h3, h4, h5, .site-title, footer {
+  font-family: "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif; }
+
 /**
+
  * Reset some basic elements
  */
 body, h1, h2, h3, h4, h5, h6,
@@ -11,7 +16,7 @@ dl, dd, ol, ul, figure {
  * Basic styling
  */
 body {
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: Georgia, Serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 300;
