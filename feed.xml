@@ -6,9 +6,144 @@
 </description>
     <link>http://www.creativedeletion.com/</link>
     <atom:link href="http://www.creativedeletion.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 02 Jul 2015 11:32:42 -0300</pubDate>
-    <lastBuildDate>Thu, 02 Jul 2015 11:32:42 -0300</lastBuildDate>
+    <pubDate>Fri, 07 Aug 2015 15:57:14 -0300</pubDate>
+    <lastBuildDate>Fri, 07 Aug 2015 15:57:14 -0300</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Why not to ask the server for its &quot;local time&quot;</title>
+        <description>&lt;p&gt;There are many horror storries of wasted time and money, hard to find bugs and
+“but it works on my machine”-type situations that could have been avoided if
+the programmers simply stopped asking the server for its “local time”.&lt;/p&gt;
+
+&lt;p&gt;A local time setting might have made sense back when a server was the
+size of room and was not connected to the internet.
+Today… not so much.&lt;/p&gt;
+
+&lt;p&gt;A neat thing about the Internet is that you can run web apps on servers
+all around the globe. You can cheaply buy a virtual server located
+in for instance Germany or England and they will generally work the
+same. Developers might write a webapp and deploy it to either of those
+virtual servers and the software would work the same way. The server
+never sees daylight from inside the data center and does not care what
+timezone it is in. It does not really matter.&lt;/p&gt;
+
+&lt;p&gt;Problems can arise though, if a server has its timezone set to something
+other than UTC and the software running on it asks for “local time”. Daylight
+Saving Time (DST) causes skipped and repeated hours. So a scheduled task might
+be started twice or not at all if the software refers to “local server time”.&lt;/p&gt;
+
+&lt;h2 id=&quot;going-to-work-at-midnight-to-shut-down-the-software-and-servers&quot;&gt;Going to work at midnight to shut down the software and servers&lt;/h2&gt;
+
+&lt;p&gt;There are people that every autumn are called in for special “going off of DST
+duty”, where they shut down software and servers in order to avoid problems
+during the change from DST to standard time. While they normally would go home
+in the evening and sleep at night, on this date they will be awake during the
+early morning. They shut down certain pieces of software that are relied on by
+businesses and governments.&lt;/p&gt;
+
+&lt;p&gt;Because they are afraid that Bad Things will
+happen when the hour between 2:00 and 3:00 repeats itself. If a job is set to
+start every day at 2:30 it will likely be triggered to be started twice in one
+hour. So they safely shut down the software beforehand and shut down the servers,
+wait at least an hour before they can start the servers up again.&lt;/p&gt;
+
+&lt;p&gt;This is not a made up story. I know of a big company that does this, and I
+doubt it is the only one.&lt;/p&gt;
+
+&lt;p&gt;I commend the system administrators for doing this in order to avoid
+problems. But it did not have to be like that if the software was made to
+be resistant to the kinds of problems.&lt;/p&gt;
+
+&lt;h2 id=&quot;a-local-time-zone-makes-sense-on-a-personal-computer&quot;&gt;A local time zone makes sense on a personal computer&lt;/h2&gt;
+
+&lt;p&gt;My laptop has its timezone set to whereever I happen to be. This makes sense
+because then it can show me what the time is in my local timezone. And other
+times such as when a file was created are also shown in that timezone.&lt;/p&gt;
+
+&lt;p&gt;On a server though, things are different. The users of the system are not
+necessarily in the same timezone as the server. And why would
+they care about the timezone where the server is as long as latency is good
+enough.
+It does not make much sense to set a “local” timezone for the server.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-local-time-setting-is-a-mutable-global-variable&quot;&gt;The local time setting is a mutable global variable&lt;/h2&gt;
+
+&lt;p&gt;A local time setting is a global variable that can change. In general &lt;a href=&quot;http://c2.com/cgi/wiki?GlobalVariablesAreBad&quot;&gt;global
+variables are bad&lt;/a&gt;. So by default you want to avoid them unless there is a
+really, really good reason for them.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-to-do-instead&quot;&gt;What to do instead&lt;/h2&gt;
+
+&lt;p&gt;Whenever you write software and ask the server what time it is right now,
+&lt;strong&gt;do not ask a server for its “local time”. Instead ask for the time in UTC.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;If you write software that is not run on servers exclusively controlled by you,
+somebody can change the local time setting to something
+other than UTC. But even if you only run the software on your
+own server and have the good policy of setting their timezone
+to UTC, why not just have your software ask for UTC in the
+first place instead of relying on the local time setting?&lt;/p&gt;
+
+&lt;h2 id=&quot;getting-the-time-right-now-for-another-timezone&quot;&gt;Getting the time right now for another timezone&lt;/h2&gt;
+
+&lt;p&gt;If you want to know the time right now for another timezone,
+you can get the time right now from the server in UTC. Then
+convert it to another timezone. &lt;a href=&quot;https://github.com/lau/calendar&quot;&gt;Calendar&lt;/a&gt;,
+the Elixir datetime library
+I designed, has a function that does this for you. For instance to
+get the time right now in Copenhagen you can call
+&lt;code&gt;Calendar.DateTime.now!(&quot;Europe/Copenhagen&quot;)&lt;/code&gt;. Behind the scenes
+it gets the time right now in UTC and then shifts it to the Copenhagen
+timezone. The important thing is that we do not rely on the local time
+setting of the server. Instead the code gets the timezone identifier from
+somewhere - it could be the webbrowser of a user or a database or a config file.&lt;/p&gt;
+
+&lt;p&gt;There is an important difference between asking for a default unspecified local time
+based on a global variable and instead providing an identifier
+for a specific timezone in order to get the time right now for that timezone.&lt;/p&gt;
+
+&lt;p&gt;When dealing with the daily lives of most people, &lt;a href=&quot;/2015/03/19/persisting_future_datetimes.html&quot;&gt;the time in their various timezones
+are important&lt;/a&gt;. But for internal operations on a server, that are not directly related
+to those timezones, it makes more sense to use UTC. For instance timestamps
+of files or timestamps of when a database record was created.&lt;/p&gt;
+
+&lt;h2 id=&quot;defaults-stacked-against-programmers&quot;&gt;Defaults stacked against programmers&lt;/h2&gt;
+
+&lt;p&gt;Unfortunately “local time” is sometimes the default in standard libraries.
+This is the case with Erlang’s &lt;code&gt;file:read_file_info&lt;/code&gt; that provides information
+about when a file was last changed. But by default it returns the time
+in local time. So if you want to compare and see how long it has been
+since the last file change, you have to get the local
+time of the server. But the calculation will be wrong when affected by DST.&lt;/p&gt;
+
+&lt;p&gt;From the &lt;a href=&quot;http://www.erlang.org/doc/man/file.html#read_file_info-1&quot;&gt;file module part of the Erlang manual&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;The time type returned in atime, mtime and ctime is dependent on the time type set in Opts :: {time, Type}. Type local will return local time, universal will return universal time and posix will return seconds since or before unix time epoch which is 1970-01-01 00:00 UTC. Default is {time, local}.&quot;&lt;/blockquote&gt;
+
+&lt;p&gt;For this Erlang example you have to pass an extra argument in order to
+get the timestamps as UTC. Hopefully in the future library designers
+will choose UTC to be the default for these kinds of things.
+But for now instead of: &lt;code&gt;file:read_file_info(&#39;example.txt&#39;)&lt;/code&gt; you have to use &lt;code&gt;file:read_file_info(&#39;example.txt&#39;, [{time, universal}])&lt;/code&gt; Then you have a UTC timestamp
+that you can compare with the time right now in UTC: &lt;code&gt;calendar:universal_time()&lt;/code&gt;
+instead of &lt;code&gt;calendar:local_time()&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;it-is-worth-it&quot;&gt;It is worth it&lt;/h2&gt;
+
+&lt;p&gt;I encourage developers to avoid asking the server for its “local time” even if it takes passing an extra argument
+in some places.
+ This practice is not a panacea for
+all time related problems, but it can eliminate some very nasty bugs. And its widespread
+use would mean less sysadmins
+would need to be awake to shut down servers
+before DST events.&lt;/p&gt;
+
+</description>
+        <pubDate>Fri, 07 Aug 2015 09:00:00 -0300</pubDate>
+        <link>http://www.creativedeletion.com/2015/08/07/why-not-to-use-server-local-time.html</link>
+        <guid isPermaLink="true">http://www.creativedeletion.com/2015/08/07/why-not-to-use-server-local-time.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>The need for timezone awareness</title>

@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>My iPhone working with my Danish operator without hardware mods</title>
-  <meta name="description" content="I recently got a chance to buy an iPhone. After I had made sure that doable iPhone unlocking methods existed, I went for it.">
+  <title>Why not to ask the server for its "local time"</title>
+  <meta name="description" content="There are many horror storries of wasted time and money, hard to find bugs and“but it works on my machine”-type situations that could have been avoided ifthe...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://www.creativedeletion.com/2007/09/03/my-iphone-working-with-my-danish-operator-without-hardware-mods.html">
+  <link rel="canonical" href="http://www.creativedeletion.com/2015/08/07/why-not-to-use-server-local-time.html">
   <link rel="alternate" type="application/rss+xml" title="Creative Deletion" href="http://www.creativedeletion.com/feed.xml" />
   <style>
     .right_img {
@@ -94,32 +94,136 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">My iPhone working with my Danish operator without hardware mods</h1>
-    <p class="post-meta">Sep 3, 2007</p>
+    <h1 class="post-title">Why not to ask the server for its "local time"</h1>
+    <p class="post-meta">Aug 7, 2015</p>
   </header>
 
   <article class="post-content">
-    <p>I recently got a chance to buy an iPhone. After I had made sure that doable iPhone unlocking methods existed, I went for it.</p>
+    <p>There are many horror storries of wasted time and money, hard to find bugs and
+“but it works on my machine”-type situations that could have been avoided if
+the programmers simply stopped asking the server for its “local time”.</p>
 
-<p><img src="/assets/iphone.jpg" width="434" height="270" /></p>
+<p>A local time setting might have made sense back when a server was the
+size of room and was not connected to the internet.
+Today… not so much.</p>
 
-<h2 id="unlocking">Unlocking</h2>
-<p>Engadget recently announced a software unlock. Mainstream media (MSM) has been picking up this story as well as different hardware based unlocks. The only problem with the software unlocks is that they are not available yet.</p>
+<p>A neat thing about the Internet is that you can run web apps on servers
+all around the globe. You can cheaply buy a virtual server located
+in for instance Germany or England and they will generally work the
+same. Developers might write a webapp and deploy it to either of those
+virtual servers and the software would work the same way. The server
+never sees daylight from inside the data center and does not care what
+timezone it is in. It does not really matter.</p>
 
-<p>But it has been possible to use your iPhone with other operators than AT&amp;T for quite some time now, before the ones that mainstream media is currently talking about. One hack is to use a small sim card enclosure called the “turbosim”, but they are sold out. Another one is called the “supersim”. Neither of these methods require you to modify the iPhone hardware. Basically the supersim method works like this: You create a new SIM card that works like your existing local SIM card. Then you use software to activate the iPhone in a way that makes it compatible with this new SIM card. I used the supersim method, and have been using the iPhone with my Danish mobile phone operator since wednesday last week. As far as I know there are only about 5 unlocked iPhones in Denmark right now.</p>
+<p>Problems can arise though, if a server has its timezone set to something
+other than UTC and the software running on it asks for “local time”. Daylight
+Saving Time (DST) causes skipped and repeated hours. So a scheduled task might
+be started twice or not at all if the software refers to “local server time”.</p>
 
-<h2 id="interface-and-exterior">Interface and exterior</h2>
-<p>The interface is awesome. It’s fun to flick between the pictures and music albums, to zoom in and out on pictures and websites etc. This is really a big step up from the interface of other phones. Like the interface from the Minority Report movie. My previous phone - a Nokia 7610 smartphone feels very 20th century in comparison.</p>
+<h2 id="going-to-work-at-midnight-to-shut-down-the-software-and-servers">Going to work at midnight to shut down the software and servers</h2>
 
-<p>The virtual keyboard works OK - much better than a numeric keyboard with T9. I learned that to avoid typos, you can make sure that the correct key is selected before you lift your finger from the screen - if you hit the wrong key you can slide to a different key before lifting.</p>
+<p>There are people that every autumn are called in for special “going off of DST
+duty”, where they shut down software and servers in order to avoid problems
+during the change from DST to standard time. While they normally would go home
+in the evening and sleep at night, on this date they will be awake during the
+early morning. They shut down certain pieces of software that are relied on by
+businesses and governments.</p>
 
-<p>The exterior is awesome too. It’s not all hard plastic like my old Nokia, but mostly glass and aluminium and a little chrome and rubber-ish plastic. Like a Mac, Apple has been careful about all aspects of the product and how it all works together. That said, it’s not perfect of course. There is plenty of room for improvement and refinement. I welcome software updates with new features. Preferably those updates should be compatible with the SIM unlock hacks ;-)</p>
+<p>Because they are afraid that Bad Things will
+happen when the hour between 2:00 and 3:00 repeats itself. If a job is set to
+start every day at 2:30 it will likely be triggered to be started twice in one
+hour. So they safely shut down the software beforehand and shut down the servers,
+wait at least an hour before they can start the servers up again.</p>
 
-<h2 id="email-spam-filtering">Email spam filtering</h2>
-<p>There’s an email application called “Mail” similar to the Mac “Mail.app”. It doesn’t have a spam filter like Mail.app does though. So what I did, was to run my email through a GMail account and use setup the GMail account with POP and SMTP on my iPhone. That’s an easy way to get server based spam filtering.</p>
+<p>This is not a made up story. I know of a big company that does this, and I
+doubt it is the only one.</p>
 
-<h2 id="missing-features">“Missing features”</h2>
-<p>The iPhone doesn’t do everything. You can’t use custom ring tones (without hacking it), it doesn’t send MMS etc. But I don’t care, those features aren’t important to me. On the other hand the iPhone has features that no other phones have, but it is really about the product as a whole and not a checklist of features. For what it is the iPhone is really good. Interacting with my phone is now fun instead of being a bit of a pain. If you want a nice phone with a nice interface, email, a proper web browser and an integrated portable music &amp; video player, the iPhone does a good job.</p>
+<p>I commend the system administrators for doing this in order to avoid
+problems. But it did not have to be like that if the software was made to
+be resistant to the kinds of problems.</p>
+
+<h2 id="a-local-time-zone-makes-sense-on-a-personal-computer">A local time zone makes sense on a personal computer</h2>
+
+<p>My laptop has its timezone set to whereever I happen to be. This makes sense
+because then it can show me what the time is in my local timezone. And other
+times such as when a file was created are also shown in that timezone.</p>
+
+<p>On a server though, things are different. The users of the system are not
+necessarily in the same timezone as the server. And why would
+they care about the timezone where the server is as long as latency is good
+enough.
+It does not make much sense to set a “local” timezone for the server.</p>
+
+<h2 id="the-local-time-setting-is-a-mutable-global-variable">The local time setting is a mutable global variable</h2>
+
+<p>A local time setting is a global variable that can change. In general <a href="http://c2.com/cgi/wiki?GlobalVariablesAreBad">global
+variables are bad</a>. So by default you want to avoid them unless there is a
+really, really good reason for them.</p>
+
+<h2 id="what-to-do-instead">What to do instead</h2>
+
+<p>Whenever you write software and ask the server what time it is right now,
+<strong>do not ask a server for its “local time”. Instead ask for the time in UTC.</strong></p>
+
+<p>If you write software that is not run on servers exclusively controlled by you,
+somebody can change the local time setting to something
+other than UTC. But even if you only run the software on your
+own server and have the good policy of setting their timezone
+to UTC, why not just have your software ask for UTC in the
+first place instead of relying on the local time setting?</p>
+
+<h2 id="getting-the-time-right-now-for-another-timezone">Getting the time right now for another timezone</h2>
+
+<p>If you want to know the time right now for another timezone,
+you can get the time right now from the server in UTC. Then
+convert it to another timezone. <a href="https://github.com/lau/calendar">Calendar</a>,
+the Elixir datetime library
+I designed, has a function that does this for you. For instance to
+get the time right now in Copenhagen you can call
+<code>Calendar.DateTime.now!("Europe/Copenhagen")</code>. Behind the scenes
+it gets the time right now in UTC and then shifts it to the Copenhagen
+timezone. The important thing is that we do not rely on the local time
+setting of the server. Instead the code gets the timezone identifier from
+somewhere - it could be the webbrowser of a user or a database or a config file.</p>
+
+<p>There is an important difference between asking for a default unspecified local time
+based on a global variable and instead providing an identifier
+for a specific timezone in order to get the time right now for that timezone.</p>
+
+<p>When dealing with the daily lives of most people, <a href="/2015/03/19/persisting_future_datetimes.html">the time in their various timezones
+are important</a>. But for internal operations on a server, that are not directly related
+to those timezones, it makes more sense to use UTC. For instance timestamps
+of files or timestamps of when a database record was created.</p>
+
+<h2 id="defaults-stacked-against-programmers">Defaults stacked against programmers</h2>
+
+<p>Unfortunately “local time” is sometimes the default in standard libraries.
+This is the case with Erlang’s <code>file:read_file_info</code> that provides information
+about when a file was last changed. But by default it returns the time
+in local time. So if you want to compare and see how long it has been
+since the last file change, you have to get the local
+time of the server. But the calculation will be wrong when affected by DST.</p>
+
+<p>From the <a href="http://www.erlang.org/doc/man/file.html#read_file_info-1">file module part of the Erlang manual</a>:</p>
+<blockquote>The time type returned in atime, mtime and ctime is dependent on the time type set in Opts :: {time, Type}. Type local will return local time, universal will return universal time and posix will return seconds since or before unix time epoch which is 1970-01-01 00:00 UTC. Default is {time, local}."</blockquote>
+
+<p>For this Erlang example you have to pass an extra argument in order to
+get the timestamps as UTC. Hopefully in the future library designers
+will choose UTC to be the default for these kinds of things.
+But for now instead of: <code>file:read_file_info('example.txt')</code> you have to use <code>file:read_file_info('example.txt', [{time, universal}])</code> Then you have a UTC timestamp
+that you can compare with the time right now in UTC: <code>calendar:universal_time()</code>
+instead of <code>calendar:local_time()</code>.</p>
+
+<h2 id="it-is-worth-it">It is worth it</h2>
+
+<p>I encourage developers to avoid asking the server for its “local time” even if it takes passing an extra argument
+in some places.
+ This practice is not a panacea for
+all time related problems, but it can eliminate some very nasty bugs. And its widespread
+use would mean less sysadmins
+would need to be awake to shut down servers
+before DST events.</p>
+
 
   </article>
 
@@ -130,11 +234,11 @@
 
   <h3>More blogposts:</h3>
   
-      <li><a href="/2015/08/07/why-not-to-use-server-local-time.html">Why not to ask the server for its "local time"</a></li>
-  
       <li><a href="/2015/05/10/the-need-timezones.html">The need for timezone awareness</a></li>
   
       <li><a href="/2015/04/19/elixir_next_language.html">Elixir - The next big language for the web</a></li>
+  
+      <li><a href="/2015/03/19/persisting_future_datetimes.html">How to save datetimes for future events - (when UTC is not the right answer)</a></li>
   
 
 </div>
