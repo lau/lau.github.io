@@ -6,9 +6,37 @@
 </description>
     <link>http://www.creativedeletion.com/</link>
     <atom:link href="http://www.creativedeletion.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 11 Aug 2015 15:29:33 -0300</pubDate>
-    <lastBuildDate>Tue, 11 Aug 2015 15:29:33 -0300</lastBuildDate>
+    <pubDate>Mon, 19 Oct 2015 17:27:43 -0300</pubDate>
+    <lastBuildDate>Mon, 19 Oct 2015 17:27:43 -0300</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Date/time talk at ElixirConf 2015 in Austin (video)</title>
+        <description>&lt;p&gt;ElixirConf 2015 took place in Austin, Texas this month. I gave a talk about date and time. It was recorded and the video is now available:&lt;/p&gt;
+
+&lt;iframe width=&quot;720&quot; height=&quot;405&quot; src=&quot;https://www.youtube.com/embed/keUbVvMJeKY&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Afterwards some people asked about the &lt;a href=&quot;https://github.com/lau/calendar&quot;&gt;Calendar&lt;/a&gt; library, which is featured in the video.
+It is the one I made to cope with the problems explained in the talk and the only library
+of its kind I would recommend to use in Elixir. The website for it is
+available at &lt;a href=&quot;https://github.com/lau/calendar&quot;&gt;https://github.com/lau/calendar&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;If this subject interests you, here is a number of related blog posts:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;/2015/05/10/the-need-timezones.html&quot;&gt;The need for timezone awareness&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/2015/01/28/falsehoods-programmers-date-time-zones.html&quot;&gt;Falsehoods programmers believe about time and time zones&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/2015/08/07/why-not-to-use-server-local-time.html&quot;&gt;Why not to ask the server for its “local time”&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/2015/03/19/persisting_future_datetimes.html&quot;&gt;How to save datetimes for future events - (when UTC is not the right answer)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Mon, 19 Oct 2015 09:00:00 -0300</pubDate>
+        <link>http://www.creativedeletion.com/2015/10/19/elixirconf-talk-date-time.html</link>
+        <guid isPermaLink="true">http://www.creativedeletion.com/2015/10/19/elixirconf-talk-date-time.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>Why not to ask the server for its &quot;local time&quot;</title>
@@ -641,7 +669,7 @@ And remember, time zone rules change all the time.&lt;/p&gt;
 
 &lt;p&gt;PS. This was meant as a thought provoking eye opener. But all of this might seem negative and not constructive. Pointing out problems without any solutions. What can you do, to avoid having these issues cause problems in the systems you develop? I plan to write posts about solutions, so check back here soon.&lt;/p&gt;
 </description>
-        <pubDate>Wed, 28 Jan 2015 13:22:57 -0200</pubDate>
+        <pubDate>Wed, 28 Jan 2015 12:22:57 -0300</pubDate>
         <link>http://www.creativedeletion.com/2015/01/28/falsehoods-programmers-date-time-zones.html</link>
         <guid isPermaLink="true">http://www.creativedeletion.com/2015/01/28/falsehoods-programmers-date-time-zones.html</guid>
         
