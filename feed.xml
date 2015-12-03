@@ -6,9 +6,128 @@
 </description>
     <link>http://www.creativedeletion.com/</link>
     <atom:link href="http://www.creativedeletion.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 19 Oct 2015 17:27:43 -0300</pubDate>
-    <lastBuildDate>Mon, 19 Oct 2015 17:27:43 -0300</lastBuildDate>
-    <generator>Jekyll v2.5.3</generator>
+    <pubDate>Thu, 03 Dec 2015 17:42:13 -0300</pubDate>
+    <lastBuildDate>Thu, 03 Dec 2015 17:42:13 -0300</lastBuildDate>
+    <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Timezone updates need to be fixed</title>
+        <description>&lt;figure class=&quot;picture right_img&quot;&gt;
+  &lt;img src=&quot;/assets/plane512.jpg&quot; srcset=&quot;/assets/plane512.jpg 1x, /assets/plane1024.jpg 2x&quot; /&gt;
+  &lt;figcaption&gt;Fortunately, the technology for keeping planes airborne receive more attention that the information systems for passengers.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;In October I went to ElixirConf &lt;a href=&quot;/2015/10/19/elixirconf-talk-date-time.html&quot;&gt;to talk about time and timezones&lt;/a&gt;. One of the things I talked about was keeping timezone data up to date.&lt;/p&gt;
+
+&lt;p&gt;A good example of that showed itself soon after: On the plane going back it had one of those screens showing the local time at the destination. It was incorrect.&lt;/p&gt;
+
+&lt;h2 id=&quot;event-reminding-software-feature-causes-area-man-to-miss-event&quot;&gt;Event reminding software feature causes area man to miss event&lt;/h2&gt;
+&lt;p&gt;About a week later I was playing a 8-a-side football game. But a player had not shown up. As the game was about to end, he showed up, confused.
+Why? Because of the way timezone data updates are handled. It is a broken system. The event was arranged with Facebook. Facebook’s timezone data is out of date. So Facebook told the player that the game started at 9pm instead of 8pm.&lt;/p&gt;
+
+&lt;p&gt;A more simple approach such as the local time written on paper, sent with Fax or a text message would not have caused such as problem. But like so many other pieces of software, the Facebook code is “clever” and uses timezone conversions. Facebook thinks it knows where you are and what time it is in that location. When it works, this cleverness can be helpful. But this time it was wrong. When you write code that is clever like that, you have to make sure that the timezone information is up to date. Otherwise it does not work and people get upset.&lt;/p&gt;
+
+&lt;h2 id=&quot;it-is-a-common-problem&quot;&gt;It is a common problem&lt;/h2&gt;
+
+&lt;p&gt;Facebook and Boeing airplanes are not alone in having out of date timezone information. The same goes for all the major operating systems such as Windows, Linux, Mac OS X. And many phones too. And telecom providers. In my experience most systems with timezone information are often out of date.&lt;/p&gt;
+
+&lt;p&gt;The company in the world with the largest market capitalisation (Apple) has this problem. So has number 8 (Facebook).
+And they are both tech companies. I think it is an interesting phenomenon. And they are not the only
+ones with that problem.&lt;/p&gt;
+
+&lt;h2 id=&quot;it-is-important&quot;&gt;It is important&lt;/h2&gt;
+
+&lt;p&gt;In this case the Facebook event feature failed pretty spectacularly. It reminds me of those photos
+with the caption “you had one job”. Facebook events are supposed to tell people about an event and
+when it takes place. It failed in this case. Because of out of date timezone data.&lt;/p&gt;
+
+&lt;h2 id=&quot;it-is-not-super-hard-to-get-up-to-date-data&quot;&gt;It is not super hard to get up to date data&lt;/h2&gt;
+
+&lt;p&gt;The timezone data is &lt;a href=&quot;http://www.iana.org/time-zones&quot;&gt;freely available at IANA’s website&lt;/a&gt;.
+You do not have to pay for it, anyone can download it and use it.&lt;/p&gt;
+
+&lt;h2 id=&quot;why-has-it-not-been-fixed&quot;&gt;Why has it not been fixed?&lt;/h2&gt;
+
+&lt;p&gt;Why is it that some of the most valueable companies in the world, and tech companies at that, cannot cope with the
+challenge of having up to date timezone data?&lt;/p&gt;
+
+&lt;p&gt;Remember when people thought that it was a good idea to only save the two last digits of a year? 90 instead of 1990.
+In my experience many programmers just do whatever everyone else is doing. Unless it is an area they care about.
+And most programmers do not care about timezone updates. Unless they personally experience problems caused by it.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-people-do-today&quot;&gt;What people do today&lt;/h2&gt;
+
+&lt;p&gt;Very few people seem to take responsibility for having up-to-date timezone data, having a process for it
+or even caring much about it.&lt;/p&gt;
+
+&lt;p&gt;In Linux the common way to update timezone data is using software package updates. There is a package called tzdata that
+contains both the data and code at the same time. There are several problems with this. One is that it takes a while
+from IANA releasing new data to someone manually make a new package version with the new data. Sometimes an update will
+be release by IANA, and no packages are ever made! So even if users update their system with the newest packages the
+moment they come out, they will be old.&lt;/p&gt;
+
+&lt;p&gt;A second issue is that these
+updates are viewed the same way as other software updates. Like a new version of database software. And in order to avoid
+regressions, developers/sysadmins will usually have to spend precious time testing things before upgrading software.
+It takes time and is seen as a barrier to upgrade software running on a server. How ever small that costs is, it is there.&lt;/p&gt;
+
+&lt;p&gt;So the state of timezone updates today for most people is that it relies on two sets of people that have to manually
+do something. If just one of them fail to do that, the result is the timezone data is out of date. And right now
+the common thing is for both sets of people to not do it or do it slowly.&lt;/p&gt;
+
+&lt;h2 id=&quot;it-is-just-updated-data-not-a-new-api-or-different-functionality&quot;&gt;It is just updated data, not a new API or different functionality&lt;/h2&gt;
+
+&lt;p&gt;But the data itself is not new software. It is just data. Functionality should not change because of new data.
+New timezone data could be seen similarly to setting the clock of the server. This is commonly done automatically.
+Or it could be seen as data in a database changing. If you change software, you have to test it to see if it still
+works as required. But when a system is running and data is changed in a database due to normal use, the software
+is not tested every single time a row is changed, inserted or updated. That would be silly. Because the software
+should be made to handle different kinds of data.&lt;/p&gt;
+
+&lt;p&gt;It should be possible to automatically update the timezone data without having to treat it with the same ceremony as with a software update.&lt;/p&gt;
+
+&lt;h2 id=&quot;a-solution&quot;&gt;A solution&lt;/h2&gt;
+
+&lt;p&gt;Imagine if this problem was something that could be handled automatically by software.
+It turns out that that is in fact the case! &lt;a href=&quot;https://github.com/lau/tzdata&quot;&gt;Tzdata for Elixir&lt;/a&gt; checks the IANA servers
+once a day. If there is a new version of the timezone database available, it will be automatically
+downloaded and updated. The future is here, but in this case only distributed to Elixir ;-)&lt;/p&gt;
+
+&lt;h2 id=&quot;the-exception-to-the-rule-offline-embedded-systems&quot;&gt;The exception to the rule. Offline embedded systems&lt;/h2&gt;
+
+&lt;p&gt;Not all systems are connected to the internet. In that case you cannot do to updates automatically
+in the same way. But it needs to happen somehow in order to have timezone based calculations be correct.&lt;/p&gt;
+
+&lt;p&gt;If you make a system that uses timezone data, think ahead. The timezone data is updated as often as 10 times a year or more.
+In case you have an embedded system that is not connected to the internet all the time, how can that processes be
+put in place to make sure it is updated?&lt;/p&gt;
+
+&lt;h2 id=&quot;what-to-do-if-you-do-not-use-elixir&quot;&gt;What to do if you do not use Elixir&lt;/h2&gt;
+
+&lt;p&gt;If your system is on the Internet, but rely on timezone updates that are not from Elixir, what can you do to improve the situation?
+One solution would be to implement a similar automatic system that updates automatically using the Internet.&lt;/p&gt;
+
+&lt;p&gt;Another would be for package maintainers
+to have an improved process for manually releasing data just after it is released. I do not have high hopes
+for this to happen, but maybe someone reading this could help maintain packages and implement a process
+to make it more quick and consistent.&lt;/p&gt;
+
+&lt;p&gt;The second part is for users of those packages to have a process for making sure the data is updated as
+it become available. Someone
+needs to be responsible for it and make sure the data is updated when it is available.&lt;/p&gt;
+
+&lt;h2 id=&quot;computer-professionals-relying-on-manual-processes-for-something-that-is-perfect-for-computers&quot;&gt;Computer professionals relying on manual processes for something that is perfect for computers&lt;/h2&gt;
+
+&lt;p&gt;Not all things are easy to automate using computers. But this is. It is funny how people
+who make software to help automate things for someone else, themselves do things manually when
+it comes to timezone updates. The current system does not work well. It is time to move on to an automated system.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 03 Dec 2015 09:00:00 -0300</pubDate>
+        <link>http://www.creativedeletion.com/2015/12/03/timezone-updates-need-fixing.html</link>
+        <guid isPermaLink="true">http://www.creativedeletion.com/2015/12/03/timezone-updates-need-fixing.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>Date/time talk at ElixirConf 2015 in Austin (video)</title>
@@ -121,7 +240,7 @@ convert it to another timezone. &lt;a href=&quot;https://github.com/lau/calendar
 the Elixir datetime library
 I designed, has a function that does this for you. For instance to
 get the time right now in Copenhagen you can call
-&lt;code&gt;Calendar.DateTime.now!(&quot;Europe/Copenhagen&quot;)&lt;/code&gt;. Behind the scenes
+&lt;code class=&quot;highlighter-rouge&quot;&gt;Calendar.DateTime.now!(&quot;Europe/Copenhagen&quot;)&lt;/code&gt;. Behind the scenes
 it gets the time right now in UTC and then shifts it to the Copenhagen
 timezone. The important thing is that we do not rely on the local time
 setting of the server. Instead the code gets the timezone identifier from
@@ -139,7 +258,7 @@ of files or timestamps of when a database record was created.&lt;/p&gt;
 &lt;h2 id=&quot;defaults-stacked-against-programmers&quot;&gt;Defaults stacked against programmers&lt;/h2&gt;
 
 &lt;p&gt;Unfortunately “local time” is sometimes the default in standard libraries.
-This is the case with Erlang’s &lt;code&gt;file:read_file_info&lt;/code&gt; that provides information
+This is the case with Erlang’s &lt;code class=&quot;highlighter-rouge&quot;&gt;file:read_file_info&lt;/code&gt; that provides information
 about when a file was last changed. But by default it returns the time
 in local time. So if you want to compare and see how long it has been
 since the last file change, you have to get the local
@@ -151,9 +270,9 @@ time of the server. But the calculation will be wrong when affected by DST.&lt;/
 &lt;p&gt;For this Erlang example you have to pass an extra argument in order to
 get the timestamps as UTC. Hopefully in the future library designers
 will choose UTC to be the default for these kinds of things.
-But for now instead of: &lt;code&gt;file:read_file_info(&#39;example.txt&#39;)&lt;/code&gt; you have to use &lt;code&gt;file:read_file_info(&#39;example.txt&#39;, [{time, universal}])&lt;/code&gt; Then you have a UTC timestamp
-that you can compare with the time right now in UTC: &lt;code&gt;calendar:universal_time()&lt;/code&gt;
-instead of &lt;code&gt;calendar:local_time()&lt;/code&gt;.&lt;/p&gt;
+But for now instead of: &lt;code class=&quot;highlighter-rouge&quot;&gt;file:read_file_info(&#39;example.txt&#39;)&lt;/code&gt; you have to use &lt;code class=&quot;highlighter-rouge&quot;&gt;file:read_file_info(&#39;example.txt&#39;, [{time, universal}])&lt;/code&gt; Then you have a UTC timestamp
+that you can compare with the time right now in UTC: &lt;code class=&quot;highlighter-rouge&quot;&gt;calendar:universal_time()&lt;/code&gt;
+instead of &lt;code class=&quot;highlighter-rouge&quot;&gt;calendar:local_time()&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;it-is-worth-it&quot;&gt;It is worth it&lt;/h2&gt;
 
@@ -204,31 +323,31 @@ With a timezone aware timezone library you can validate that.&lt;/p&gt;
 
 &lt;p&gt;Here is an example of doing that in &lt;a href=&quot;https://github.com/lau/calendar&quot;&gt;Calendar&lt;/a&gt;, an Elixir date time library I designed. A “wall time” can be valid in one timezone but not in another:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-elixir&quot; data-lang=&quot;elixir&quot;&gt;&lt;span class=&quot;nc&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from_erl&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2014&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mo&quot;&gt;00&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}},&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Europe/London&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:ok&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Calendar.DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;day&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;hour&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;timezone&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Europe/London&amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...}}&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-elixir&quot; data-lang=&quot;elixir&quot;&gt;&lt;span class=&quot;no&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from_erl&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{{&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2014&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;00&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}},&lt;/span&gt; &lt;span class=&quot;sd&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Europe/London&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:ok&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;day:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;hour:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;min:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;timezone:&lt;/span&gt; &lt;span class=&quot;sd&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Europe/London&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt;
 
-&lt;span class=&quot;nc&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from_erl&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2014&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mo&quot;&gt;00&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}},&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Europe/Copenhagen&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:invalid_datetime_for_timezone&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;no&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from_erl&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{{&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2014&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;00&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}},&lt;/span&gt; &lt;span class=&quot;sd&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Europe/Copenhagen&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:invalid_datetime_for_timezone&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Furthermore if the entered date and time is during a switch off of DST - usually in the autumn -
 the time will be ambiguous. So if you need to compare the entered datetime to other
 datetimes, you need to ask the user if it the entered datetime was before or after the clocks
 were set back.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-elixir&quot; data-lang=&quot;elixir&quot;&gt;&lt;span class=&quot;nc&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from_erl&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2014&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;26&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mo&quot;&gt;00&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}},&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Europe/Copenhagen&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:ambiguous&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Calendar.AmbiguousDateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;possible_date_times&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;[%&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Calendar.DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;abbr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;CEST&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;std_off&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3600&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...},&lt;/span&gt;
-   &lt;span class=&quot;p&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Calendar.DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;abbr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;CET&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;std_off&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...}&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;]}}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-elixir&quot; data-lang=&quot;elixir&quot;&gt;&lt;span class=&quot;no&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from_erl&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{{&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2014&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;26&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;00&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}},&lt;/span&gt; &lt;span class=&quot;sd&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Europe/Copenhagen&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:ambiguous&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;AmbiguousDateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;possible_date_times:&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;[%&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;abbr:&lt;/span&gt; &lt;span class=&quot;sd&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;CEST&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;std_off:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3600&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+   &lt;span class=&quot;p&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;abbr:&lt;/span&gt; &lt;span class=&quot;sd&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;CET&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;std_off:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;]}}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h2 id=&quot;utc-and-the-user-time-zone&quot;&gt;UTC and the user time zone&lt;/h2&gt;
 
-&lt;p&gt;Even if all of the users of a system are in the same timezone, you probably want your server software to work with UTC. UTC does not have the ambiguity that other timezones have. If a user has entered a future datetime and wants to be alerted an hour before, you can compare the server time to the entered datetime and then issue an alert one hour before. But in order to compare UTC to the entered datetime, you need to know what the timezone is. And by timezone I do not mean simply an integer with the UTC offset on a certain date. Because UTC offsets can change. You want a timezone name from the &lt;a href=&quot;https://www.iana.org/time-zones&quot;&gt;tz database&lt;/a&gt; such as &lt;code&gt;America/New_York&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Even if all of the users of a system are in the same timezone, you probably want your server software to work with UTC. UTC does not have the ambiguity that other timezones have. If a user has entered a future datetime and wants to be alerted an hour before, you can compare the server time to the entered datetime and then issue an alert one hour before. But in order to compare UTC to the entered datetime, you need to know what the timezone is. And by timezone I do not mean simply an integer with the UTC offset on a certain date. Because UTC offsets can change. You want a timezone name from the &lt;a href=&quot;https://www.iana.org/time-zones&quot;&gt;tz database&lt;/a&gt; such as &lt;code class=&quot;highlighter-rouge&quot;&gt;America/New_York&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;measuring-the-interval-between-two-datetimes&quot;&gt;Measuring the interval between two datetimes&lt;/h2&gt;
 
 &lt;p&gt;Imagine that a user enters two datetimes:
-&lt;code&gt;2014 March 30, 01:00:00&lt;/code&gt; and &lt;code&gt;2014 March 30, 04:00:00&lt;/code&gt;.
+&lt;code class=&quot;highlighter-rouge&quot;&gt;2014 March 30, 01:00:00&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;2014 March 30, 04:00:00&lt;/code&gt;.
 You need to find out how much time there is between the two.
 Usually the difference would be exactly three hours. But for some timezones,
 the “spring forward” event, where
@@ -239,11 +358,11 @@ datetimes is two hours, not three. That is quite a big difference.&lt;/p&gt;
 
 &lt;p&gt;Again, there are timezone libraries that can handle that.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-elixir&quot; data-lang=&quot;elixir&quot;&gt;&lt;span class=&quot;n&quot;&gt;iex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;at_four&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from_erl!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2014&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;00&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;00&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}},&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Europe/Stockholm&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;iex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;at_one&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;nc&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from_erl!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2014&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;00&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;00&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}},&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Europe/Stockholm&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;iex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;diff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;at_four&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;at_one&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:ok&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# 7200 seconds is two hours in this case&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-elixir&quot; data-lang=&quot;elixir&quot;&gt;&lt;span class=&quot;n&quot;&gt;iex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;at_four&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from_erl!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({{&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2014&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},{&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;00&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;00&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}},&lt;/span&gt; &lt;span class=&quot;sd&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Europe/Stockholm&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;iex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;at_one&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;no&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from_erl!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({{&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2014&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},{&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;00&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;00&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}},&lt;/span&gt; &lt;span class=&quot;sd&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Europe/Stockholm&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;iex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;diff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;at_four&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;at_one&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:ok&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;7200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# 7200 seconds is two hours in this case&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;In that example you do not really have to check if the timezone uses DST,
 and if so when it switches back and forth from DST. All you have to do
@@ -259,13 +378,13 @@ is input the “wall time” and the timezone. The library will handle the rest.
 API was designed with timezone awareness as the default.&lt;/p&gt;
 
 &lt;p&gt;If you have a datetime and do not explicitly tell the library which timezone it belongs
-to, you cannot create a valid &lt;code&gt;DateTime&lt;/code&gt; struct.&lt;/p&gt;
+to, you cannot create a valid &lt;code class=&quot;highlighter-rouge&quot;&gt;DateTime&lt;/code&gt; struct.&lt;/p&gt;
 
 &lt;p&gt;So you have to either
-provide a valid timezone name or use another module called &lt;code&gt;NaiveDateTime&lt;/code&gt;.
-Naïve - it sounds a bit less confidence inspiring than just &lt;code&gt;DateTime&lt;/code&gt; does it not? And it takes longer to type. That is
+provide a valid timezone name or use another module called &lt;code class=&quot;highlighter-rouge&quot;&gt;NaiveDateTime&lt;/code&gt;.
+Naïve - it sounds a bit less confidence inspiring than just &lt;code class=&quot;highlighter-rouge&quot;&gt;DateTime&lt;/code&gt; does it not? And it takes longer to type. That is
 on purpose. My hope is that the name alone makes people
-think twice before using it over &lt;code&gt;DateTime&lt;/code&gt;. There are a few cases where you
+think twice before using it over &lt;code class=&quot;highlighter-rouge&quot;&gt;DateTime&lt;/code&gt;. There are a few cases where you
 can get away with ignoring timezones and DST, but you really have to be
 sure you know what you are doing.&lt;/p&gt;
 
@@ -669,7 +788,7 @@ And remember, time zone rules change all the time.&lt;/p&gt;
 
 &lt;p&gt;PS. This was meant as a thought provoking eye opener. But all of this might seem negative and not constructive. Pointing out problems without any solutions. What can you do, to avoid having these issues cause problems in the systems you develop? I plan to write posts about solutions, so check back here soon.&lt;/p&gt;
 </description>
-        <pubDate>Wed, 28 Jan 2015 12:22:57 -0300</pubDate>
+        <pubDate>Wed, 28 Jan 2015 13:22:57 -0200</pubDate>
         <link>http://www.creativedeletion.com/2015/01/28/falsehoods-programmers-date-time-zones.html</link>
         <guid isPermaLink="true">http://www.creativedeletion.com/2015/01/28/falsehoods-programmers-date-time-zones.html</guid>
         

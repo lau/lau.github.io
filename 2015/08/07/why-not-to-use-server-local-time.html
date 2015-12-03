@@ -14,6 +14,7 @@
   <link rel="alternate" type="application/rss+xml" title="Creative Deletion" href="http://www.creativedeletion.com/feed.xml" />
   <style>
     .right_img {
+      max-width: 512px;
       float: right;
       margin: 1em;
     }
@@ -180,7 +181,7 @@ convert it to another timezone. <a href="https://github.com/lau/calendar">Calend
 the Elixir datetime library
 I designed, has a function that does this for you. For instance to
 get the time right now in Copenhagen you can call
-<code>Calendar.DateTime.now!("Europe/Copenhagen")</code>. Behind the scenes
+<code class="highlighter-rouge">Calendar.DateTime.now!("Europe/Copenhagen")</code>. Behind the scenes
 it gets the time right now in UTC and then shifts it to the Copenhagen
 timezone. The important thing is that we do not rely on the local time
 setting of the server. Instead the code gets the timezone identifier from
@@ -198,7 +199,7 @@ of files or timestamps of when a database record was created.</p>
 <h2 id="defaults-stacked-against-programmers">Defaults stacked against programmers</h2>
 
 <p>Unfortunately “local time” is sometimes the default in standard libraries.
-This is the case with Erlang’s <code>file:read_file_info</code> that provides information
+This is the case with Erlang’s <code class="highlighter-rouge">file:read_file_info</code> that provides information
 about when a file was last changed. But by default it returns the time
 in local time. So if you want to compare and see how long it has been
 since the last file change, you have to get the local
@@ -210,9 +211,9 @@ time of the server. But the calculation will be wrong when affected by DST.</p>
 <p>For this Erlang example you have to pass an extra argument in order to
 get the timestamps as UTC. Hopefully in the future library designers
 will choose UTC to be the default for these kinds of things.
-But for now instead of: <code>file:read_file_info('example.txt')</code> you have to use <code>file:read_file_info('example.txt', [{time, universal}])</code> Then you have a UTC timestamp
-that you can compare with the time right now in UTC: <code>calendar:universal_time()</code>
-instead of <code>calendar:local_time()</code>.</p>
+But for now instead of: <code class="highlighter-rouge">file:read_file_info('example.txt')</code> you have to use <code class="highlighter-rouge">file:read_file_info('example.txt', [{time, universal}])</code> Then you have a UTC timestamp
+that you can compare with the time right now in UTC: <code class="highlighter-rouge">calendar:universal_time()</code>
+instead of <code class="highlighter-rouge">calendar:local_time()</code>.</p>
 
 <h2 id="it-is-worth-it">It is worth it</h2>
 
@@ -234,11 +235,11 @@ before DST events.</p>
 
   <h3>More blogposts:</h3>
   
+      <li><a href="/2015/12/03/timezone-updates-need-fixing.html">Timezone updates need to be fixed</a></li>
+  
       <li><a href="/2015/10/19/elixirconf-talk-date-time.html">Date/time talk at ElixirConf 2015 in Austin (video)</a></li>
   
       <li><a href="/2015/05/10/the-need-timezones.html">The need for timezone awareness</a></li>
-  
-      <li><a href="/2015/04/19/elixir_next_language.html">Elixir - The next big language for the web</a></li>
   
 
 </div>

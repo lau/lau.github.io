@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>My iPhone working with my Danish operator without hardware mods</title>
-  <meta name="description" content="I recently got a chance to buy an iPhone. After I had made sure that doable iPhone unlocking methods existed, I went for it.">
+  <title>Timezone updates need to be fixed</title>
+  <meta name="description" content="    Fortunately, the technology for keeping planes airborne receive more attention that the information systems for passengers.">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://www.creativedeletion.com/2007/09/03/my-iphone-working-with-my-danish-operator-without-hardware-mods.html">
+  <link rel="canonical" href="http://www.creativedeletion.com/2015/12/03/timezone-updates-need-fixing.html">
   <link rel="alternate" type="application/rss+xml" title="Creative Deletion" href="http://www.creativedeletion.com/feed.xml" />
   <style>
     .right_img {
@@ -95,32 +95,120 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">My iPhone working with my Danish operator without hardware mods</h1>
-    <p class="post-meta">Sep 3, 2007</p>
+    <h1 class="post-title">Timezone updates need to be fixed</h1>
+    <p class="post-meta">Dec 3, 2015</p>
   </header>
 
   <article class="post-content">
-    <p>I recently got a chance to buy an iPhone. After I had made sure that doable iPhone unlocking methods existed, I went for it.</p>
+    <figure class="picture right_img">
+  <img src="/assets/plane512.jpg" srcset="/assets/plane512.jpg 1x, /assets/plane1024.jpg 2x" />
+  <figcaption>Fortunately, the technology for keeping planes airborne receive more attention that the information systems for passengers.</figcaption>
+</figure>
 
-<p><img src="/assets/iphone.jpg" width="434" height="270" /></p>
+<p>In October I went to ElixirConf <a href="/2015/10/19/elixirconf-talk-date-time.html">to talk about time and timezones</a>. One of the things I talked about was keeping timezone data up to date.</p>
 
-<h2 id="unlocking">Unlocking</h2>
-<p>Engadget recently announced a software unlock. Mainstream media (MSM) has been picking up this story as well as different hardware based unlocks. The only problem with the software unlocks is that they are not available yet.</p>
+<p>A good example of that showed itself soon after: On the plane going back it had one of those screens showing the local time at the destination. It was incorrect.</p>
 
-<p>But it has been possible to use your iPhone with other operators than AT&amp;T for quite some time now, before the ones that mainstream media is currently talking about. One hack is to use a small sim card enclosure called the “turbosim”, but they are sold out. Another one is called the “supersim”. Neither of these methods require you to modify the iPhone hardware. Basically the supersim method works like this: You create a new SIM card that works like your existing local SIM card. Then you use software to activate the iPhone in a way that makes it compatible with this new SIM card. I used the supersim method, and have been using the iPhone with my Danish mobile phone operator since wednesday last week. As far as I know there are only about 5 unlocked iPhones in Denmark right now.</p>
+<h2 id="event-reminding-software-feature-causes-area-man-to-miss-event">Event reminding software feature causes area man to miss event</h2>
+<p>About a week later I was playing a 8-a-side football game. But a player had not shown up. As the game was about to end, he showed up, confused.
+Why? Because of the way timezone data updates are handled. It is a broken system. The event was arranged with Facebook. Facebook’s timezone data is out of date. So Facebook told the player that the game started at 9pm instead of 8pm.</p>
 
-<h2 id="interface-and-exterior">Interface and exterior</h2>
-<p>The interface is awesome. It’s fun to flick between the pictures and music albums, to zoom in and out on pictures and websites etc. This is really a big step up from the interface of other phones. Like the interface from the Minority Report movie. My previous phone - a Nokia 7610 smartphone feels very 20th century in comparison.</p>
+<p>A more simple approach such as the local time written on paper, sent with Fax or a text message would not have caused such as problem. But like so many other pieces of software, the Facebook code is “clever” and uses timezone conversions. Facebook thinks it knows where you are and what time it is in that location. When it works, this cleverness can be helpful. But this time it was wrong. When you write code that is clever like that, you have to make sure that the timezone information is up to date. Otherwise it does not work and people get upset.</p>
 
-<p>The virtual keyboard works OK - much better than a numeric keyboard with T9. I learned that to avoid typos, you can make sure that the correct key is selected before you lift your finger from the screen - if you hit the wrong key you can slide to a different key before lifting.</p>
+<h2 id="it-is-a-common-problem">It is a common problem</h2>
 
-<p>The exterior is awesome too. It’s not all hard plastic like my old Nokia, but mostly glass and aluminium and a little chrome and rubber-ish plastic. Like a Mac, Apple has been careful about all aspects of the product and how it all works together. That said, it’s not perfect of course. There is plenty of room for improvement and refinement. I welcome software updates with new features. Preferably those updates should be compatible with the SIM unlock hacks ;-)</p>
+<p>Facebook and Boeing airplanes are not alone in having out of date timezone information. The same goes for all the major operating systems such as Windows, Linux, Mac OS X. And many phones too. And telecom providers. In my experience most systems with timezone information are often out of date.</p>
 
-<h2 id="email-spam-filtering">Email spam filtering</h2>
-<p>There’s an email application called “Mail” similar to the Mac “Mail.app”. It doesn’t have a spam filter like Mail.app does though. So what I did, was to run my email through a GMail account and use setup the GMail account with POP and SMTP on my iPhone. That’s an easy way to get server based spam filtering.</p>
+<p>The company in the world with the largest market capitalisation (Apple) has this problem. So has number 8 (Facebook).
+And they are both tech companies. I think it is an interesting phenomenon. And they are not the only
+ones with that problem.</p>
 
-<h2 id="missing-features">“Missing features”</h2>
-<p>The iPhone doesn’t do everything. You can’t use custom ring tones (without hacking it), it doesn’t send MMS etc. But I don’t care, those features aren’t important to me. On the other hand the iPhone has features that no other phones have, but it is really about the product as a whole and not a checklist of features. For what it is the iPhone is really good. Interacting with my phone is now fun instead of being a bit of a pain. If you want a nice phone with a nice interface, email, a proper web browser and an integrated portable music &amp; video player, the iPhone does a good job.</p>
+<h2 id="it-is-important">It is important</h2>
+
+<p>In this case the Facebook event feature failed pretty spectacularly. It reminds me of those photos
+with the caption “you had one job”. Facebook events are supposed to tell people about an event and
+when it takes place. It failed in this case. Because of out of date timezone data.</p>
+
+<h2 id="it-is-not-super-hard-to-get-up-to-date-data">It is not super hard to get up to date data</h2>
+
+<p>The timezone data is <a href="http://www.iana.org/time-zones">freely available at IANA’s website</a>.
+You do not have to pay for it, anyone can download it and use it.</p>
+
+<h2 id="why-has-it-not-been-fixed">Why has it not been fixed?</h2>
+
+<p>Why is it that some of the most valueable companies in the world, and tech companies at that, cannot cope with the
+challenge of having up to date timezone data?</p>
+
+<p>Remember when people thought that it was a good idea to only save the two last digits of a year? 90 instead of 1990.
+In my experience many programmers just do whatever everyone else is doing. Unless it is an area they care about.
+And most programmers do not care about timezone updates. Unless they personally experience problems caused by it.</p>
+
+<h2 id="what-people-do-today">What people do today</h2>
+
+<p>Very few people seem to take responsibility for having up-to-date timezone data, having a process for it
+or even caring much about it.</p>
+
+<p>In Linux the common way to update timezone data is using software package updates. There is a package called tzdata that
+contains both the data and code at the same time. There are several problems with this. One is that it takes a while
+from IANA releasing new data to someone manually make a new package version with the new data. Sometimes an update will
+be release by IANA, and no packages are ever made! So even if users update their system with the newest packages the
+moment they come out, they will be old.</p>
+
+<p>A second issue is that these
+updates are viewed the same way as other software updates. Like a new version of database software. And in order to avoid
+regressions, developers/sysadmins will usually have to spend precious time testing things before upgrading software.
+It takes time and is seen as a barrier to upgrade software running on a server. How ever small that costs is, it is there.</p>
+
+<p>So the state of timezone updates today for most people is that it relies on two sets of people that have to manually
+do something. If just one of them fail to do that, the result is the timezone data is out of date. And right now
+the common thing is for both sets of people to not do it or do it slowly.</p>
+
+<h2 id="it-is-just-updated-data-not-a-new-api-or-different-functionality">It is just updated data, not a new API or different functionality</h2>
+
+<p>But the data itself is not new software. It is just data. Functionality should not change because of new data.
+New timezone data could be seen similarly to setting the clock of the server. This is commonly done automatically.
+Or it could be seen as data in a database changing. If you change software, you have to test it to see if it still
+works as required. But when a system is running and data is changed in a database due to normal use, the software
+is not tested every single time a row is changed, inserted or updated. That would be silly. Because the software
+should be made to handle different kinds of data.</p>
+
+<p>It should be possible to automatically update the timezone data without having to treat it with the same ceremony as with a software update.</p>
+
+<h2 id="a-solution">A solution</h2>
+
+<p>Imagine if this problem was something that could be handled automatically by software.
+It turns out that that is in fact the case! <a href="https://github.com/lau/tzdata">Tzdata for Elixir</a> checks the IANA servers
+once a day. If there is a new version of the timezone database available, it will be automatically
+downloaded and updated. The future is here, but in this case only distributed to Elixir ;-)</p>
+
+<h2 id="the-exception-to-the-rule-offline-embedded-systems">The exception to the rule. Offline embedded systems</h2>
+
+<p>Not all systems are connected to the internet. In that case you cannot do to updates automatically
+in the same way. But it needs to happen somehow in order to have timezone based calculations be correct.</p>
+
+<p>If you make a system that uses timezone data, think ahead. The timezone data is updated as often as 10 times a year or more.
+In case you have an embedded system that is not connected to the internet all the time, how can that processes be
+put in place to make sure it is updated?</p>
+
+<h2 id="what-to-do-if-you-do-not-use-elixir">What to do if you do not use Elixir</h2>
+
+<p>If your system is on the Internet, but rely on timezone updates that are not from Elixir, what can you do to improve the situation?
+One solution would be to implement a similar automatic system that updates automatically using the Internet.</p>
+
+<p>Another would be for package maintainers
+to have an improved process for manually releasing data just after it is released. I do not have high hopes
+for this to happen, but maybe someone reading this could help maintain packages and implement a process
+to make it more quick and consistent.</p>
+
+<p>The second part is for users of those packages to have a process for making sure the data is updated as
+it become available. Someone
+needs to be responsible for it and make sure the data is updated when it is available.</p>
+
+<h2 id="computer-professionals-relying-on-manual-processes-for-something-that-is-perfect-for-computers">Computer professionals relying on manual processes for something that is perfect for computers</h2>
+
+<p>Not all things are easy to automate using computers. But this is. It is funny how people
+who make software to help automate things for someone else, themselves do things manually when
+it comes to timezone updates. The current system does not work well. It is time to move on to an automated system.</p>
 
   </article>
 
@@ -131,11 +219,11 @@
 
   <h3>More blogposts:</h3>
   
-      <li><a href="/2015/12/03/timezone-updates-need-fixing.html">Timezone updates need to be fixed</a></li>
-  
       <li><a href="/2015/10/19/elixirconf-talk-date-time.html">Date/time talk at ElixirConf 2015 in Austin (video)</a></li>
   
       <li><a href="/2015/08/07/why-not-to-use-server-local-time.html">Why not to ask the server for its "local time"</a></li>
+  
+      <li><a href="/2015/05/10/the-need-timezones.html">The need for timezone awareness</a></li>
   
 
 </div>

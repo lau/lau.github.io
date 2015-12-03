@@ -14,6 +14,7 @@
   <link rel="alternate" type="application/rss+xml" title="Creative Deletion" href="http://www.creativedeletion.com/feed.xml" />
   <style>
     .right_img {
+      max-width: 512px;
       float: right;
       margin: 1em;
     }
@@ -128,31 +129,31 @@ With a timezone aware timezone library you can validate that.</p>
 
 <p>Here is an example of doing that in <a href="https://github.com/lau/calendar">Calendar</a>, an Elixir date time library I designed. A “wall time” can be valid in one timezone but not in another:</p>
 
-<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="nc">DateTime</span><span class="p">.</span><span class="n">from_erl</span> <span class="p">{{</span><span class="mi">2014</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">30</span><span class="p">},</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mo">00</span><span class="p">}},</span> <span class="s2">&quot;Europe/London&quot;</span>
-<span class="p">{</span><span class="ss">:ok</span><span class="p">,</span> <span class="p">%</span><span class="nc">Calendar.DateTime</span><span class="p">{</span><span class="ss">day</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="ss">hour</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="ss">min</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="ss">timezone</span><span class="p">:</span> <span class="s2">&quot;Europe/London&quot;</span> <span class="p">...}}</span>
+<figure class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="no">DateTime</span><span class="o">.</span><span class="n">from_erl</span> <span class="p">{{</span><span class="m">2014</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">30</span><span class="p">},</span> <span class="p">{</span><span class="m">2</span><span class="p">,</span> <span class="m">30</span><span class="p">,</span> <span class="m">00</span><span class="p">}},</span> <span class="sd">"</span><span class="s2">Europe/London"</span>
+<span class="p">{</span><span class="ss">:ok</span><span class="p">,</span> <span class="p">%</span><span class="no">Calendar</span><span class="o">.</span><span class="no">DateTime</span><span class="p">{</span><span class="ss">day:</span> <span class="m">30</span><span class="p">,</span> <span class="ss">hour:</span> <span class="m">2</span><span class="p">,</span> <span class="ss">min:</span> <span class="m">30</span><span class="p">,</span> <span class="ss">timezone:</span> <span class="sd">"</span><span class="s2">Europe/London"</span> <span class="o">...</span><span class="p">}}</span>
 
-<span class="nc">DateTime</span><span class="p">.</span><span class="n">from_erl</span> <span class="p">{{</span><span class="mi">2014</span><span class="p">,</span> <span class="mi">3</span> <span class="p">,</span><span class="mi">30</span><span class="p">},</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mo">00</span><span class="p">}},</span> <span class="s2">&quot;Europe/Copenhagen&quot;</span>
-<span class="p">{</span><span class="ss">:error</span><span class="p">,</span> <span class="ss">:invalid_datetime_for_timezone</span><span class="p">}</span></code></pre></div>
+<span class="no">DateTime</span><span class="o">.</span><span class="n">from_erl</span> <span class="p">{{</span><span class="m">2014</span><span class="p">,</span> <span class="m">3</span> <span class="p">,</span><span class="m">30</span><span class="p">},</span> <span class="p">{</span><span class="m">2</span><span class="p">,</span> <span class="m">30</span><span class="p">,</span> <span class="m">00</span><span class="p">}},</span> <span class="sd">"</span><span class="s2">Europe/Copenhagen"</span>
+<span class="p">{</span><span class="ss">:error</span><span class="p">,</span> <span class="ss">:invalid_datetime_for_timezone</span><span class="p">}</span></code></pre></figure>
 
 <p>Furthermore if the entered date and time is during a switch off of DST - usually in the autumn -
 the time will be ambiguous. So if you need to compare the entered datetime to other
 datetimes, you need to ask the user if it the entered datetime was before or after the clocks
 were set back.</p>
 
-<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="nc">DateTime</span><span class="p">.</span><span class="n">from_erl</span> <span class="p">{{</span><span class="mi">2014</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">26</span><span class="p">},</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mo">00</span><span class="p">}},</span> <span class="s2">&quot;Europe/Copenhagen&quot;</span>
-<span class="p">{</span><span class="ss">:ambiguous</span><span class="p">,</span> <span class="p">%</span><span class="nc">Calendar.AmbiguousDateTime</span><span class="p">{</span><span class="ss">possible_date_times</span><span class="p">:</span>
-  <span class="p">[%</span><span class="nc">Calendar.DateTime</span><span class="p">{</span><span class="ss">abbr</span><span class="p">:</span> <span class="s2">&quot;CEST&quot;</span><span class="p">,</span> <span class="ss">std_off</span><span class="p">:</span> <span class="mi">3600</span><span class="p">,</span> <span class="p">...},</span>
-   <span class="p">%</span><span class="nc">Calendar.DateTime</span><span class="p">{</span><span class="ss">abbr</span><span class="p">:</span> <span class="s2">&quot;CET&quot;</span><span class="p">,</span> <span class="ss">std_off</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="p">...}</span>
-  <span class="p">]}}</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="no">DateTime</span><span class="o">.</span><span class="n">from_erl</span> <span class="p">{{</span><span class="m">2014</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="m">26</span><span class="p">},</span> <span class="p">{</span><span class="m">2</span><span class="p">,</span> <span class="m">30</span><span class="p">,</span> <span class="m">00</span><span class="p">}},</span> <span class="sd">"</span><span class="s2">Europe/Copenhagen"</span>
+<span class="p">{</span><span class="ss">:ambiguous</span><span class="p">,</span> <span class="p">%</span><span class="no">Calendar</span><span class="o">.</span><span class="no">AmbiguousDateTime</span><span class="p">{</span><span class="ss">possible_date_times:</span>
+  <span class="p">[%</span><span class="no">Calendar</span><span class="o">.</span><span class="no">DateTime</span><span class="p">{</span><span class="ss">abbr:</span> <span class="sd">"</span><span class="s2">CEST"</span><span class="p">,</span> <span class="ss">std_off:</span> <span class="m">3600</span><span class="p">,</span> <span class="o">...</span><span class="p">},</span>
+   <span class="p">%</span><span class="no">Calendar</span><span class="o">.</span><span class="no">DateTime</span><span class="p">{</span><span class="ss">abbr:</span> <span class="sd">"</span><span class="s2">CET"</span><span class="p">,</span> <span class="ss">std_off:</span> <span class="m">0</span><span class="p">,</span> <span class="o">...</span><span class="p">}</span>
+  <span class="p">]}}</span></code></pre></figure>
 
 <h2 id="utc-and-the-user-time-zone">UTC and the user time zone</h2>
 
-<p>Even if all of the users of a system are in the same timezone, you probably want your server software to work with UTC. UTC does not have the ambiguity that other timezones have. If a user has entered a future datetime and wants to be alerted an hour before, you can compare the server time to the entered datetime and then issue an alert one hour before. But in order to compare UTC to the entered datetime, you need to know what the timezone is. And by timezone I do not mean simply an integer with the UTC offset on a certain date. Because UTC offsets can change. You want a timezone name from the <a href="https://www.iana.org/time-zones">tz database</a> such as <code>America/New_York</code>.</p>
+<p>Even if all of the users of a system are in the same timezone, you probably want your server software to work with UTC. UTC does not have the ambiguity that other timezones have. If a user has entered a future datetime and wants to be alerted an hour before, you can compare the server time to the entered datetime and then issue an alert one hour before. But in order to compare UTC to the entered datetime, you need to know what the timezone is. And by timezone I do not mean simply an integer with the UTC offset on a certain date. Because UTC offsets can change. You want a timezone name from the <a href="https://www.iana.org/time-zones">tz database</a> such as <code class="highlighter-rouge">America/New_York</code>.</p>
 
 <h2 id="measuring-the-interval-between-two-datetimes">Measuring the interval between two datetimes</h2>
 
 <p>Imagine that a user enters two datetimes:
-<code>2014 March 30, 01:00:00</code> and <code>2014 March 30, 04:00:00</code>.
+<code class="highlighter-rouge">2014 March 30, 01:00:00</code> and <code class="highlighter-rouge">2014 March 30, 04:00:00</code>.
 You need to find out how much time there is between the two.
 Usually the difference would be exactly three hours. But for some timezones,
 the “spring forward” event, where
@@ -163,11 +164,11 @@ datetimes is two hours, not three. That is quite a big difference.</p>
 
 <p>Again, there are timezone libraries that can handle that.</p>
 
-<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="n">iex</span><span class="o">&gt;</span> <span class="n">at_four</span> <span class="p">=</span> <span class="nc">DateTime</span><span class="p">.</span><span class="n">from_erl!</span><span class="p">({{</span><span class="mi">2014</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">30</span><span class="p">},{</span><span class="mi">4</span><span class="p">,</span><span class="mo">00</span><span class="p">,</span><span class="mo">00</span><span class="p">}},</span> <span class="s2">&quot;Europe/Stockholm&quot;</span><span class="p">)</span>
-<span class="n">iex</span><span class="o">&gt;</span> <span class="n">at_one</span> <span class="p">=</span>  <span class="nc">DateTime</span><span class="p">.</span><span class="n">from_erl!</span><span class="p">({{</span><span class="mi">2014</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">30</span><span class="p">},{</span><span class="mi">1</span><span class="p">,</span><span class="mo">00</span><span class="p">,</span><span class="mo">00</span><span class="p">}},</span> <span class="s2">&quot;Europe/Stockholm&quot;</span><span class="p">)</span>
-<span class="n">iex</span><span class="o">&gt;</span> <span class="nc">DateTime</span><span class="p">.</span><span class="n">diff</span><span class="p">(</span><span class="n">at_four</span><span class="p">,</span> <span class="n">at_one</span><span class="p">)</span>
-<span class="p">{</span><span class="ss">:ok</span><span class="p">,</span> <span class="mi">7200</span><span class="p">,</span> <span class="mi">0</span><span class="p">}</span>
-<span class="c1"># 7200 seconds is two hours in this case</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="n">iex</span><span class="o">&gt;</span> <span class="n">at_four</span> <span class="o">=</span> <span class="no">DateTime</span><span class="o">.</span><span class="n">from_erl!</span><span class="p">({{</span><span class="m">2014</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">30</span><span class="p">},{</span><span class="m">4</span><span class="p">,</span><span class="m">00</span><span class="p">,</span><span class="m">00</span><span class="p">}},</span> <span class="sd">"</span><span class="s2">Europe/Stockholm"</span><span class="p">)</span>
+<span class="n">iex</span><span class="o">&gt;</span> <span class="n">at_one</span> <span class="o">=</span>  <span class="no">DateTime</span><span class="o">.</span><span class="n">from_erl!</span><span class="p">({{</span><span class="m">2014</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">30</span><span class="p">},{</span><span class="m">1</span><span class="p">,</span><span class="m">00</span><span class="p">,</span><span class="m">00</span><span class="p">}},</span> <span class="sd">"</span><span class="s2">Europe/Stockholm"</span><span class="p">)</span>
+<span class="n">iex</span><span class="o">&gt;</span> <span class="no">DateTime</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">at_four</span><span class="p">,</span> <span class="n">at_one</span><span class="p">)</span>
+<span class="p">{</span><span class="ss">:ok</span><span class="p">,</span> <span class="m">7200</span><span class="p">,</span> <span class="m">0</span><span class="p">}</span>
+<span class="c1"># 7200 seconds is two hours in this case</span></code></pre></figure>
 
 <p>In that example you do not really have to check if the timezone uses DST,
 and if so when it switches back and forth from DST. All you have to do
@@ -183,13 +184,13 @@ is input the “wall time” and the timezone. The library will handle the rest.
 API was designed with timezone awareness as the default.</p>
 
 <p>If you have a datetime and do not explicitly tell the library which timezone it belongs
-to, you cannot create a valid <code>DateTime</code> struct.</p>
+to, you cannot create a valid <code class="highlighter-rouge">DateTime</code> struct.</p>
 
 <p>So you have to either
-provide a valid timezone name or use another module called <code>NaiveDateTime</code>.
-Naïve - it sounds a bit less confidence inspiring than just <code>DateTime</code> does it not? And it takes longer to type. That is
+provide a valid timezone name or use another module called <code class="highlighter-rouge">NaiveDateTime</code>.
+Naïve - it sounds a bit less confidence inspiring than just <code class="highlighter-rouge">DateTime</code> does it not? And it takes longer to type. That is
 on purpose. My hope is that the name alone makes people
-think twice before using it over <code>DateTime</code>. There are a few cases where you
+think twice before using it over <code class="highlighter-rouge">DateTime</code>. There are a few cases where you
 can get away with ignoring timezones and DST, but you really have to be
 sure you know what you are doing.</p>
 
@@ -205,11 +206,11 @@ Or use a library that can handle it.</p>
 
   <h3>More blogposts:</h3>
   
+      <li><a href="/2015/12/03/timezone-updates-need-fixing.html">Timezone updates need to be fixed</a></li>
+  
       <li><a href="/2015/10/19/elixirconf-talk-date-time.html">Date/time talk at ElixirConf 2015 in Austin (video)</a></li>
   
       <li><a href="/2015/08/07/why-not-to-use-server-local-time.html">Why not to ask the server for its "local time"</a></li>
-  
-      <li><a href="/2015/04/19/elixir_next_language.html">Elixir - The next big language for the web</a></li>
   
 
 </div>
