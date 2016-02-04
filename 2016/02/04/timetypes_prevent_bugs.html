@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>How more time types prevent bugs and add clarity</title>
+  <meta name="description" content="Using a single type to represent dates, times, datetimes with and withouttimezones can be confusing for developers. It makes the code less clear andharder to...">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://www.creativedeletion.com/2016/02/04/timetypes_prevent_bugs.html">
+  <link rel="alternate" type="application/rss+xml" title="Creative Deletion" href="http://www.creativedeletion.com/feed.xml" />
+  <style>
+    .right_img {
+      max-width: 512px;
+      float: right;
+      margin: 1em;
+    }
+  </style>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+
+
+
+    <a class="site-title" href="/">Creative Deletion</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+    <!-- Begin MailChimp Signup Form -->
+
+    <div id="mc_embed_signup" style='font-family: "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif; background: #cefc00; width: 100%; clear:both; margin-bottom: 10px; border-radius: 2px;'>
+    <form action="//creativedeletion.us11.list-manage.com/subscribe/post?u=6eaa5232c7bcfc88f50ad6e8b&amp;id=11efd8893f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+        <div id="mc_embed_signup_scroll">
+      <table style="width: 100%;">
+      <tr>
+      <td>
+          <p style="margin-top:14px; margin-left:10px;">Subscribe to my newsletter with Elixir tips and tricks:</p>
+      </td>
+      <td>
+      <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Your e-mail address">
+        <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+      </td>
+      </tr>
+      </table>
+
+      <div>
+      </div>
+      <div id="mce-responses" class="clear">
+        <div class="response" id="mce-error-response" style="display:none"></div>
+        <div class="response" id="mce-success-response" style="display:none"></div>
+      </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+        <div style="position: absolute; left: -5000px;"><input type="text" name="b_6eaa5232c7bcfc88f50ad6e8b_11efd8893f" tabindex="-1" value=""></div>
+        </div>
+    </form>
+    </div>
+    <!--End mc_embed_signup-->
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">How more time types prevent bugs and add clarity</h1>
+    <p class="post-meta">Feb 4, 2016</p>
+  </header>
+
+  <article class="post-content">
+    <p>Using a single type to represent dates, times, datetimes with and without
+timezones can be confusing for developers. It makes the code less clear and
+harder to understand.</p>
+
+<p>Furthermore, functions to do operations on these time representations, cannot
+know what information is fake, generated data versus meaningful data.
+This means that the functionality can be limited and have a higher risk of
+being incorrect.</p>
+
+<p>On the other hand having more types that match the real life concepts, make it easier
+for both programmers to model and understand the programs. At the same
+time making it easier for the libraries to help programmers.</p>
+
+<h2 id="types-in-databases">Types in databases</h2>
+
+<p>In common databases, there are some types for dates that make a good deal of sense.
+You have <code class="highlighter-rouge">time</code> e.g. <code class="highlighter-rouge">10:15:58</code>. That is all the information
+the time has. You have a <code class="highlighter-rouge">date</code> e.g. <code class="highlighter-rouge">2016-01-17</code>. And then you have <code class="highlighter-rouge">datetime</code>s, which is…
+surprise: a date and a time. E.g. <code class="highlighter-rouge">2016-01-17 10:15:58</code>.</p>
+
+<p>So far so good. Then there is the JavaScript way of handling time and date.
+In JavaScript there is just one type. It is called <code class="highlighter-rouge">Date</code>.
+Now you might think that a JavaScript Date would represent, well, a date.
+But actually in JavaScript a Date is a datetime. And it throws in some timezone
+information for good measure. So a <code class="highlighter-rouge">Date</code> is not a date. Think about that for a second.</p>
+
+<p>But the confusing naming is not the biggest problem. The problem is that
+programmers are encuraged to use this one-size-fits-all type to store not just
+datetimes with timezones. Also for datetimes without timezones, dates without
+time and timezone and time without dates and timezones.</p>
+
+<h2 id="understanding-the-data-in-a-program">Understanding the data in a program</h2>
+
+<p>When a programmer reads code, it should not be unnecessarily hard to understand
+what is going on.</p>
+
+<p>Imagine that you want to keep track of the date when people were born.
+We get a date as a string in ISO format.
+This data will be saved in a database.
+You use JavaScript’s Date.</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="s2">"2016-1-17"</span><span class="p">)</span>
+<span class="nx">Sun</span> <span class="nx">Jan</span> <span class="mi">17</span> <span class="mi">2016</span> <span class="mi">00</span><span class="err">:</span><span class="mi">00</span><span class="err">:</span><span class="mi">00</span> <span class="nx">GMT</span><span class="o">+</span><span class="mi">0100</span> <span class="p">(</span><span class="nx">CET</span><span class="p">)</span></code></pre></figure>
+
+<p>This gets you not just a Date, but a certain millisecond in time. Midnight at that
+date. And it adds a timezone too.</p>
+
+<p>But what if the intention was to store just the date, and not the time of day (00:00:00.000)?
+What if you store that information in the database. How do you know if that is supposed
+to represent midnight at that date, or just the date? What about the timezone offset?
+Was that intended by the programmer or is it just something added as by JavaScript?</p>
+
+<p>Do you manually look at a sample of the data and decide that the ones you looked
+at were at midnight, and then decided that the time part is probably just something
+that was added automatically by the JavaScript Date functionality?</p>
+
+<p>The programmer that comes back to read their own code or someone elses code
+does not know if the data is supposed to be a datetime within a certain timezone
+or if either of these parts were just added as fake “filler” by Javscript’s <code class="highlighter-rouge">Date</code>:
+the date, the time of day, the timezone.</p>
+
+<p>Looking at the type and the data, it looks like it is a datetime, even though
+the programmer just needs to represent a simple date.</p>
+
+<h2 id="the-libraries-understanding-of-what-it-is-supposed-to-mean">The libraries’ understanding of what it is supposed to mean</h2>
+
+<p>The programmer is not the only one who is limited by the one-size-fits-all Date(time).
+Imagine having to represent the date as a string. You might use a library that can
+format the JavaScript “Date”. Since the Date has both a datetime and timezone, it
+could print an RFC3339 string like so:
+<code class="highlighter-rouge">2016-01-16T23:00:00Z</code></p>
+
+<p>In this case the function prints the datetime in RFC3339 as UTC. But hold on, the
+date is now the 16th of January instead of the 17th! All we originally wanted to
+store was the 16th of January 2016, but the type also includes time and a timezone.
+Because of the timezone, that same time in UTC is the day before at 11pm.</p>
+
+<p>If we had a type available representing a simple date (year, month, day), and had
+used that, the library could be designed to refuse to print an RFC3339 string on
+the basis that it needs to know the time and timezone.</p>
+
+<p>By using a type that includes extra, fake, filler data
+(the time of day and timezone), we open ourselves up for
+bugs. Like with security, where there are <a href="https://en.wikipedia.org/wiki/Attack_surface">attack surfaces</a>,
+the extra data becomes a “bug surface”.</p>
+
+<h2 id="making-the-intention-clear">Making the intention clear</h2>
+
+<p>The types are like a vocabulary, and by limiting programmers to just one word for
+date, time, datetime with timezone, datetime without timezone, it is harder
+to communicate clearly.</p>
+
+<h2 id="alternatives">Alternatives</h2>
+
+<p>In Java (not JavaScript), the built in type was also called <code class="highlighter-rouge">Date</code>.
+But for a lot of people, that built in library was not suitable. An
+alternavy library was made: <a href="http://www.joda.org/joda-time/">Joda Time</a>.
+This became the defacto standard library for date and time in Java.</p>
+
+<p>Joda Time has a seperate type to store just a date without time and a separate type
+for just a time without a date and so on. Here are some of the key types:
+<code class="highlighter-rouge">LocalDate, LocalTime, Instant, DateTime, DateTimeZone</code></p>
+
+<h2 id="how-elixir-calendar-handles-it">How Elixir Calendar handles it</h2>
+
+<p>Another example is the <a href="https://github.com/lau/calendar">Calendar library</a> for <a href="http://www.elixir-lang.org/">Elixir</a>. Like Joda Time it does not have the one-size-fits-all Date type
+that JavaScript does. Instead it has seperate types for a <code class="highlighter-rouge">DateTime</code> in a specific timezone
+at a specific point in time, for a <code class="highlighter-rouge">NaiveDateTime</code> for just a date and a time
+without a timezone, for just a <code class="highlighter-rouge">Time</code> (e.g. 15:25:16),
+and finally for a <code class="highlighter-rouge">Date</code> (e.g. 2016-01-20).</p>
+
+<p>In Calendar there is a function to to format a datetime into an <a href="http://tools.ietf.org/html/rfc3339#page-10">RFC 3339</a> string.
+The RFC 3339 string needs to contain a datetime and a timezone offset.
+A unix timestamp contains all of that. So we can parse a unix timestamp number,
+and then pass the datetime on to a function that formats that.</p>
+
+<figure class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="sd">"</span><span class="s2">1453303516"</span> <span class="o">|&gt;</span> <span class="no">DateTime</span><span class="o">.</span><span class="no">Parse</span><span class="o">.</span><span class="n">unix!</span> <span class="o">|&gt;</span> <span class="no">DateTime</span><span class="o">.</span><span class="no">Format</span><span class="o">.</span><span class="n">rfc3339</span>
+<span class="sd">"</span><span class="s2">2016-01-20T15:25:16Z"</span></code></pre></figure>
+
+<p>If you have a date you can parse that as a Date:</p>
+
+<figure class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="sd">"</span><span class="s2">2016-01-16"</span> <span class="o">|&gt;</span> <span class="no">Calendar</span><span class="o">.</span><span class="no">Date</span><span class="o">.</span><span class="no">Parse</span><span class="o">.</span><span class="n">iso8601!</span>
+<span class="p">%</span><span class="no">Calendar</span><span class="o">.</span><span class="no">Date</span><span class="p">{</span><span class="ss">day:</span> <span class="m">16</span><span class="p">,</span> <span class="ss">month:</span> <span class="m">1</span><span class="p">,</span> <span class="ss">year:</span> <span class="m">2016</span><span class="p">}</span></code></pre></figure>
+
+<p>That simply gets you a date. What if we try to format that as an RFC3339 string?</p>
+
+<figure class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="sd">"</span><span class="s2">2016-01-16"</span> <span class="o">|&gt;</span> <span class="no">Calendar</span><span class="o">.</span><span class="no">Date</span><span class="o">.</span><span class="no">Parse</span><span class="o">.</span><span class="n">iso8601!</span> <span class="o">|&gt;</span> <span class="no">DateTime</span><span class="o">.</span><span class="no">Format</span><span class="o">.</span><span class="n">rfc3339</span>
+<span class="o">**</span> <span class="p">(</span><span class="no">Protocol</span><span class="o">.</span><span class="no">UndefinedError</span><span class="p">)</span> <span class="n">protocol</span> <span class="no">Calendar</span><span class="o">.</span><span class="no">ContainsDateTime</span> <span class="ow">not</span> <span class="n">implemented</span> <span class="n">for</span> <span class="p">%</span><span class="no">Calendar</span><span class="o">.</span><span class="no">Date</span><span class="p">{</span><span class="ss">day:</span> <span class="m">16</span><span class="p">,</span> <span class="ss">month:</span> <span class="m">1</span><span class="p">,</span> <span class="ss">year:</span> <span class="m">2016</span><span class="p">}</span>
+<span class="p">[</span><span class="o">...</span><span class="p">]</span></code></pre></figure>
+
+<p>We get an error, and that is great! The DateTime.Format.rfc3339 function does not
+have enough information to generate an RFC3339 string so it raises an error. To
+generate an RFC3339 string you need to know the date, time and UTC offset. In this
+case we only had a date, so the time and UTC offset were missing.</p>
+
+<h2 id="ecto-datetimes">Ecto datetimes</h2>
+
+<p>In Ecto, an Elixir database wrapper, there are types for dates, times and datetimes.
+The datetime type does not contain any data telling anything about which timezone
+the datetime is in. (This is what is called a “naive” datetime in Calendar.)</p>
+
+<p>Ecto also has an automatic timestamps feature that add timestamps in UTC
+when a record is updated or inserted. The type used for <code class="highlighter-rouge">inserted_at</code> is the same
+as any other datetime fields though. This means that for any given datetime
+we do not know which timezone it belongs to.</p>
+
+<p>So even though the programmer can read documentation and find out that inserted_at
+and updated_at timestamps are UTC, the date returned does not contain this information.</p>
+
+<p>There is a function for string representations of Ecto.DateTime structs as
+ISO 8601. ISO 8601 datetimes allows describing the timezone. Ideally for the timestamps
+<code class="highlighter-rouge">inserted_at</code> and <code class="highlighter-rouge">updated_at</code>, there would be a function that format them as ISO8601 strings
+and add a Z to convey that the datetimes are in UTC. But because the type is
+also representing other datetimes where the timezone is unknown, we cannot
+know which datetimes are inserted_at timestamps in UTC and which are not.</p>
+
+<p>So the only reasonable default is to opt for not saying anything about the timezone.</p>
+
+<h2 id="calecto">Calecto</h2>
+
+<p><a href="https://github.com/lau/calecto">Calecto</a> is a Calendar-Ecto adapter. It knows that <code class="highlighter-rouge">inserted_at/updated_at</code> timestamps set in Ecto 
+are in UTC.
+At the same time Calecto can make use of the various types in Calendar. So when using
+Calecto the inserted_at field will be a <code class="highlighter-rouge">Calendar.DateTime</code> struct that contains the information
+that the timezone is in UTC. This means that we can use a formatting function 
+to get a RFC3339 (which is an ISO 8601 profile) that contains the Z telling the world that this
+datetime is in UTC.</p>
+
+<figure class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="n">post</span><span class="o">.</span><span class="n">inserted_at</span> <span class="o">|&gt;</span> <span class="no">DateTime</span><span class="o">.</span><span class="no">Format</span><span class="o">.</span><span class="n">rfc3339</span>
+<span class="sd">"</span><span class="s2">2016-01-20T15:25:16Z"</span></code></pre></figure>
+
+<p>On the other hand if we use a normal Ecto.DateTime type or a Calecto.NaiveDateTime
+type for our field, we are saying that we do not know which timezone that
+datetime is in. Therefore if we tried to use the same formatting function as above,
+there would be an error message saying that we cannot create an RFC3339 string
+without knowing the timezone.</p>
+
+<p>There is a way to overcome that though. If for some reason you have a datetime without
+timezone information and know that it is in UTC, you can promote a naive datetime
+to a DateTime:</p>
+
+<figure class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="n">post</span><span class="o">.</span><span class="n">some_naive_datetime</span> <span class="o">|&gt;</span> <span class="no">NaiveDateTime</span><span class="o">.</span><span class="n">to_date_time_utc</span> <span class="o">|&gt;</span> <span class="no">DateTime</span><span class="o">.</span><span class="no">Format</span><span class="o">.</span><span class="n">rfc3339</span>
+<span class="sd">"</span><span class="s2">2016-01-20T15:25:16Z"</span></code></pre></figure>
+
+<p>The point is that for Calendar to generate a string that says something about the
+timezone, it has to get that information from somewhere. It does not “magically”
+pull out a timezone assumption out of thin air. It can come from data: for example
+implicitly UNIX timestamps are always in UTC. Or an explicit part of the data: RFC 3339
+timestamps always contain timezone offset information.
+If the timezone information is not contained in input data, programmers have to explictly tell the library about the timezone.
+An example of that is the <code class="highlighter-rouge">NaiveDateTime.to_date_time_utc</code> call. This is explicit
+and not something hidden that accidentally happens.</p>
+
+<h2 id="elixir-and-other-languages">Elixir and other languages</h2>
+
+<p>For people choosing a datetime library or considering building a datetime library
+this information is useful in any language. If you ever build a timezone library
+look at how it is done in JavaScript to see what NOT to do.</p>
+
+<p>If you are using Elixir, the only
+library that implements the principles in this article is the <a href="https://github.com/lau/calendar">Calendar library</a>.
+That is the only datetime library I can recommend for Elixir.</p>
+
+
+  </article>
+
+  <p style="color: #888; margin-top: 4em;">If you liked this post you might want to <a href="https://twitter.com/intent/follow?screen_name=laut" />follow me on twitter</a> for updates on new posts and more. Twitter handle: @laut</p>
+
+  <p><a href="https://twitter.com/share" class="twitter-share-button" data-via="laut">Tweet</a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></p>
+
+  <h3>More blogposts:</h3>
+  
+      <li><a href="/2015/12/03/timezone-updates-need-fixing.html">Timezone updates need to be fixed</a></li>
+  
+      <li><a href="/2015/10/19/elixirconf-talk-date-time.html">Date/time talk at ElixirConf 2015 in Austin (video)</a></li>
+  
+      <li><a href="/2015/08/07/why-not-to-use-server-local-time.html">Why not to ask the server for its "local time"</a></li>
+  
+
+</div>
+
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <!-- Begin MailChimp Signup Form -->
+
+    <div id="mc_embed_signup" style='font-family: "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif; color: #555; border: solid 1px #483D8B; width: 100%; clear:both; margin-bottom: 10px; border-radius: 2px;'>
+    <form action="//creativedeletion.us11.list-manage.com/subscribe/post?u=6eaa5232c7bcfc88f50ad6e8b&amp;id=11efd8893f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+        <div id="mc_embed_signup_scroll">
+      <table style="width: 100%;">
+      <tr>
+      <td>
+          <p style="margin-top:14px; margin-left:10px;">Subscribe to my newsletter with Elixir tips and tricks:</p>
+      </td>
+      <td>
+      <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Your e-mail address">
+        <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+      </td>
+      </tr>
+      </table>
+
+      <div>
+      </div>
+      <div id="mce-responses" class="clear">
+        <div class="response" id="mce-error-response" style="display:none"></div>
+        <div class="response" id="mce-success-response" style="display:none"></div>
+      </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+        <div style="position: absolute; left: -5000px;"><input type="text" name="b_6eaa5232c7bcfc88f50ad6e8b_11efd8893f" tabindex="-1" value=""></div>
+        </div>
+    </form>
+    </div>
+    <!--End mc_embed_signup-->
+
+    <h2 class="footer-heading">Creative Deletion</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li>Creative Deletion</li>
+          <li><a href="mailto:"></a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/lau">
+              <span class="icon  icon--github">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+                </svg>
+              </span>
+
+              <span class="username">lau</span>
+            </a>
+          </li>
+          
+
+          
+          <li>
+            <a href="https://twitter.com/laut">
+              <span class="icon  icon--twitter">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+                  c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+                </svg>
+              </span>
+
+              <span class="username">laut</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        <p class="text">Lau Taarnskov's blog on tech
+</p>
+      </div>
+    </div>
+    <div style="height: 2em; font-family:Monaco,'Courier New';font-size:10pt;position:fixed;bottom:0;right:10px;" onclick="location.href='/assets/pi.gif'">
+    <p>π</p>
+    </div>
+  </div>
+
+</footer>
+
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-728853-7', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+
+</html>
