@@ -6,8 +6,8 @@
 </description>
     <link>http://www.creativedeletion.com/</link>
     <atom:link href="http://www.creativedeletion.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 04 Feb 2016 17:47:33 -0300</pubDate>
-    <lastBuildDate>Thu, 04 Feb 2016 17:47:33 -0300</lastBuildDate>
+    <pubDate>Wed, 10 Feb 2016 16:18:43 -0300</pubDate>
+    <lastBuildDate>Wed, 10 Feb 2016 16:18:43 -0300</lastBuildDate>
     <generator>Jekyll v3.1.1</generator>
     
       <item>
@@ -86,7 +86,7 @@ could print an RFC3339 string like so:
 
 &lt;p&gt;In this case the function prints the datetime in RFC3339 as UTC. But hold on, the
 date is now the 16th of January instead of the 17th! All we originally wanted to
-store was the 16th of January 2016, but the type also includes time and a timezone.
+store was the 17th of January 2016, but the type also includes time and a timezone.
 Because of the timezone, that same time in UTC is the day before at 11pm.&lt;/p&gt;
 
 &lt;p&gt;If we had a type available representing a simple date (year, month, day), and had
