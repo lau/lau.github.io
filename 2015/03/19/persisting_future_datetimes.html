@@ -155,7 +155,7 @@ what the user expects us to save: the wall time. Ie. what the clock on the wall 
 This way we can convert back to UTC or any other timezone.</p>
 
 <p>To avoid ambigiuty we also save a third piece of data: the UTC offset. Note that the UTC offset is only
-there for the rare cases when the timezone does not change, but when there is an ambiguity we know about at scheduling
+there for the rare tie-breaker cases when the timezone does not change, but when there is an ambiguity we know about at scheduling
 time - that will usually be when the timezone goes off of DST and a range of time (usually an hour) happens twice
 in autumn when clocks are set back. In this example though this third piece of data is not used for anything.</p>
 
@@ -198,11 +198,11 @@ And remember, time zone rules change all the time.</p>
 
   <h3>More blogposts:</h3>
   
+      <li><a href="/2016/03/07/comparing_dates_in_elixir.html">Compare date and time in Elixir with protocols</a></li>
+  
       <li><a href="/2016/02/04/timetypes_prevent_bugs.html">How more time types prevent bugs and add clarity</a></li>
   
       <li><a href="/2015/12/03/timezone-updates-need-fixing.html">Timezone updates need to be fixed</a></li>
-  
-      <li><a href="/2015/10/19/elixirconf-talk-date-time.html">Date/time talk at ElixirConf 2015 in Austin (video)</a></li>
   
 
 </div>
