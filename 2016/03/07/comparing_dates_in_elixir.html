@@ -235,8 +235,8 @@ the functions in the <code class="highlighter-rouge">Calendar.Date</code> module
 <p>What if you have two datetimes and you want to know if they are on the same date - not
 if they are on the exact same time, just if they are on the same date. There is not a special
 function for that made for date-times. Instead we can simply use the same function as before:
-<code class="highlighter-rouge">Date.diff/2</code>. When passing datetimes, the protocols simply discards the time date and just
-use the date part of the date-time:</p>
+<code class="highlighter-rouge">Date.diff/2</code>. When passing datetimes, the protocols simply discards the time and just
+uses the date part of the date-time:</p>
 
 <figure class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="o">&gt;</span> <span class="no">Calendar</span><span class="o">.</span><span class="no">Date</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">ecto_dt1</span><span class="p">,</span> <span class="n">ecto_dt2</span><span class="p">)</span>
 <span class="m">0</span>

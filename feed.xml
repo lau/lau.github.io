@@ -6,8 +6,8 @@
 </description>
     <link>http://www.creativedeletion.com/</link>
     <atom:link href="http://www.creativedeletion.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 08 Mar 2016 11:24:10 -0300</pubDate>
-    <lastBuildDate>Tue, 08 Mar 2016 11:24:10 -0300</lastBuildDate>
+    <pubDate>Tue, 08 Mar 2016 11:33:53 -0300</pubDate>
+    <lastBuildDate>Tue, 08 Mar 2016 11:33:53 -0300</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -147,8 +147,8 @@ the functions in the &lt;code class=&quot;highlighter-rouge&quot;&gt;Calendar.Da
 &lt;p&gt;What if you have two datetimes and you want to know if they are on the same date - not
 if they are on the exact same time, just if they are on the same date. There is not a special
 function for that made for date-times. Instead we can simply use the same function as before:
-&lt;code class=&quot;highlighter-rouge&quot;&gt;Date.diff/2&lt;/code&gt;. When passing datetimes, the protocols simply discards the time date and just
-use the date part of the date-time:&lt;/p&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;Date.diff/2&lt;/code&gt;. When passing datetimes, the protocols simply discards the time and just
+uses the date part of the date-time:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-elixir&quot; data-lang=&quot;elixir&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;diff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ecto_dt1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ecto_dt2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;
