@@ -6,15 +6,15 @@
 </description>
     <link>http://www.creativedeletion.com/</link>
     <atom:link href="http://www.creativedeletion.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 07 Mar 2016 15:12:39 -0300</pubDate>
-    <lastBuildDate>Mon, 07 Mar 2016 15:12:39 -0300</lastBuildDate>
+    <pubDate>Tue, 08 Mar 2016 11:24:10 -0300</pubDate>
+    <lastBuildDate>Tue, 08 Mar 2016 11:24:10 -0300</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
         <title>Compare date and time in Elixir with protocols</title>
         <description>&lt;p&gt;The &lt;a href=&quot;https://github.com/lau/calendar&quot;&gt;Calendar&lt;/a&gt; library has functionality for comparing dates and datetimes.
 The &lt;code class=&quot;highlighter-rouge&quot;&gt;Calendar.Date&lt;/code&gt; module has a function for getting the difference
-between two dates. You can for instance pass a date tuples
+between two dates. You can for instance pass date tuples
 or Calendar structs to the &lt;code class=&quot;highlighter-rouge&quot;&gt;Calendar.Date.diff/2&lt;/code&gt; funciton. This will return the difference in days
 between the two dates.&lt;/p&gt;
 
@@ -150,7 +150,9 @@ function for that made for date-times. Instead we can simply use the same functi
 &lt;code class=&quot;highlighter-rouge&quot;&gt;Date.diff/2&lt;/code&gt;. When passing datetimes, the protocols simply discards the time date and just
 use the date part of the date-time:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-elixir&quot; data-lang=&quot;elixir&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;same_date?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ecto_dt1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ecto_dt2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-elixir&quot; data-lang=&quot;elixir&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;diff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ecto_dt1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ecto_dt2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;same_date?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ecto_dt1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ecto_dt2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;no&quot;&gt;true&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ecto_dt1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;day_of_week_name&lt;/span&gt;
 &lt;span class=&quot;sd&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Friday&quot;&lt;/span&gt;
@@ -169,7 +171,7 @@ from Ecto with Calendar modules.&lt;/p&gt;
 
 &lt;p&gt;If you go a bit further and use Calecto types e.g.
 &lt;code class=&quot;highlighter-rouge&quot;&gt;Calecto.DateTimeUTC&lt;/code&gt; instead of &lt;code class=&quot;highlighter-rouge&quot;&gt;Ecto.DateTime&lt;/code&gt;, you get more functionality,
-convenience and &lt;a href=&quot;http://www.creativedeletion.com/2015/03/19/persisting_future_datetimes.html&quot;&gt;protection from bugs&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&quot;http://www.creativedeletion.com/2016/02/04/timetypes_prevent_bugs.html&quot;&gt;convenience&lt;/a&gt; and &lt;a href=&quot;http://www.creativedeletion.com/2015/03/19/persisting_future_datetimes.html&quot;&gt;protection from bugs&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;protocols&quot;&gt;Protocols&lt;/h2&gt;
 

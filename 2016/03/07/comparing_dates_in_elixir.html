@@ -102,7 +102,7 @@
   <article class="post-content">
     <p>The <a href="https://github.com/lau/calendar">Calendar</a> library has functionality for comparing dates and datetimes.
 The <code class="highlighter-rouge">Calendar.Date</code> module has a function for getting the difference
-between two dates. You can for instance pass a date tuples
+between two dates. You can for instance pass date tuples
 or Calendar structs to the <code class="highlighter-rouge">Calendar.Date.diff/2</code> funciton. This will return the difference in days
 between the two dates.</p>
 
@@ -238,7 +238,9 @@ function for that made for date-times. Instead we can simply use the same functi
 <code class="highlighter-rouge">Date.diff/2</code>. When passing datetimes, the protocols simply discards the time date and just
 use the date part of the date-time:</p>
 
-<figure class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="o">&gt;</span> <span class="no">Calendar</span><span class="o">.</span><span class="no">Date</span><span class="o">.</span><span class="n">same_date?</span><span class="p">(</span><span class="n">ecto_dt1</span><span class="p">,</span> <span class="n">ecto_dt2</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="o">&gt;</span> <span class="no">Calendar</span><span class="o">.</span><span class="no">Date</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">ecto_dt1</span><span class="p">,</span> <span class="n">ecto_dt2</span><span class="p">)</span>
+<span class="m">0</span>
+<span class="o">&gt;</span> <span class="no">Calendar</span><span class="o">.</span><span class="no">Date</span><span class="o">.</span><span class="n">same_date?</span><span class="p">(</span><span class="n">ecto_dt1</span><span class="p">,</span> <span class="n">ecto_dt2</span><span class="p">)</span>
 <span class="no">true</span>
 <span class="o">&gt;</span> <span class="n">ecto_dt1</span> <span class="o">|&gt;</span> <span class="no">Calendar</span><span class="o">.</span><span class="no">Date</span><span class="o">.</span><span class="n">day_of_week_name</span>
 <span class="sd">"</span><span class="s2">Friday"</span>
@@ -257,7 +259,7 @@ from Ecto with Calendar modules.</p>
 
 <p>If you go a bit further and use Calecto types e.g.
 <code class="highlighter-rouge">Calecto.DateTimeUTC</code> instead of <code class="highlighter-rouge">Ecto.DateTime</code>, you get more functionality,
-convenience and <a href="http://www.creativedeletion.com/2015/03/19/persisting_future_datetimes.html">protection from bugs</a>.</p>
+<a href="http://www.creativedeletion.com/2016/02/04/timetypes_prevent_bugs.html">convenience</a> and <a href="http://www.creativedeletion.com/2015/03/19/persisting_future_datetimes.html">protection from bugs</a>.</p>
 
 <h2 id="protocols">Protocols</h2>
 
