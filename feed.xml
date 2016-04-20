@@ -6,8 +6,8 @@
 </description>
     <link>http://www.creativedeletion.com/</link>
     <atom:link href="http://www.creativedeletion.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 08 Mar 2016 11:33:53 -0300</pubDate>
-    <lastBuildDate>Tue, 08 Mar 2016 11:33:53 -0300</lastBuildDate>
+    <pubDate>Wed, 20 Apr 2016 19:29:11 -0300</pubDate>
+    <lastBuildDate>Wed, 20 Apr 2016 19:29:11 -0300</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -1128,7 +1128,7 @@ And remember, time zone rules change all the time.&lt;/p&gt;
 
 &lt;p&gt;&lt;img title=&quot;Atlas mountains seen from Marrakesh, Morocco&quot; alt=&quot;Atlas mountains seen from Marrakesh, Morocco&quot; src=&quot;/assets/morocco_palms.jpg&quot; class=&quot;right_img&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Except for Morocco, where in the middle of summer, DST is suspended for a month during Ramadan.&lt;/p&gt;
+&lt;p&gt;Except for Morocco, where in the middle of summer, DST is suspended for a month during Ramadan (depending on which year it is).&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;If I have a timestamp for a future event, I can convert it to UTC, store it as UTC along with the time zone and be sure that I can reliably convert it back to the correct “wall time” in the future&lt;/strong&gt;&lt;/li&gt;
