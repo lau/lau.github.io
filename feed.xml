@@ -6,8 +6,8 @@
 </description>
     <link>http://www.creativedeletion.com/</link>
     <atom:link href="http://www.creativedeletion.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 20 Apr 2016 19:29:11 -0300</pubDate>
-    <lastBuildDate>Wed, 20 Apr 2016 19:29:11 -0300</lastBuildDate>
+    <pubDate>Wed, 20 Apr 2016 19:33:20 -0300</pubDate>
+    <lastBuildDate>Wed, 20 Apr 2016 19:33:20 -0300</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -1134,7 +1134,7 @@ And remember, time zone rules change all the time.&lt;/p&gt;
   &lt;li&gt;&lt;strong&gt;If I have a timestamp for a future event, I can convert it to UTC, store it as UTC along with the time zone and be sure that I can reliably convert it back to the correct “wall time” in the future&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;If time zone rules change in the mean time for the time zone in question, converting back from UTC to “local time” might produce a different result.&lt;/p&gt;
+&lt;p&gt;If time zone rules change in the mean time for the time zone in question, converting back from UTC to “local time” might produce a different result. &lt;a href=&quot;http://www.creativedeletion.com/2015/03/19/persisting_future_datetimes.html&quot;&gt;Follow this link for a solution&lt;/a&gt;.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;Time zone rules do not change&lt;/strong&gt;&lt;/li&gt;
