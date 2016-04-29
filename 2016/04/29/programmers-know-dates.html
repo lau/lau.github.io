@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>World time is more than GMT offsets</title>
-  <meta name="description" content="A lot of technology today seems to ignore the complexities of world time, timezones and daylight savings. In fact, as far as I know, there doesn’t even seem ...">
+  <title>What everyone except programmers knows about dates</title>
+  <meta name="description" content="Ask a schoolchild to write down a date. They will likely write a month, day of the month and maybe a year too. So will mostother literate people at any age.">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://www.creativedeletion.com/2008/04/09/world-time-is-more-than-gmt-offsets.html">
+  <link rel="canonical" href="http://www.creativedeletion.com/2016/04/29/programmers-know-dates.html">
   <link rel="alternate" type="application/rss+xml" title="Creative Deletion" href="http://www.creativedeletion.com/feed.xml" />
   <style>
     .right_img {
@@ -95,34 +95,88 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">World time is more than GMT offsets</h1>
-    <p class="post-meta">Apr 9, 2008</p>
+    <h1 class="post-title">What everyone except programmers knows about dates</h1>
+    <p class="post-meta">Apr 29, 2016</p>
   </header>
 
   <article class="post-content">
-    <p>A lot of technology today seems to ignore the complexities of world time, timezones and daylight savings. In fact, as far as I know, there doesn’t even seem to exist a good watch that makes it easy to accurately know the time around the world.</p>
+    <p>Ask a schoolchild to write down a date. They will likely write a month, day of the month and maybe a year too. So will most
+other literate people at any age.</p>
 
-<p>The following picture is from Montevideo, Uruguay. It is 3 hours from GMT. And so is Nuuk (aka. Godthåb), Greenland. So while I am in Montevideo in South America I am sort of in the same time zone as Denmark - how about that? This time of year, though, most of Greenland observes DST, so local time in Nuuk is now GMT-2, not -3.</p>
+<p>Ask a programmer to write a date and they might write not just a date, but also add hours, minutes and seconds to it!</p>
 
-<p><img src="/assets/clock.jpg" width="452" height="320" alt="Clock in Montevideo" /></p>
+<p>But <b>a date does not have hours, minutes and seconds</b>. Most people know this. Except many programmers.</p>
 
-<p>If only adjusting your clock to local time around the world was a question of offsets from GMT, figuring out the local time around the would be relatively easy. What really complicates things is summertime (aka. Daylight Savings Time or DST).</p>
+<h2 id="why-it-is-like-this">Why it is like this</h2>
 
-<p>In Venezuala there is a certain mad man in charge that wants to create a new seperate time zone! The timezones don’t change that often, but recently there has been changes regarding DST. In USA the days when DST starts and stops was changed in 2007. DST starts and begins on different dates in different countries. Some countries within a certain timezone have DST and some don’t. A European I know asked a local person in a northern African country “Tomorrow at this time, what time is it?” The local person looked very puzzled after hearing the odd question. DST isn’t used in that particular country.</p>
+<p>Certain systems and programming languages have a simplistic structure to handle all kinds of time and date:
+<a href="http://www.creativedeletion.com/2016/02/04/timetypes_prevent_bugs.html">One type to rule them all</a>.
+This is a bad idea, but it is very prevalent. For instance typing <code class="highlighter-rouge">date</code> in Linux gives you not just a date,
+but also the time of day. In Java and Javascript the <code class="highlighter-rouge">Date</code> structure is really a datetime with certain
+timezone related information added on.</p>
 
-<p>I don’t wear a watch regularly, but use my iPhone to get the time. When travelling to a different time zone, I can go to the time settings in the phone and select the city that I am in or a city that I think is in the same time zone. The iPhone will then use it’s internal clock and timezone information for the different cities to calculate the local time in the city in question.</p>
+<h2 id="hijacking">Hijacking</h2>
 
-<p>Recently I was in Buenos Aires and, since it is a big city, of course I could find it in the settings on the iPhone. But… I came to find out that my clock was not showing the correct local time. I talked to an employee in the hotel about it and he said that Argentina in 2007 had readopted DST.</p>
+<p>Handling date and time in a computer context has enough challenges by itself: uneven months, leap years, time zones,
+DST, updates to time zones and so on. Hijacking and changing the meaning of the word “date” does not help.</p>
 
-<p>This change made by Argentina had not been reflected in my iPhone nor my <a target="_blank" href="http://www.amazon.com/gp/search?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;index=pc-hardware&amp;keywords=macbook%20pro&amp;linkCode=ur2&amp;tag=creatdelet-20&amp;linkId=LJYPT2NZA5CBNQCI">MacBook Pro</a>.</p>
+<p>Because if “date” in certain contexts implicitly means “datetime - maybe with a specified offset from UTC”, what word
+do you use to describe a simple date?</p>
 
-<p>I learned that political changes can unexpectedly change timezones and DST. And current “world time” clocks don’t seem reflect these changes.</p>
+<h2 id="those-that-do-it-better">Those that do it better</h2>
 
-<p>A lot of technology is developed in Europe or the US, where timezones don’t change that often. And some software developers seem to assume that it works the same way around the world. For instance there is JavaScript software that get a visitors local time from his browser and compare it to GMT to get the visitors GMT offset. That’s fine if you know that the user is in the US for instance. But in most of the Carribean DST isn’t used and in some parts of South America DST is reversed along with summer and winter.</p>
+<p>SQL databases have their share of problems when it comes to handling date and time. Especially when it comes to
+time zones. But at least MySQL has pretty good names for these three types:</p>
 
-<p>Here’s the lesson for software developers: To accurately calculate a users time zone, knowing a GMT offset is not enough. Getting the closest (politically and geographically) city is best. Furthermore, time zones and DST policies change, so for a world clock to be up-to-date it should probably be updated with the newest time zone changes once a year or so.</p>
+<table>
+  <tbody>
+    <tr>
+      <td>DATE</td>
+      <td>year, month, day</td>
+    </tr>
+    <tr>
+      <td>TIME</td>
+      <td>hour, minute, second</td>
+    </tr>
+    <tr>
+      <td>DATETIME</td>
+      <td>year, month, date, hour, minute, second</td>
+    </tr>
+  </tbody>
+</table>
 
-<p><em>2015 update: This was written in 2008. Since then I have learned more about timezones and changes to timezone rules. One of those things is that timezone updates happen often. 10 times a year is not that unusual. So updating “once a year or so” will not be often enough in many cases. Today I would recommend to apply every timezone update as soon as it is released.</em></p>
+<p><br /></p>
+
+<p><span style="color: #666">(Note: this is not a recommendation of MySQL.)</span></p>
+
+<h2 id="how-to-solve-this-problem">How to solve this problem</h2>
+
+<p>This issue is just one of many issues with date and time in a software context.
+But nonetheless I think it is important. And why not tackle each of the issues one step at the time?</p>
+
+<ul>
+  <li>
+    <p>Be concious of the difference between what a date is in the real world and the badly named
+structures used in certain languages and libraries.</p>
+  </li>
+  <li>
+    <p>Remember a date has no hours, minutes or seconds.</p>
+  </li>
+  <li>
+    <p>If you want to talk about a datetime, call it a datetime not a date.</p>
+  </li>
+  <li>
+    <p>If you are using a language with a <code class="highlighter-rouge">Date</code> class, that is really a datetime, some times you need to talk about the Date class. In that case be explicit about calling it e.g. a “Java Date object” and not just a “date”.</p>
+  </li>
+  <li>
+    <p>It is hard to change existing languages and libraries, but if you design a new programming language or date/time
+related library please call the concepts by their right name. A date is a just a date.</p>
+  </li>
+  <li>
+    <p>If you talk to someone involved in a software project and they call a datetime a “date”, make it clear what you are talking about.
+Maybe even send them a link to this blog post so that you are all on the same page.</p>
+  </li>
+</ul>
 
   </article>
 
@@ -133,11 +187,11 @@
 
   <h3>More blogposts:</h3>
   
-      <li><a href="/2016/04/29/programmers-know-dates.html">What everyone except programmers knows about dates</a></li>
-  
       <li><a href="/2016/03/07/comparing_dates_in_elixir.html">Compare date and time in Elixir with protocols</a></li>
   
       <li><a href="/2016/02/04/timetypes_prevent_bugs.html">How more time types prevent bugs and add clarity</a></li>
+  
+      <li><a href="/2015/12/03/timezone-updates-need-fixing.html">Timezone updates need to be fixed</a></li>
   
 
 </div>

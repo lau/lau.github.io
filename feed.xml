@@ -6,9 +6,96 @@
 </description>
     <link>http://www.creativedeletion.com/</link>
     <atom:link href="http://www.creativedeletion.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 20 Apr 2016 19:33:20 -0300</pubDate>
-    <lastBuildDate>Wed, 20 Apr 2016 19:33:20 -0300</lastBuildDate>
-    <generator>Jekyll v3.0.1</generator>
+    <pubDate>Fri, 29 Apr 2016 15:34:06 -0300</pubDate>
+    <lastBuildDate>Fri, 29 Apr 2016 15:34:06 -0300</lastBuildDate>
+    <generator>Jekyll v3.1.3</generator>
+    
+      <item>
+        <title>What everyone except programmers knows about dates</title>
+        <description>&lt;p&gt;Ask a schoolchild to write down a date. They will likely write a month, day of the month and maybe a year too. So will most
+other literate people at any age.&lt;/p&gt;
+
+&lt;p&gt;Ask a programmer to write a date and they might write not just a date, but also add hours, minutes and seconds to it!&lt;/p&gt;
+
+&lt;p&gt;But &lt;b&gt;a date does not have hours, minutes and seconds&lt;/b&gt;. Most people know this. Except many programmers.&lt;/p&gt;
+
+&lt;h2 id=&quot;why-it-is-like-this&quot;&gt;Why it is like this&lt;/h2&gt;
+
+&lt;p&gt;Certain systems and programming languages have a simplistic structure to handle all kinds of time and date:
+&lt;a href=&quot;http://www.creativedeletion.com/2016/02/04/timetypes_prevent_bugs.html&quot;&gt;One type to rule them all&lt;/a&gt;.
+This is a bad idea, but it is very prevalent. For instance typing &lt;code class=&quot;highlighter-rouge&quot;&gt;date&lt;/code&gt; in Linux gives you not just a date,
+but also the time of day. In Java and Javascript the &lt;code class=&quot;highlighter-rouge&quot;&gt;Date&lt;/code&gt; structure is really a datetime with certain
+timezone related information added on.&lt;/p&gt;
+
+&lt;h2 id=&quot;hijacking&quot;&gt;Hijacking&lt;/h2&gt;
+
+&lt;p&gt;Handling date and time in a computer context has enough challenges by itself: uneven months, leap years, time zones,
+DST, updates to time zones and so on. Hijacking and changing the meaning of the word “date” does not help.&lt;/p&gt;
+
+&lt;p&gt;Because if “date” in certain contexts implicitly means “datetime - maybe with a specified offset from UTC”, what word
+do you use to describe a simple date?&lt;/p&gt;
+
+&lt;h2 id=&quot;those-that-do-it-better&quot;&gt;Those that do it better&lt;/h2&gt;
+
+&lt;p&gt;SQL databases have their share of problems when it comes to handling date and time. Especially when it comes to
+time zones. But at least MySQL has pretty good names for these three types:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;DATE&lt;/td&gt;
+      &lt;td&gt;year, month, day&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;TIME&lt;/td&gt;
+      &lt;td&gt;hour, minute, second&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;DATETIME&lt;/td&gt;
+      &lt;td&gt;year, month, date, hour, minute, second&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&quot;color: #666&quot;&gt;(Note: this is not a recommendation of MySQL.)&lt;/span&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;how-to-solve-this-problem&quot;&gt;How to solve this problem&lt;/h2&gt;
+
+&lt;p&gt;This issue is just one of many issues with date and time in a software context.
+But nonetheless I think it is important. And why not tackle each of the issues one step at the time?&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Be concious of the difference between what a date is in the real world and the badly named
+structures used in certain languages and libraries.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Remember a date has no hours, minutes or seconds.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;If you want to talk about a datetime, call it a datetime not a date.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;If you are using a language with a &lt;code class=&quot;highlighter-rouge&quot;&gt;Date&lt;/code&gt; class, that is really a datetime, some times you need to talk about the Date class. In that case be explicit about calling it e.g. a “Java Date object” and not just a “date”.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;It is hard to change existing languages and libraries, but if you design a new programming language or date/time
+related library please call the concepts by their right name. A date is a just a date.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;If you talk to someone involved in a software project and they call a datetime a “date”, make it clear what you are talking about.
+Maybe even send them a link to this blog post so that you are all on the same page.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Fri, 29 Apr 2016 09:00:00 -0300</pubDate>
+        <link>http://www.creativedeletion.com/2016/04/29/programmers-know-dates.html</link>
+        <guid isPermaLink="true">http://www.creativedeletion.com/2016/04/29/programmers-know-dates.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>Compare date and time in Elixir with protocols</title>
@@ -1185,39 +1272,6 @@ And remember, time zone rules change all the time.&lt;/p&gt;
         <pubDate>Wed, 28 Jan 2015 13:22:57 -0200</pubDate>
         <link>http://www.creativedeletion.com/2015/01/28/falsehoods-programmers-date-time-zones.html</link>
         <guid isPermaLink="true">http://www.creativedeletion.com/2015/01/28/falsehoods-programmers-date-time-zones.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>World time is more than GMT offsets</title>
-        <description>&lt;p&gt;A lot of technology today seems to ignore the complexities of world time, timezones and daylight savings. In fact, as far as I know, there doesn’t even seem to exist a good watch that makes it easy to accurately know the time around the world.&lt;/p&gt;
-
-&lt;p&gt;The following picture is from Montevideo, Uruguay. It is 3 hours from GMT. And so is Nuuk (aka. Godthåb), Greenland. So while I am in Montevideo in South America I am sort of in the same time zone as Denmark - how about that? This time of year, though, most of Greenland observes DST, so local time in Nuuk is now GMT-2, not -3.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/clock.jpg&quot; width=&quot;452&quot; height=&quot;320&quot; alt=&quot;Clock in Montevideo&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;If only adjusting your clock to local time around the world was a question of offsets from GMT, figuring out the local time around the would be relatively easy. What really complicates things is summertime (aka. Daylight Savings Time or DST).&lt;/p&gt;
-
-&lt;p&gt;In Venezuala there is a certain mad man in charge that wants to create a new seperate time zone! The timezones don’t change that often, but recently there has been changes regarding DST. In USA the days when DST starts and stops was changed in 2007. DST starts and begins on different dates in different countries. Some countries within a certain timezone have DST and some don’t. A European I know asked a local person in a northern African country “Tomorrow at this time, what time is it?” The local person looked very puzzled after hearing the odd question. DST isn’t used in that particular country.&lt;/p&gt;
-
-&lt;p&gt;I don’t wear a watch regularly, but use my iPhone to get the time. When travelling to a different time zone, I can go to the time settings in the phone and select the city that I am in or a city that I think is in the same time zone. The iPhone will then use it’s internal clock and timezone information for the different cities to calculate the local time in the city in question.&lt;/p&gt;
-
-&lt;p&gt;Recently I was in Buenos Aires and, since it is a big city, of course I could find it in the settings on the iPhone. But… I came to find out that my clock was not showing the correct local time. I talked to an employee in the hotel about it and he said that Argentina in 2007 had readopted DST.&lt;/p&gt;
-
-&lt;p&gt;This change made by Argentina had not been reflected in my iPhone nor my &lt;a target=&quot;_blank&quot; href=&quot;http://www.amazon.com/gp/search?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;index=pc-hardware&amp;amp;keywords=macbook%20pro&amp;amp;linkCode=ur2&amp;amp;tag=creatdelet-20&amp;amp;linkId=LJYPT2NZA5CBNQCI&quot;&gt;MacBook Pro&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;I learned that political changes can unexpectedly change timezones and DST. And current “world time” clocks don’t seem reflect these changes.&lt;/p&gt;
-
-&lt;p&gt;A lot of technology is developed in Europe or the US, where timezones don’t change that often. And some software developers seem to assume that it works the same way around the world. For instance there is JavaScript software that get a visitors local time from his browser and compare it to GMT to get the visitors GMT offset. That’s fine if you know that the user is in the US for instance. But in most of the Carribean DST isn’t used and in some parts of South America DST is reversed along with summer and winter.&lt;/p&gt;
-
-&lt;p&gt;Here’s the lesson for software developers: To accurately calculate a users time zone, knowing a GMT offset is not enough. Getting the closest (politically and geographically) city is best. Furthermore, time zones and DST policies change, so for a world clock to be up-to-date it should probably be updated with the newest time zone changes once a year or so.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;2015 update: This was written in 2008. Since then I have learned more about timezones and changes to timezone rules. One of those things is that timezone updates happen often. 10 times a year is not that unusual. So updating “once a year or so” will not be often enough in many cases. Today I would recommend to apply every timezone update as soon as it is released.&lt;/em&gt;&lt;/p&gt;
-</description>
-        <pubDate>Wed, 09 Apr 2008 23:50:00 -0300</pubDate>
-        <link>http://www.creativedeletion.com/2008/04/09/world-time-is-more-than-gmt-offsets.html</link>
-        <guid isPermaLink="true">http://www.creativedeletion.com/2008/04/09/world-time-is-more-than-gmt-offsets.html</guid>
         
         
       </item>
