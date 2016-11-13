@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>What everyone except programmers knows about dates</title>
-  <meta name="description" content="Ask a schoolchild to write down a date. They will likely write a month, day of the month and maybe a year too. So will mostother literate people at any age.">
+  <meta name="description" content="Ask a schoolchild to write down a date. They will likely write a month, day of the month and maybe a year too (not necessarily in that order). So will mostot...">
 
   <link rel="stylesheet" href="/css/main.css">
   <link rel="canonical" href="http://www.creativedeletion.com/2016/04/29/programmers-know-dates.html">
@@ -100,19 +100,20 @@
   </header>
 
   <article class="post-content">
-    <p>Ask a schoolchild to write down a date. They will likely write a month, day of the month and maybe a year too. So will most
+    <p>Ask a schoolchild to write down a date. They will likely write a month, day of the month and maybe a year too (not necessarily in that order). So will most
 other literate people at any age.</p>
 
 <p>Ask a programmer to write a date and they might write not just a date, but also add hours, minutes and seconds to it!</p>
 
-<p>But <b>a date does not have hours, minutes and seconds</b>. Most people know this. Except many programmers.</p>
+<p>But <b>a date does not have hours, minutes and seconds</b>. Most people know this. Except many programmers. Well
+they probably know, but many use the word <em>date</em> to mean a combination of date and point of time in hours and minutes (and more detailed than that).</p>
 
 <h2 id="why-it-is-like-this">Why it is like this</h2>
 
 <p>Certain systems and programming languages have a simplistic structure to handle all kinds of time and date:
 <a href="http://www.creativedeletion.com/2016/02/04/timetypes_prevent_bugs.html">One type to rule them all</a>.
 This is a bad idea, but it is very prevalent. For instance typing <code class="highlighter-rouge">date</code> in Linux gives you not just a date,
-but also the time of day. In Java and Javascript the <code class="highlighter-rouge">Date</code> structure is really a datetime with certain
+but also the time of day. In Java (before version 8) and Javascript the <code class="highlighter-rouge">Date</code> structure is really a datetime with certain
 timezone related information added on.</p>
 
 <h2 id="hijacking">Hijacking</h2>
@@ -187,11 +188,11 @@ Maybe even send them a link to this blog post so that you are all on the same pa
 
   <h3>More blogposts:</h3>
   
+      <li><a href="/2016/11/12/elixirconf-2016-date-time.html">ElixirConf 2016 talk in Orlando (video): The New Calendar Types in Elixir 1.3</a></li>
+  
       <li><a href="/2016/03/07/comparing_dates_in_elixir.html">Compare date and time in Elixir with protocols</a></li>
   
       <li><a href="/2016/02/04/timetypes_prevent_bugs.html">How more time types prevent bugs and add clarity</a></li>
-  
-      <li><a href="/2015/12/03/timezone-updates-need-fixing.html">Timezone updates need to be fixed</a></li>
   
 
 </div>

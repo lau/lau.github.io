@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>World time is more than GMT offsets</title>
-  <meta name="description" content="A lot of technology today seems to ignore the complexities of world time, timezones and daylight savings. In fact, as far as I know, there doesn’t even seem ...">
+  <title>ElixirConf 2016 talk in Orlando (video): The New Calendar Types in Elixir 1.3</title>
+  <meta name="description" content="Elixir &amp; Phoenix Conf 2016 took place in Orlando, Florida in September. I gave a talk about the new date and time types in Elixir 1.3. It was recorded an...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://www.creativedeletion.com/2008/04/09/world-time-is-more-than-gmt-offsets.html">
+  <link rel="canonical" href="http://www.creativedeletion.com/2016/11/12/elixirconf-2016-date-time.html">
   <link rel="alternate" type="application/rss+xml" title="Creative Deletion" href="http://www.creativedeletion.com/feed.xml" />
   <style>
     .right_img {
@@ -95,34 +95,18 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">World time is more than GMT offsets</h1>
-    <p class="post-meta">Apr 9, 2008</p>
+    <h1 class="post-title">ElixirConf 2016 talk in Orlando (video): The New Calendar Types in Elixir 1.3</h1>
+    <p class="post-meta">Nov 12, 2016</p>
   </header>
 
   <article class="post-content">
-    <p>A lot of technology today seems to ignore the complexities of world time, timezones and daylight savings. In fact, as far as I know, there doesn’t even seem to exist a good watch that makes it easy to accurately know the time around the world.</p>
+    <p>Elixir &amp; Phoenix Conf 2016 took place in Orlando, Florida in September. I gave a talk about the new date and time types in Elixir 1.3. It was recorded and the video is available:</p>
 
-<p>The following picture is from Montevideo, Uruguay. It is 3 hours from GMT. And so is Nuuk (aka. Godthåb), Greenland. So while I am in Montevideo in South America I am sort of in the same time zone as Denmark - how about that? This time of year, though, most of Greenland observes DST, so local time in Nuuk is now GMT-2, not -3.</p>
+<iframe width="720" height="405" src="https://www.youtube.com/embed/3gky54_qLjQ" frameborder="0" allowfullscreen=""></iframe>
 
-<p><img src="/assets/clock.jpg" width="452" height="320" alt="Clock in Montevideo" /></p>
+<p><a href="https://speakerdeck.com/lau/the-new-calendar-types-in-elixir-1-dot-3">The slides are available here</a>.</p>
 
-<p>If only adjusting your clock to local time around the world was a question of offsets from GMT, figuring out the local time around the would be relatively easy. What really complicates things is summertime (aka. Daylight Savings Time or DST).</p>
-
-<p>In Venezuala there is a certain mad man in charge that wants to create a new seperate time zone! The timezones don’t change that often, but recently there has been changes regarding DST. In USA the days when DST starts and stops was changed in 2007. DST starts and begins on different dates in different countries. Some countries within a certain timezone have DST and some don’t. A European I know asked a local person in a northern African country “Tomorrow at this time, what time is it?” The local person looked very puzzled after hearing the odd question. DST isn’t used in that particular country.</p>
-
-<p>I don’t wear a watch regularly, but use my iPhone to get the time. When travelling to a different time zone, I can go to the time settings in the phone and select the city that I am in or a city that I think is in the same time zone. The iPhone will then use it’s internal clock and timezone information for the different cities to calculate the local time in the city in question.</p>
-
-<p>Recently I was in Buenos Aires and, since it is a big city, of course I could find it in the settings on the iPhone. But… I came to find out that my clock was not showing the correct local time. I talked to an employee in the hotel about it and he said that Argentina in 2007 had readopted DST.</p>
-
-<p>This change made by Argentina had not been reflected in my iPhone nor my <a target="_blank" href="http://www.amazon.com/gp/search?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;index=pc-hardware&amp;keywords=macbook%20pro&amp;linkCode=ur2&amp;tag=creatdelet-20&amp;linkId=LJYPT2NZA5CBNQCI">MacBook Pro</a>.</p>
-
-<p>I learned that political changes can unexpectedly change timezones and DST. And current “world time” clocks don’t seem reflect these changes.</p>
-
-<p>A lot of technology is developed in Europe or the US, where timezones don’t change that often. And some software developers seem to assume that it works the same way around the world. For instance there is JavaScript software that get a visitors local time from his browser and compare it to GMT to get the visitors GMT offset. That’s fine if you know that the user is in the US for instance. But in most of the Carribean DST isn’t used and in some parts of South America DST is reversed along with summer and winter.</p>
-
-<p>Here’s the lesson for software developers: To accurately calculate a users time zone, knowing a GMT offset is not enough. Getting the closest (politically and geographically) city is best. Furthermore, time zones and DST policies change, so for a world clock to be up-to-date it should probably be updated with the newest time zone changes once a year or so.</p>
-
-<p><em>2015 update: This was written in 2008. Since then I have learned more about timezones and changes to timezone rules. One of those things is that timezone updates happen often. 10 times a year is not that unusual. So updating “once a year or so” will not be often enough in many cases. Today I would recommend to apply every timezone update as soon as it is released.</em></p>
+<p>If this subject interests you, also check out <a href="/2015/10/19/elixirconf-talk-date-time.html">my talk from ElixirConf 2015</a>.</p>
 
   </article>
 
@@ -133,11 +117,11 @@
 
   <h3>More blogposts:</h3>
   
-      <li><a href="/2016/11/12/elixirconf-2016-date-time.html">ElixirConf 2016 talk in Orlando (video): The New Calendar Types in Elixir 1.3</a></li>
-  
       <li><a href="/2016/04/29/programmers-know-dates.html">What everyone except programmers knows about dates</a></li>
   
       <li><a href="/2016/03/07/comparing_dates_in_elixir.html">Compare date and time in Elixir with protocols</a></li>
+  
+      <li><a href="/2016/02/04/timetypes_prevent_bugs.html">How more time types prevent bugs and add clarity</a></li>
   
 
 </div>
