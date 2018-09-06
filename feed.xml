@@ -6,8 +6,8 @@
 </description>
     <link>http://www.creativedeletion.com/</link>
     <atom:link href="http://www.creativedeletion.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 06 Sep 2018 10:24:29 -0700</pubDate>
-    <lastBuildDate>Thu, 06 Sep 2018 10:24:29 -0700</lastBuildDate>
+    <pubDate>Thu, 06 Sep 2018 10:27:34 -0700</pubDate>
+    <lastBuildDate>Thu, 06 Sep 2018 10:27:34 -0700</lastBuildDate>
     <generator>Jekyll v3.8.3</generator>
     
       <item>
@@ -27,7 +27,7 @@
 
 &lt;figure class=&quot;picture right_img&quot;&gt;
   &lt;img src=&quot;/assets/greenwich_clock.jpg&quot; srcset=&quot;/assets/greenwich_clock.jpg 1x, /assets/greenwich_clock2x.jpg 2x&quot; /&gt;
-  &lt;figcaption&gt;Gratuitous photo of old clock in Greenwich.&lt;/figcaption&gt;
+  &lt;figcaption&gt;Gratuitous photo of an old clock in Greenwich.&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;Imagine that it is the year 2000 and you are developing a web application using PHP. You want to periodically run a command to delete some temporary files from a directory. PHP application code is usually run when someone goes to their browser and clicks a link to you web site. However you do not want to run that command every time someone clicks a link to you website. So you decide to use cron. Just a single line of slightly cryptic code will make cron execute a command of your choosing. You manually add the cron entry to the server and verify that it works.&lt;/p&gt;
