@@ -6,12 +6,118 @@
 </description>
     <link>http://www.creativedeletion.com/</link>
     <atom:link href="http://www.creativedeletion.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 06 Sep 2018 10:27:34 -0700</pubDate>
-    <lastBuildDate>Thu, 06 Sep 2018 10:27:34 -0700</lastBuildDate>
+    <pubDate>Tue, 08 Jan 2019 17:21:38 -0300</pubDate>
+    <lastBuildDate>Tue, 08 Jan 2019 17:21:38 -0300</lastBuildDate>
     <generator>Jekyll v3.8.3</generator>
     
       <item>
-        <title>Using Elixir instead of cron</title>
+        <title>Data types and assumptions. And how incorrect assumptions made a spacecraft crash</title>
+        <description>&lt;p&gt;In maths and physics classes in school I was taught to always keep track of the units when doing calculations. If you do some calculation and the result is just a number - that is not good enough. How fast is a train travelling? 80? 80 what? 80 bananas? If you keep track of the units you can do all kinds of calculations and have an easier time figuring out if it is 80 meters, 80 meters per second, 80 km/h, or 80 miles per hour. Throughout the calculations the units are always there. And at the end your result will include the unit.&lt;/p&gt;
+
+&lt;p&gt;However in programming, developers are not always keeping track of units so rigorously. In this article I will go through some advantages of doing so.&lt;/p&gt;
+
+&lt;h2 id=&quot;missing-and-assumed-information-versus-explicit-data&quot;&gt;Missing and assumed information versus explicit data&lt;/h2&gt;
+
+&lt;p&gt;If you have “10.00 US Dollars” written down, both the number “10.00” and the “US Dollars” part are data. Data can be very useful to both computers and humans. If some data is deemed to be needed, but not present, humans or computer programs can make some assumptions or use some made up data based on a default or an algorithm. However if this made up data or assumption is incorrect, it can lead to problems.&lt;/p&gt;
+
+&lt;p&gt;One way of representing a price of 10.00 US Dollars is simply using an integer or a decimal number:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;price: #Decimal&amp;lt;10.00&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+    &lt;p&gt;The information about which currency the integer represents is not present in the data itself. So you need to look at the context and look outside of the data present here to find out what currency it is.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;A way to improve this a bit is to add the unit to the name of a database column or variable name. So instead of calling the column simply “price”, we can call it “price_usd”:
+&lt;code class=&quot;highlighter-rouge&quot;&gt;price_usd: #Decimal&amp;lt;10.00&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+    &lt;p&gt;This is better than nothing. But if that value is taken out of context and passed to a function as just a decimal number, the information about the currency is not there anymore.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Another way is to represent this with both the raw number value and a separate part representing the currency code:&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-elixir highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;ss&quot;&gt;price_amount:&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#Decimal&amp;lt;10.00&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;ss&quot;&gt;price_currency:&lt;/span&gt; &lt;span class=&quot;sd&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;USD&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;To take it further we can have a type representing money:
+&lt;code class=&quot;highlighter-rouge&quot;&gt;price: %Money{amount: #Decimal&amp;lt;10.00&amp;gt;, currency_code: USD}&lt;/code&gt;&lt;/p&gt;
+
+    &lt;p&gt;This money-specific custom type can be used in a programming language in combination with the previous structure with two fields read from a database and put into the “Money” type struct. Compared to the first example of just having a decimal, in the code we now have a type that tells us both that it is money - not just any Decimal - and what currency it is.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;computer-checking-units-vs-assumptions-about-someone-having-read-something&quot;&gt;Computer checking units vs. assumptions about someone having read something&lt;/h2&gt;
+
+&lt;p&gt;If all of the money amounts in a system is handled with such a money type, this can prevent certain problems. For instance if you try to add two amounts money and they have different currencies, this must be taken into account. Adding 10 USD and 10 EUR is easy to do if they are just simple numbers. The result is 20. But 20 what? It doesn’t make sense. With a type that includes the “unit” (in this case the currency), functions can include checks to prevent mixing currencies incorrectly or perhaps convert currencies before adding them together.&lt;/p&gt;
+
+&lt;h2 id=&quot;getting-data-into-the-system&quot;&gt;Getting data into the system&lt;/h2&gt;
+
+&lt;p&gt;Do not make up fake data based on loose assumptions. If you have a parsing function to parse strings and make them into Money structs don’t assume some default currency if a currency is missing. E.g. when parsing “$10.00 USD” it is fine to just make that into a Money struct with 10.00 USD. But if a string only contains “10.00” then the information about the currency is not present in the data. It might be tempting to have “default currency” and just have a general parsing function assume that if you see “10.00” then assume that it is USD. This is dangerous. Instead the parsing function should return an error and say that the currency code is missing. It is better to raise errors in the software than to get bad data into your system. An example of what not to do is how in Ruby the &lt;a href=&quot;https://stackoverflow.com/questions/33879855/why-does-23-dogs-get-parsed-to-23-november-2015-in-pry-but-3-dogs-gives-a-p&quot;&gt;Date.parse method will parse “23 dogs” as the 23rd of November 2018&lt;/a&gt;. Or whatever the current month and year is. (“3 dogs” results in an error though).&lt;/p&gt;
+
+&lt;p&gt;Parsing should not make too many assumptions and add fake data if some data is missing. Like ignoring “dogs” and adding a year and month that was no where to be found in the string being “parsed”. In that case it is not just parsing. It is parsing and some complicated random data generation combined into one confusing method.&lt;/p&gt;
+
+&lt;p&gt;In some cases you have data coming in that does not include all the information you want. Imagine a CSV file with amounts that represent dollar amounts. The people that gave you this data maybe told you in person or over the phone that the numbers represent USD amounts even if the USD currency code is nowhere to be found in the CSV file. It would be good if the currency code was present in the CSV file. However if it is not possible to convince the producer of the data to include the currency code, you can resort to adding the currency code just after parsing it.&lt;/p&gt;
+
+&lt;p&gt;If a programmer knows that the string is in fact representing an amount of “USD” even though USD is not present in the data being parsed, the amount “10.00” can be parsed as a number. Then programmers can define create a new Money struct with a combination of the parsed number and explicitly putting “USD” in there. This way the parsing is simply parsing the data that is actually there (10.00) and the information about the currency (USD) is separately and explicitly being defined in the code for that specific data source. The important thing to be clear about is that if you have “10.00” going in and Money struct with “USD” going out at the other end, you are not just parsing data. You are parsing and also adding data about currency based on an assumption.&lt;/p&gt;
+
+&lt;p&gt;I think that in general it is best if data is not silently created by default. A money amount parsing function that defaults to a certain currency (USD) might seem innocent enough. It can be convenient in some cases. But convenience in one situation can be silent creation of bad data in another situation.&lt;/p&gt;
+
+&lt;h2 id=&quot;getting-data-out-of-the-system&quot;&gt;Getting data out of the system&lt;/h2&gt;
+
+&lt;p&gt;Whether data is being passed around inside the boundaries of a system or to an entirely different system, keeping track of the units are useful in both cases. If the units are properly determined upon entry into the system and kept all along, they are right there and available for when they are to be exported out of the system or sent to other systems. For instance with a JSON HTTP API. So instead of an API having a field that is just called “price” and has a decimal value, the data about the currency is also available for the API which means that other systems will also have this currency information. Just like we would want other people to provide this kind of information to our system, we can provide it to others if we keep track of it.&lt;/p&gt;
+
+&lt;h2 id=&quot;communication-across-systems&quot;&gt;Communication across systems&lt;/h2&gt;
+
+&lt;p&gt;If everyone makes sure to keep track of units as soon as the data is either created in that system or read from another system that is a good start. Then if everyone also includes the units when providing data to other systems, this in turn makes it easier for those systems to get the units right as they go from one system to another.&lt;/p&gt;
+
+&lt;h2 id=&quot;space-craft-destroyed-by-incorrect-assumption-of-unit&quot;&gt;Space craft destroyed by incorrect assumption of unit&lt;/h2&gt;
+
+&lt;figure class=&quot;picture right_img&quot;&gt;
+  &lt;img src=&quot;/assets/Mars_Climate_Orbiter_2.jpg&quot; /&gt;
+  &lt;figcaption&gt;Mars Climate Orbiter&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The Mars Climate Orbiter was launched into space in 1998. In September 1999 before the mission was completed the spacecraft burned up in the atmosphere of Mars.&lt;/p&gt;
+
+&lt;p&gt;Later, many people have used this failure as an example of not following sound engineering practices and suggested different solutions and how those solutions could have prevent failure. I am not the first one to sit in an armchair and write about how it could have been done differently. But I will still use this as an example because it seems like a fun example to use. &lt;a href=&quot;https://www.creativedeletion.com/2016/11/12/elixirconf-2016-date-time.html&quot;&gt;I used the same example for a talk in 2016&lt;/a&gt; where I briefly touched on the same subject about being explicit about data.&lt;/p&gt;
+
+&lt;p&gt;The reason that the space craft burned up was that one part of the system was receiving numbers representing Newton seconds, but using them as if they were pound-force seconds.
+Imagine that you have an API that provides information. Instead of simply using an integer or a float, the API could include a unit.&lt;/p&gt;
+
+&lt;p&gt;Imagine that the consumer of the API was expecting a value in pound-force seconds tagged with a unit. So instead of just sending a decimal such as “2.345” it would send “2.345 N s”.
+And the consumer of the API would read and verify the unit. On the consumer side it would receive the unit as “N s”. And verify that it is pounds as expected… Hold on a minute. “N s” is not pounds. The software on the consumer side would raise an error because “N s” would not match the expected unit. This error would be seen in tests before sending the system into production. Perhaps this would prevent the mission from failure.&lt;/p&gt;
+
+&lt;h2 id=&quot;using-incorrect-units&quot;&gt;Using incorrect units&lt;/h2&gt;
+
+&lt;p&gt;A unit is information. And wrong information is worse than a lack of information. Using wrong units is worse than not using any units. For instance representing 10 meters as 10 feet is worse than just using the integer 10. A cake recipe that specifies 1kg of salt instead of 1 teaspoon of salt is worse than just specifying “salt to taste”. Have you ever tasted a cake made with too much salt? I once stored both salt and sugar in unlabelled containers and used salt instead of sugar. Let’s just say that I would not recommend doing that.&lt;/p&gt;
+
+&lt;h2 id=&quot;other-kinds-of-units&quot;&gt;Other kinds of units&lt;/h2&gt;
+
+&lt;p&gt;Besides currency codes, these principles apply to other “units” including: lengths, temperatures, weights, timezone identifiers and time zone offsets in combinations with datetimes, and more.&lt;/p&gt;
+
+&lt;h2 id=&quot;communication-and-applications-interfaces&quot;&gt;Communication and applications interfaces&lt;/h2&gt;
+
+&lt;p&gt;Writing computer programs involves both communicating with humans and computers. The source code should be readable by current programmers, future programmers and at the same being understood by computers. Data is not different from source code in that regard. A human can read some data and make better decisions and use of the data if it is correct and sufficient. The same goes for computer systems.&lt;/p&gt;
+
+&lt;p&gt;Having good data can be useful to both programmers and computer systems. It could be the programmer that reads the code a month after writing it. Or other programmers that read it later. It could be a function in a library that can make use of the data. Or it can be code in other systems that read the data produced by your system. Be it preventing a baker from adding too much salt, a space craft from burning or helping a programmer more easily reading code and adding features to it.&lt;/p&gt;
+
+&lt;p&gt;P.S. In a future post I will expand on these ideas and how it relates to the date and time types in &lt;a href=&quot;https://www.elixir-lang.org/&quot;&gt;Elixir&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 08 Jan 2019 09:00:00 -0300</pubDate>
+        <link>http://www.creativedeletion.com/2019/01/08/data-types-assumptions.html</link>
+        <guid isPermaLink="true">http://www.creativedeletion.com/2019/01/08/data-types-assumptions.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Reasons for using Elixir instead of cron</title>
         <description>&lt;p&gt;Why use multiple lines of &lt;a href=&quot;https://elixir-lang.org&quot;&gt;Elixir&lt;/a&gt; instead of a single line of &lt;a href=&quot;https://en.wikipedia.org/wiki/Cron&quot;&gt;cron&lt;/a&gt;? Cron has been a staple in the toolbox for developers making web applications. But with Elixir (or other languages based on the Erlang virtual machine) it is not as necessary anymore.&lt;/p&gt;
 
 &lt;p&gt;Using Elixir over cron has some advantages, including:&lt;/p&gt;
@@ -40,7 +146,7 @@
 
 &lt;h1 id=&quot;a-new-solution&quot;&gt;A new solution&lt;/h1&gt;
 
-&lt;p&gt;Fast forward to 2018. You are making a web app again. This time using Elixir. Again you need to periodically execute a command to delete temporary files. Instead of using cron, you use Elixir. With Elixir it is easy to add extra processes that can run code when you want. A &lt;a href=&quot;https://stackoverflow.com/questions/32085258/how-can-i-schedule-code-to-run-every-few-hours-in-elixir-or-phoenix-framework/38778117&quot;&gt;very simple GenServer&lt;/a&gt; is all it takes to periodically run a command. If you prefer, there is a library, &lt;a href=&quot;https://github.com/quantum-elixir/quantum-core&quot;&gt;Quantum&lt;/a&gt;, that uses the same kind of syntax as cron.&lt;/p&gt;
+&lt;p&gt;Fast forward to 2018. You are making a web app again. This time using Elixir. Again you need to periodically execute a command to delete temporary files. Instead of using cron, you use Elixir. With Elixir it is easy to add extra processes that can run code when you want. A &lt;a href=&quot;https://stackoverflow.com/questions/32085258/how-can-i-schedule-code-to-run-every-few-hours-in-elixir-or-phoenix-framework/38778117&quot;&gt;very simple GenServer&lt;/a&gt; is all it takes to periodically run a command. If you prefer, there are libraries such as &lt;a href=&quot;https://github.com/quantum-elixir/quantum-core&quot;&gt;Quantum&lt;/a&gt; or &lt;a href=&quot;https://github.com/SchedEx/SchedEx&quot;&gt;SchedEx&lt;/a&gt;, that use the same kind of syntax as cron.&lt;/p&gt;
 
 &lt;p&gt;A single line of code can add it to the supervision tree of the application. This means that when the application runs - the code is executed. If something goes wrong, there are error messages. The code to schedule is no longer outside the code base. It no longer logs errors to a different place. It no longer requires cron to be available at runtime and the cron job to be set up and configured.&lt;/p&gt;
 
@@ -58,7 +164,7 @@
 
 &lt;p&gt;This means possibilities to reduce dependencies, simplify development, deployment, provisioning and monitoring.&lt;/p&gt;
 </description>
-        <pubDate>Tue, 04 Sep 2018 05:00:00 -0700</pubDate>
+        <pubDate>Tue, 04 Sep 2018 09:00:00 -0300</pubDate>
         <link>http://www.creativedeletion.com/2018/09/04/using-elixir-instead-of-cron.html</link>
         <guid isPermaLink="true">http://www.creativedeletion.com/2018/09/04/using-elixir-instead-of-cron.html</guid>
         
@@ -75,7 +181,7 @@
 
 &lt;p&gt;If this subject interests you, also check out &lt;a href=&quot;/2015/10/19/elixirconf-talk-date-time.html&quot;&gt;my talk from ElixirConf 2015&lt;/a&gt;.&lt;/p&gt;
 </description>
-        <pubDate>Sat, 12 Nov 2016 04:00:00 -0800</pubDate>
+        <pubDate>Sat, 12 Nov 2016 09:00:00 -0300</pubDate>
         <link>http://www.creativedeletion.com/2016/11/12/elixirconf-2016-date-time.html</link>
         <guid isPermaLink="true">http://www.creativedeletion.com/2016/11/12/elixirconf-2016-date-time.html</guid>
         
@@ -163,7 +269,7 @@ Maybe even send them a link to this blog post so that you are all on the same pa
   &lt;/li&gt;
 &lt;/ul&gt;
 </description>
-        <pubDate>Fri, 29 Apr 2016 05:00:00 -0700</pubDate>
+        <pubDate>Fri, 29 Apr 2016 09:00:00 -0300</pubDate>
         <link>http://www.creativedeletion.com/2016/04/29/programmers-know-dates.html</link>
         <guid isPermaLink="true">http://www.creativedeletion.com/2016/04/29/programmers-know-dates.html</guid>
         
@@ -344,7 +450,7 @@ are Calendar and Ecto. And Calecto provides the protocol implementation.&lt;/p&g
 with different data-types.&lt;/p&gt;
 
 </description>
-        <pubDate>Mon, 07 Mar 2016 04:00:00 -0800</pubDate>
+        <pubDate>Mon, 07 Mar 2016 09:00:00 -0300</pubDate>
         <link>http://www.creativedeletion.com/2016/03/07/comparing_dates_in_elixir.html</link>
         <guid isPermaLink="true">http://www.creativedeletion.com/2016/03/07/comparing_dates_in_elixir.html</guid>
         
@@ -557,7 +663,7 @@ library that implements the principles in this article is the &lt;a href=&quot;h
 That is the only datetime library I can recommend for Elixir.&lt;/p&gt;
 
 </description>
-        <pubDate>Thu, 04 Feb 2016 04:00:00 -0800</pubDate>
+        <pubDate>Thu, 04 Feb 2016 09:00:00 -0300</pubDate>
         <link>http://www.creativedeletion.com/2016/02/04/timetypes_prevent_bugs.html</link>
         <guid isPermaLink="true">http://www.creativedeletion.com/2016/02/04/timetypes_prevent_bugs.html</guid>
         
@@ -676,7 +782,7 @@ needs to be responsible for it and make sure the data is updated when it is avai
 who make software to help automate things for someone else, themselves do things manually when
 it comes to timezone updates. The current system does not work well. It is time to move on to an automated system.&lt;/p&gt;
 </description>
-        <pubDate>Thu, 03 Dec 2015 04:00:00 -0800</pubDate>
+        <pubDate>Thu, 03 Dec 2015 09:00:00 -0300</pubDate>
         <link>http://www.creativedeletion.com/2015/12/03/timezone-updates-need-fixing.html</link>
         <guid isPermaLink="true">http://www.creativedeletion.com/2015/12/03/timezone-updates-need-fixing.html</guid>
         
@@ -704,7 +810,7 @@ available at &lt;a href=&quot;https://github.com/lau/calendar&quot;&gt;https://g
 &lt;/ul&gt;
 
 </description>
-        <pubDate>Mon, 19 Oct 2015 05:00:00 -0700</pubDate>
+        <pubDate>Mon, 19 Oct 2015 09:00:00 -0300</pubDate>
         <link>http://www.creativedeletion.com/2015/10/19/elixirconf-talk-date-time.html</link>
         <guid isPermaLink="true">http://www.creativedeletion.com/2015/10/19/elixirconf-talk-date-time.html</guid>
         
@@ -839,7 +945,7 @@ would need to be awake to shut down servers
 before DST events.&lt;/p&gt;
 
 </description>
-        <pubDate>Fri, 07 Aug 2015 05:00:00 -0700</pubDate>
+        <pubDate>Fri, 07 Aug 2015 09:00:00 -0300</pubDate>
         <link>http://www.creativedeletion.com/2015/08/07/why-not-to-use-server-local-time.html</link>
         <guid isPermaLink="true">http://www.creativedeletion.com/2015/08/07/why-not-to-use-server-local-time.html</guid>
         
@@ -945,197 +1051,9 @@ sure you know what you are doing.&lt;/p&gt;
 &lt;p&gt;Working with date and time is not easy, but it is not all rocket science either. It is not a secret that DST means that hours are skipped and repeated. Programmers can ignore it and live with the consequences.
 Or use a library that can handle it.&lt;/p&gt;
 </description>
-        <pubDate>Sun, 10 May 2015 11:10:00 -0700</pubDate>
+        <pubDate>Sun, 10 May 2015 15:10:00 -0300</pubDate>
         <link>http://www.creativedeletion.com/2015/05/10/the-need-timezones.html</link>
         <guid isPermaLink="true">http://www.creativedeletion.com/2015/05/10/the-need-timezones.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Elixir - The next big language for the web</title>
-        <description>&lt;p&gt;In this article I will explain why
-I think
-the &lt;a href=&quot;http://elixir-lang.org&quot;&gt;Elixir language&lt;/a&gt;
- will make a big
-impact in the world of web development.&lt;/p&gt;
-
-&lt;h2 id=&quot;from-obscurity-to-the-default-choice&quot;&gt;From obscurity to the default choice&lt;/h2&gt;
-
-&lt;p&gt;First a short tale of another language that went from being largely
-unknown to very well known:&lt;/p&gt;
-
-&lt;p&gt;In 2003 I started using Ruby. A classmate from university was about to
-release a web framework for it. You could
-write software with much fewer lines of code than in Java. The combination
-of Ruby and this new web framework felt so much better for web development
-than what I had been using before - PHP.&lt;/p&gt;
-
-&lt;p&gt;So when a client wanted to redo an e-commerce site, I convinced them to
-rewrite it in Ruby and use this new framework that was now called Rails.
-Ever since I have been programming Ruby professionally.&lt;/p&gt;
-
-&lt;p&gt;Back then you could look at the download graphs of Rails and Ruby and it was
-obvious that Rails was driving downloads of Ruby. Rails took Ruby out of
-obscurity and some years later even many non-programmers had heard about this
-web framework.&lt;/p&gt;
-
-&lt;p&gt;It was very interesting to see how quickly Rails went from being used by a handful
-of people to being the “it-framework” and the default choice for startups
-that needed web based software. And some of them are now traded on the stock
-market with market caps in the billions of dollars.&lt;/p&gt;
-
-&lt;p&gt;One of them is Twitter. In 2009 Twitter had been experiencing a tremendous
-growth of users and traffic. They decided to change core parts of their
-infrastructure from Ruby to Scala.
-The way Scala handles concurrency made it easier for Twitter to handle the
-growth.&lt;/p&gt;
-
-&lt;h2 id=&quot;erlang&quot;&gt;Erlang&lt;/h2&gt;
-
-&lt;figure class=&quot;picture right_img&quot;&gt;
-  &lt;img src=&quot;/assets/ericsson_box.jpg&quot; srcset=&quot;/assets/ericsson_box.jpg 1x, /assets/ericsson_box2x.jpg 2x&quot; /&gt;
-  &lt;figcaption&gt;Ericsson equipment mounted on a lighthouse in Cabo Polonio, Uruguay&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;figure class=&quot;picture right_img&quot;&gt;
-  &lt;img src=&quot;/assets/cabo_polonio.jpg&quot; srcset=&quot;/assets/cabo_polonio.jpg 1x, /assets/cabo_polonio2x.jpg 2x&quot; /&gt;
-  &lt;figcaption&gt;View from the same lighthouse in Cabo Polonio, Uruguay&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;There is another language that is both functional and has an even longer
-history of handling massive concurrency: Erlang.
-It was made at Ericsson in the 1980s to allow for better
-development of telephony applications.&lt;/p&gt;
-
-&lt;p&gt;If you use 4G data on your phone it is more likely than not that the data is
-going through equipment from Ericsson. And it runs Erlang. Have you ever thought about how
-phone operators do not disconnect everyone’s phone calls in order to apply software updates?
-Erlang is made to allow phone switch system to run continuously
-and supports hotswapping: software updates while the software is running.&lt;/p&gt;
-
-&lt;p&gt;Whatsapp have hundreds of millions of users.
-On most other platforms &lt;a href=&quot;https://en.wikipedia.org/wiki/C10k_problem&quot;&gt;handling more than ten thousand concurrent connections
-on one machine is seen as challenging&lt;/a&gt;, but Whatsapp have individual servers with more than 2
-million concurrent connections. 2 million connections on a single server, handled by Erlang.&lt;/p&gt;
-
-&lt;p&gt;Erlang is also popular for game servers. Millions of users
-play multiplayer games with &lt;a href=&quot;http://www.erlang-factory.com/upload/presentations/395/ErlangandFirst-PersonShooters.pdf&quot;&gt;game server infrastructure handled by Erlang&lt;/a&gt;
-for titles such as Call of Duty and Game of War.&lt;/p&gt;
-
-&lt;p&gt;The Erlang platform has many advantages for serving reliable, scalable
-internet applications, it has a proven track record and has been around for
-decades. So why is it not a more popular choice for web development?&lt;/p&gt;
-
-&lt;p&gt;I think part of it is that with Erlang it is not as easy to get up and running
-with a new website. I do not think it is because the language is very hard to learn - it is not,
-but often people will take the path of least resistance.
-The Erlang syntax looks a bit strange if you are used to looking at languages
-such as C, Java, JavaScript, PHP, Ruby, Perl etc. And things like package management,
-build tools, meta-programming, unicode handling and web frameworks are not as straight forward as
-in languages such as Ruby.&lt;/p&gt;
-
-&lt;h2 id=&quot;elixir&quot;&gt;Elixir&lt;/h2&gt;
-
-&lt;p&gt;But those areas are all addressed in Elixir. Elixir creator José Valim said: “I liked everything I saw in Erlang, but I
-hated the things that I didn’t see”. Elixir has its own package management system,
-macros, an easy to use build tool and unicode handling.&lt;/p&gt;
-
-&lt;p&gt;Elixir is a language that runs on the Erlang VM. So it has all of the benefits
-of the mature, battle proven system and you can use the existing Erlang
-libraries with no performance penalty. And Elixir adds a bunch of niceties.
-One of them is the &lt;a href=&quot;http://elixir-lang.org/docs/stable/elixir/Kernel.html#|&amp;gt;/2&quot;&gt;pipe operator&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The difference between Erlang and Elixir is not just the syntax. But syntax
-does matter, and especially for Ruby developers the Elixir syntax will be very
-familiar.&lt;/p&gt;
-
-&lt;h2 id=&quot;immutability-and-functional-programming&quot;&gt;Immutability and functional programming&lt;/h2&gt;
-
-&lt;p&gt;Elixir is a functional language with immutability.&lt;/p&gt;
-
-&lt;p&gt;After having worked with immutable data for a while, I have realized how
-beneficial it is. Even for single threaded
-programming, mutability brings an uncertainty about how a program will execute.
-And I do not miss the mutability at all. Functional programming
-and immutability helps to clarify things and makes it easier to reason about code.&lt;/p&gt;
-
-&lt;h2 id=&quot;concurrency&quot;&gt;Concurrency&lt;/h2&gt;
-
-&lt;p&gt;Another strong point for Elixir is concurrency. Concurrency is here to stay, for several reasons.
-To mention a few: The trend in hardware
-is more and more CPU cores. The CPU manufacturers are not going
-to improve single core performance at the same rate as before. Instead they are
-adding more cores. Also the world is concurrent and you do not want
-end users or other software services to needlessly wait for a response because your
-single threaded software is busy.&lt;/p&gt;
-
-&lt;p&gt;In most languages concurrency is a bit of a pain. Not only is it dangerous and
-hard to do synchronization. With mutable state and forking of native processes it
-is also often slow and uses a lot of memory.&lt;/p&gt;
-
-&lt;p&gt;Doing concurrency in Erlang or Elixir versus other languages is a bit like
-doing branches in &lt;a href=&quot;https://en.wikipedia.org/wiki/Git_software&quot;&gt;Git&lt;/a&gt; vs &lt;a href=&quot;https://en.wikipedia.org/wiki/Apache_Subversion&quot;&gt;Subversion&lt;/a&gt;. In subversion it was very complicated to
-do - and I never did it. In Git it is a lot easier and I do it all the time.&lt;/p&gt;
-
-&lt;p&gt;In Elixir it is very easy to create a new process and it performs
-very well, so if the situation calls for it, it is straightforward to do.
-It is an integral part of the platform and does not require a separate library.
-Note that Erlang/Elixir processes are not native processes, they are much more light
-weight and are scheduled by the Erlang BEAM virtual machine.&lt;/p&gt;
-
-&lt;h2 id=&quot;web-framework&quot;&gt;Web framework&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.phoenixframework.org&quot;&gt;Phoenix&lt;/a&gt; is the most popular web framework for Elixir right now.
-The creator of Elixir is a Rails core member and the creator of Phoenix
-also has a background of working with Rails. While there is no desire to
-simply recreate Rails in Elixir, it means that Phoenix is also
-relatively easy to get started with because Rails has set certain minimum standards
-in that regard.&lt;/p&gt;
-
-&lt;p&gt;One of the most exciting features is the real time capabilities with channels
-between javascript on the client and Elixir on any of the servers in the cluster.
-Each single visitor to a website can have its own process on the server and its
-own real time connection. This opens up possibilities that are not present in
-traditional web frameworks.&lt;/p&gt;
-
-&lt;p&gt;By the way, seeing &lt;strong&gt;μs&lt;/strong&gt; (the microsecond symbol) in web server logs
-because of sub 1ms response times is quite nice ;) Efficiency and speed
-are important for the end user experience, and also means less waste of
-energy and money on servers.&lt;/p&gt;
-
-&lt;h2 id=&quot;programmer-happiness-and-beautiful-code&quot;&gt;Programmer happiness and beautiful code&lt;/h2&gt;
-
-&lt;p&gt;There are other languages that are faster than Ruby, but there are still
-good reasons to use for instance Ruby over Java: it is a nice language to work with and you
-can relatively quickly write concise code. Maybe Java code could perform better,
-but in many cases the Java code would
-not be as fun or quick to write, nor as easily maintainable.
-So the argument of just buying more powerful
-servers to make up for it can be a reasonable tradeoff in some cases. But what if you
-did not have to make such a choice?&lt;/p&gt;
-
-&lt;p&gt;With Elixir I do not feel like I trade any joy or speed of development for the
-performance, reliability and concurrency benefits of the Erlang VM.
-Elixir provides all of the Erlang benefits such as performance and reliability
-without giving up the productivity benefits of Ruby.&lt;/p&gt;
-
-&lt;h2 id=&quot;déjà-vu&quot;&gt;Déjà vu&lt;/h2&gt;
-
-&lt;p&gt;Like with Ruby 12 years ago, once again I feel that this new platform is so
-much better than the other solutions. And it is not just a gut feeling, there
-are rational arguments to back it up. Another similarity is that Dave Thomas
-is also excited about Elixir and has written &lt;a href=&quot;http://www.amazon.com/gp/product/1937785580/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=390957&amp;amp;creativeASIN=1937785580&amp;amp;linkCode=as2&amp;amp;tag=creatdelet-20&amp;amp;linkId=WZ5O2FFECAC3DXQC&quot;&gt;a book about the language&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;It is as if everything is aligned for Elixir to be the next new big thing
-for web development.
-In the last 10 years Ruby and Python have been popular choices for the web.
-I think it is likely that in a few years Elixir instead will be the go-to
-language for new web projects.&lt;/p&gt;
-</description>
-        <pubDate>Sun, 19 Apr 2015 15:00:00 -0700</pubDate>
-        <link>http://www.creativedeletion.com/2015/04/19/elixir_next_language.html</link>
-        <guid isPermaLink="true">http://www.creativedeletion.com/2015/04/19/elixir_next_language.html</guid>
         
         
       </item>
