@@ -6,8 +6,8 @@
 </description>
     <link>http://www.creativedeletion.com/</link>
     <atom:link href="http://www.creativedeletion.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 08 Jan 2019 19:41:41 -0300</pubDate>
-    <lastBuildDate>Tue, 08 Jan 2019 19:41:41 -0300</lastBuildDate>
+    <pubDate>Tue, 08 Jan 2019 19:43:23 -0300</pubDate>
+    <lastBuildDate>Tue, 08 Jan 2019 19:43:23 -0300</lastBuildDate>
     <generator>Jekyll v3.8.3</generator>
     
       <item>
@@ -70,7 +70,7 @@
 
 &lt;h2 id=&quot;getting-data-out-of-the-system&quot;&gt;Getting data out of the system&lt;/h2&gt;
 
-&lt;p&gt;Whether data is being passed around inside the boundaries of a system or to an entirely different system, keeping track of the units are useful in both cases. If the units are properly determined upon entry into the system and kept all along, they are right there and available for when they are to be exported out of the system or sent to other systems. For instance with a JSON HTTP API. So instead of an API having a field that is just called “price” and has a decimal value, the data about the currency is also available for the API which means that other systems will also have this currency information. Just like we would want other people to provide this kind of information to our system, we can provide it to others if we keep track of it.&lt;/p&gt;
+&lt;p&gt;Whether data is being passed around inside the boundaries of a system or to an entirely different system, keeping track of the units is useful in both cases. If the units are properly determined upon entry into the system and kept all along, they are right there and available for when they are to be exported out of the system or sent to other systems. For instance with a JSON HTTP API. So instead of an API having a field that is just called “price” and has a decimal value, the data about the currency is also available for the API which means that other systems will also have this currency information. Just like we would want other people to provide this kind of information to our system, we can provide it to others if we keep track of it.&lt;/p&gt;
 
 &lt;h2 id=&quot;communication-across-systems&quot;&gt;Communication across systems&lt;/h2&gt;
 
