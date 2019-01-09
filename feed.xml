@@ -6,8 +6,8 @@
 </description>
     <link>http://www.creativedeletion.com/</link>
     <atom:link href="http://www.creativedeletion.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 09 Jan 2019 10:52:08 -0300</pubDate>
-    <lastBuildDate>Wed, 09 Jan 2019 10:52:08 -0300</lastBuildDate>
+    <pubDate>Wed, 09 Jan 2019 15:54:22 -0300</pubDate>
+    <lastBuildDate>Wed, 09 Jan 2019 15:54:22 -0300</lastBuildDate>
     <generator>Jekyll v3.8.3</generator>
     
       <item>
@@ -64,7 +64,9 @@
 
 &lt;p&gt;In some cases you have data coming in that does not include all the information you want. Imagine a CSV file with amounts that represent dollar amounts. The people that gave you this data maybe told you in person or over the phone that the numbers represent USD amounts even if the USD currency code is nowhere to be found in the CSV file. It would be good if the currency code was present in the CSV file. However if it is not possible to convince the producer of the data to include the currency code, you can resort to adding the currency code just after parsing it.&lt;/p&gt;
 
-&lt;p&gt;If a programmer knows that the string is in fact representing an amount of “USD” even though USD is not present in the data being parsed, the amount “10.00” can be parsed as a number. Then programmers can create a new Money struct with a combination of the parsed number and explicitly putting “USD” in there. This way the parsing is simply parsing the data that is actually there (10.00) and the information about the currency (USD) is separately and explicitly being defined in the code for that specific data source. The important thing to be clear about is that if you have “10.00” going in and Money struct with “USD” going out at the other end, you are not just parsing data. You are parsing and also adding data about currency based on an assumption.&lt;/p&gt;
+&lt;p&gt;If a programmer knows that the string is in fact representing an amount of “USD” even though USD is not present in the data being parsed, the amount “10.00” can be parsed as a number. Then programmers can create a new Money struct with a combination of the parsed number and explicitly putting “USD” in there. This way the parsing function is simply parsing the data that is actually there (10.00). Then the information about the currency (USD) is separately and explicitly being defined in the code for that specific data source. So when someone is later reading the code, they can see that this assumption is there and that is where the currency part comes from, rather than from the parsed input.&lt;/p&gt;
+
+&lt;p&gt;The important thing to be clear about is that if you have “10.00” going in and Money struct with “USD” going out at the other end, you are not just parsing data. You are parsing and also adding data about currency based on an assumption.&lt;/p&gt;
 
 &lt;p&gt;I think that in general it is best if data is not silently created by default. A money amount parsing function that defaults to a certain currency (USD) might seem innocent enough. It can be convenient in some cases. But convenience in one situation can be silent creation of bad data in another situation.&lt;/p&gt;
 
