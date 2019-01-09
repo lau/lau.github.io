@@ -6,12 +6,12 @@
 </description>
     <link>http://www.creativedeletion.com/</link>
     <atom:link href="http://www.creativedeletion.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 08 Jan 2019 19:43:23 -0300</pubDate>
-    <lastBuildDate>Tue, 08 Jan 2019 19:43:23 -0300</lastBuildDate>
+    <pubDate>Wed, 09 Jan 2019 10:52:08 -0300</pubDate>
+    <lastBuildDate>Wed, 09 Jan 2019 10:52:08 -0300</lastBuildDate>
     <generator>Jekyll v3.8.3</generator>
     
       <item>
-        <title>Data types and assumptions. And how incorrect assumptions made a spacecraft crash</title>
+        <title>Data types, assumptions and how a spacecraft crashed</title>
         <description>&lt;p&gt;In maths and physics classes in school I was taught to always keep track of the units when doing calculations. If you do some calculation and the result is just a number - that is not good enough. How fast is a train travelling? 80? 80 what? 80 bananas? If you keep track of the units you can do all kinds of calculations and have an easier time figuring out if it is 80 meters, 80 meters per second, 80 km/h, or 80 miles per hour. Throughout the calculations the units are always there. And at the end your result will include the unit.&lt;/p&gt;
 
 &lt;p&gt;However in programming, developers are not always keeping track of units so rigorously. In this article I will go through some advantages of doing so.&lt;/p&gt;
