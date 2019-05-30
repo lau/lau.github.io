@@ -114,7 +114,7 @@
   <li>
     <p><code class="highlighter-rouge">price: #Decimal&lt;10.00&gt;</code></p>
 
-    <p>The information about which currency the integer represents is not present in the data itself. So you need to look at the context and look outside of the data present here to find out what currency it is.</p>
+    <p>The information about which currency the decimal represents is not present in the data itself. So you need to look at the context and look outside of the data present here to find out what currency it is.</p>
   </li>
   <li>
     <p>A way to improve this a bit is to add the unit to the name of a database column or variable name. So instead of calling the column simply “price”, we can call it “price_usd”:
@@ -160,7 +160,7 @@
 
 <h2 id="getting-data-out-of-the-system">Getting data out of the system</h2>
 
-<p>Whether data is being passed around inside the boundaries of a system or to an entirely different system, keeping track of the units is useful in both cases. If the units are properly determined upon entry into the system and kept all along, they are right there and available for when they are to be exported out of the system or sent to other systems. For instance with a JSON HTTP API. So instead of an API having a field that is just called “price” and has a decimal value, the data about the currency is also available for the API which means that other systems will also have this currency information. Just like we would want other people to provide this kind of information to our system, we can provide it to others if we keep track of it.</p>
+<p>Whether data is being passed around inside the boundaries of a system or to an entirely different system, keeping track of the units is useful in both cases. If the units are properly determined upon entry into the system and kept all along, they are right there and available for when they are to be exported out of the system or sent to other systems. For instance with a JSON HTTP API. So instead of an API having a field for a price containing just a decimal value, we can provide both the the decimal <em>and</em> the the currency together in the API. This means that other systems will also have this currency information. Just like we would want other people to provide this kind of information to our system, we can provide it to others. If we keep track of it.</p>
 
 <h2 id="communication-across-systems">Communication across systems</h2>
 
@@ -181,7 +181,7 @@
 Imagine that you have an API that provides information. Instead of simply using an integer or a float, the API could include a unit.</p>
 
 <p>Imagine that the consumer of the API was expecting a value in pound-force seconds tagged with a unit. So instead of just sending a decimal such as “2.345” it would send “2.345 N s”.
-And the consumer of the API would read and verify the unit. On the consumer side it would receive the unit as “N s”. And verify that it is pounds as expected… Hold on a minute. “N s” is not pounds. The software on the consumer side would raise an error because “N s” would not match the expected unit. This error would be seen in tests before sending the system into production. Perhaps this would prevent the mission from failure.</p>
+And the consumer of the API would read and verify the unit. On the consumer side it would receive the unit as “N s”. And verify that it is pounds as expected… Hold on a minute. “N s” is not pounds. The software on the consumer side would raise an error because “N s” would not match the expected unit. This error would be seen in tests before sending the system into production. Perhaps this would prevent the mission from failure. Keeping the units around allows software to be written in assertive way to make sure that the right units are sent to it.</p>
 
 <h2 id="using-incorrect-units">Using incorrect units</h2>
 
