@@ -6,8 +6,8 @@
 </description>
     <link>http://www.creativedeletion.com/</link>
     <atom:link href="http://www.creativedeletion.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 17 Jun 2019 15:17:41 -0700</pubDate>
-    <lastBuildDate>Mon, 17 Jun 2019 15:17:41 -0700</lastBuildDate>
+    <pubDate>Mon, 17 Jun 2019 17:30:16 -0700</pubDate>
+    <lastBuildDate>Mon, 17 Jun 2019 17:30:16 -0700</lastBuildDate>
     <generator>Jekyll v3.8.3</generator>
     
       <item>
@@ -100,7 +100,7 @@
 
 &lt;p&gt;If you do not want to use microsecond precision, use &lt;code class=&quot;highlighter-rouge&quot;&gt;:utc_datetime&lt;/code&gt; instead of &lt;code class=&quot;highlighter-rouge&quot;&gt;:utc_datetime_usec&lt;/code&gt; in your schemas and make sure that the migration for the timestamps match in terms of having “_usec” at the end or not.&lt;/p&gt;
 
-&lt;p&gt;A peculiuar details is that in migrations, unlike schemas, “naive” or “UTC” does the same thing. Just “usec” matters. In Postgres the type is either &lt;code class=&quot;highlighter-rouge&quot;&gt;timestamp without time zone&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;timestamp(0) without time zone&lt;/code&gt;. The “(0)” part means that fractional seconds are not stored.&lt;/p&gt;
+&lt;p&gt;A peculiar detail is that in migrations, unlike schemas, “utc_datetime” and “naive_datetime” both do the same thing. It is “_usec” that matters in migrations. In Postgres the type is either &lt;code class=&quot;highlighter-rouge&quot;&gt;timestamp without time zone&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;timestamp(0) without time zone&lt;/code&gt;. The “(0)” part means that fractional seconds are not stored.&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;

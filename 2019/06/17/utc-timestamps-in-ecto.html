@@ -188,7 +188,7 @@
 
 <p>If you do not want to use microsecond precision, use <code class="highlighter-rouge">:utc_datetime</code> instead of <code class="highlighter-rouge">:utc_datetime_usec</code> in your schemas and make sure that the migration for the timestamps match in terms of having “_usec” at the end or not.</p>
 
-<p>A peculiuar details is that in migrations, unlike schemas, “naive” or “UTC” does the same thing. Just “usec” matters. In Postgres the type is either <code class="highlighter-rouge">timestamp without time zone</code> or <code class="highlighter-rouge">timestamp(0) without time zone</code>. The “(0)” part means that fractional seconds are not stored.</p>
+<p>A peculiar detail is that in migrations, unlike schemas, “utc_datetime” and “naive_datetime” both do the same thing. It is “_usec” that matters in migrations. In Postgres the type is either <code class="highlighter-rouge">timestamp without time zone</code> or <code class="highlighter-rouge">timestamp(0) without time zone</code>. The “(0)” part means that fractional seconds are not stored.</p>
 
 <table>
   <thead>
