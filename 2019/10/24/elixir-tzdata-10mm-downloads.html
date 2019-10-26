@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Date/time talk at ElixirConf 2015 in Austin (video)</title>
-  <meta name="description" content="ElixirConf 2015 took place in Austin, Texas this month. I gave a talk about date and time. It was recorded and the video is now available:">
+  <title>Tzdata library downloaded 10 million times - Elixir getting more popular?</title>
+  <meta name="description" content="This week the Elixir Tzdata library crossed 10 million downloads on hex - the package manager for Elixir. It is a number displayed on the hex website and a w...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://www.creativedeletion.com/2015/10/19/elixirconf-talk-date-time.html">
+  <link rel="canonical" href="http://www.creativedeletion.com/2019/10/24/elixir-tzdata-10mm-downloads.html">
   <link rel="alternate" type="application/rss+xml" title="Creative Deletion" href="http://www.creativedeletion.com/feed.xml" />
   <style>
     .right_img {
@@ -95,29 +95,24 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Date/time talk at ElixirConf 2015 in Austin (video)</h1>
-    <p class="post-meta">Oct 19, 2015</p>
+    <h1 class="post-title">Tzdata library downloaded 10 million times - Elixir getting more popular?</h1>
+    <p class="post-meta">Oct 24, 2019</p>
   </header>
 
   <article class="post-content">
-    <p>ElixirConf 2015 took place in Austin, Texas this month. I gave a talk about date and time. It was recorded and the video is now available:</p>
+    <p>This week the <a href="https://hex.pm/packages/tzdata">Elixir Tzdata library</a> crossed 10 million downloads on hex - the package manager for <a href="https://elixir-lang.org">Elixir</a>. It is a number displayed on the hex website and a while ago I started paying attention to it.</p>
 
-<iframe width="720" height="405" src="https://www.youtube.com/embed/keUbVvMJeKY" frameborder="0" allowfullscreen=""></iframe>
+<p>To me the most interesting thing is that most of those downloads have happened within the last 12 months. Almost a third of them have happened in the last 90 days. Tzdata has been on hex as its own package for about 1700 days by the time of writing. Almost 30% of all of the downloads happened in the most recent 5% of the time the package has been available.</p>
 
-<p>Afterwards some people asked about the <a href="https://github.com/lau/calendar">Calendar</a> library, which is featured in the video.
-It is the one I made to cope with the problems explained in the talk and the only library
-of its kind I would recommend to use in Elixir. The website for it is
-available at <a href="https://github.com/lau/calendar">https://github.com/lau/calendar</a></p>
+<p>Looking at other packages the numbers look similar in that they are downloaded more often than a year ago.</p>
 
-<p>If this subject interests you, here is a number of related blog posts:</p>
+<h2 id="what-does-a-download-mean">What does a download mean?</h2>
 
-<ul>
-  <li><a href="/2015/05/10/the-need-timezones.html">The need for timezone awareness</a></li>
-  <li><a href="/2015/01/28/falsehoods-programmers-date-time-zones.html">Falsehoods programmers believe about time and time zones</a></li>
-  <li><a href="/2015/08/07/why-not-to-use-server-local-time.html">Why not to ask the server for its “local time”</a></li>
-  <li><a href="/2015/03/19/persisting_future_datetimes.html">How to save datetimes for future events - (when UTC is not the right answer)</a></li>
-</ul>
+<p>From my own experience a lot of downloads happen from running automated tests on Continuous Integration systems. When you run a test, this can trigger multiple downloads of a package that is a dependency.</p>
 
+<p>If one project has a certain hex package as a dependency, that can easily cause hundreds or thousands of downloads over one year.</p>
+
+<p>On its own the number does not mean that much. But looking at the development of the numbers over time I think it can be used as a non-scientific proxy for how much as package is used. And since the trend seem to be similar across various often-downloaded packages also a proxy for use of the Elixir language. This would suggest that Elixir is getting used more.</p>
 
   </article>
 
@@ -128,11 +123,11 @@ available at <a href="https://github.com/lau/calendar">https://github.com/lau/ca
 
   <h3>More blogposts:</h3>
   
-      <li><a href="/2019/10/24/elixir-tzdata-10mm-downloads.html">Tzdata library downloaded 10 million times - Elixir getting more popular?</a></li>
-  
       <li><a href="/2019/10/18/elixirconf-2019.html">ElixirConf 2019 talk: Date, Time, and Time Zones in Elixir 1.9</a></li>
   
       <li><a href="/2019/06/17/utc-timestamps-in-ecto.html">How to set timestamps to UTC DateTimes in Ecto</a></li>
+  
+      <li><a href="/2019/01/08/data-types-assumptions.html">Data types, assumptions and how a spacecraft crashed</a></li>
   
 
 </div>
