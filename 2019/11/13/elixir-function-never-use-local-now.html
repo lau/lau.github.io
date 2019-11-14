@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>What everyone except programmers knows about dates</title>
-  <meta name="description" content="Ask a schoolchild to write down a date. They will likely write a month, day of the month and maybe a year too (not necessarily in that order). So will mostot...">
+  <title>Adding a function to the Elixir standard library that I hope will not be used</title>
+  <meta name="description" content="Last week a function (NaiveDateTime.local_now/0) was added to the Elixir master branch. That means it will most likely be present in the coming Elixir versio...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://www.creativedeletion.com/2016/04/29/programmers-know-dates.html">
+  <link rel="canonical" href="http://www.creativedeletion.com/2019/11/13/elixir-function-never-use-local-now.html">
   <link rel="alternate" type="application/rss+xml" title="Creative Deletion" href="http://www.creativedeletion.com/feed.xml" />
   <style>
     .right_img {
@@ -95,89 +95,30 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">What everyone except programmers knows about dates</h1>
-    <p class="post-meta">Apr 29, 2016</p>
+    <h1 class="post-title">Adding a function to the Elixir standard library that I hope will not be used</h1>
+    <p class="post-meta">Nov 13, 2019</p>
   </header>
 
   <article class="post-content">
-    <p>Ask a schoolchild to write down a date. They will likely write a month, day of the month and maybe a year too (not necessarily in that order). So will most
-other literate people at any age.</p>
+    <p>Last week a function (<code class="highlighter-rouge">NaiveDateTime.local_now/0</code>) was added to the Elixir master branch. That means it will most likely be present in the coming Elixir version 1.10.</p>
 
-<p>Ask a programmer to write a date and they might write not just a date, but also add hours, minutes and seconds to it!</p>
-
-<p>But <b>a date does not have hours, minutes and seconds</b>. Most people know this. Except many programmers. Well
-they probably know, but many use the word <em>date</em> to mean a combination of date and point of time in hours and minutes (and more detailed than that).</p>
-
-<h2 id="why-it-is-like-this">Why it is like this</h2>
-
-<p>Certain systems and programming languages have a simplistic structure to handle all kinds of time and date:
-<a href="http://www.creativedeletion.com/2016/02/04/timetypes_prevent_bugs.html">One type to rule them all</a>.
-This is a bad idea, but it is very prevalent. For instance typing <code class="highlighter-rouge">date</code> in Linux gives you not just a date,
-but also the time of day. In Java (before version 8) and Javascript the <code class="highlighter-rouge">Date</code> structure is really a datetime with certain
-timezone related information added on.</p>
-
-<h2 id="hijacking">Hijacking</h2>
-
-<p>Handling date and time in a computer context has enough challenges by itself: uneven months, leap years, time zones,
-DST, updates to time zones and so on. Hijacking and changing the meaning of the word “date” does not help.</p>
-
-<p>Because if “date” in certain contexts implicitly means “datetime - maybe with a specified offset from UTC”, what word
-do you use to describe a simple date?</p>
-
-<h2 id="those-that-do-it-better">Those that do it better</h2>
-
-<p>SQL databases have their share of problems when it comes to handling date and time. Especially when it comes to
-time zones. But at least MySQL has pretty good names for these three types:</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td>DATE</td>
-      <td>year, month, day</td>
-    </tr>
-    <tr>
-      <td>TIME</td>
-      <td>hour, minute, second</td>
-    </tr>
-    <tr>
-      <td>DATETIME</td>
-      <td>year, month, date, hour, minute, second</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><br /></p>
-
-<p><span style="color: #666">(Note: this is not a recommendation of MySQL.)</span></p>
-
-<h2 id="how-to-solve-this-problem">How to solve this problem</h2>
-
-<p>This issue is just one of many issues with date and time in a software context.
-But nonetheless I think it is important. And why not tackle each of the issues one step at the time?</p>
+<p>I wrote it and I hope you will <strong>not</strong> use it in production code! There are a few exceptions:</p>
 
 <ul>
   <li>
-    <p>Be concious of the difference between what a date is in the real world and the badly named
-structures used in certain languages and libraries.</p>
+    <p>If your Elixir app is an embedded or desktop app and you want to display a clock to the user, it can make sense to use the “local time” if the local time setting is already taken care of. However if you have the IANA tzdata identifier (e.g. “Europe/London”) you can use that with <a href="https://hexdocs.pm/elixir/DateTime.html#now/2">DateTime.now/2</a> instead.</p>
   </li>
   <li>
-    <p>Remember a date has no hours, minutes or seconds.</p>
-  </li>
-  <li>
-    <p>If you want to talk about a datetime, call it a datetime not a date.</p>
-  </li>
-  <li>
-    <p>If you are using a language with a <code class="highlighter-rouge">Date</code> class, that is really a datetime, some times you need to talk about the Date class. In that case be explicit about calling it e.g. a “Java Date object” and not just a “date”.</p>
-  </li>
-  <li>
-    <p>It is hard to change existing languages and libraries, but if you design a new programming language or date/time
-related library please call the concepts by their right name. A date is a just a date.</p>
-  </li>
-  <li>
-    <p>If you talk to someone involved in a software project and they call a datetime a “date”, make it clear what you are talking about.
-Maybe even send them a link to this blog post so that you are all on the same page.</p>
+    <p>If you are using the “iex” console on your desktop or laptop and just want a NaiveDateTime for some reason.</p>
   </li>
 </ul>
+
+<p>The main reason I think the existence of this function is good is that it comes with documentation. The documentation can tell people that in most cases it is a bad idea to get the “local time” and what to do instead. If it is not there some developers will complain that there is no such Elixir function - or use <a href="http://erlang.org/doc/man/calendar.html#local_time-0">Erlang’s local_time function</a> instead.</p>
+
+<p>For software running on servers connected to the internet, the users can be in all kinds of time zones and it is those time zones that are interesting. Not what the time zone on the server happens to be set to.</p>
+
+<p>See more in the blog-post <a href="http://www.creativedeletion.com/2015/08/07/why-not-to-use-server-local-time.html">Why not to ask the server for its “local time”</a>.</p>
+
 
   </article>
 
@@ -188,11 +129,11 @@ Maybe even send them a link to this blog post so that you are all on the same pa
 
   <h3>More blogposts:</h3>
   
-      <li><a href="/2019/11/13/elixir-function-never-use-local-now.html">Adding a function to the Elixir standard library that I hope will not be used</a></li>
-  
       <li><a href="/2019/10/24/elixir-tzdata-10mm-downloads.html">Tzdata library downloaded 10 million times - Elixir getting more popular?</a></li>
   
       <li><a href="/2019/10/18/elixirconf-2019.html">ElixirConf 2019 talk: Date, Time, and Time Zones in Elixir 1.9</a></li>
+  
+      <li><a href="/2019/06/17/utc-timestamps-in-ecto.html">How to set timestamps to UTC DateTimes in Ecto</a></li>
   
 
 </div>

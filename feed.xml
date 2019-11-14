@@ -6,9 +6,38 @@
 </description>
     <link>http://www.creativedeletion.com/</link>
     <atom:link href="http://www.creativedeletion.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 25 Oct 2019 18:26:44 -0700</pubDate>
-    <lastBuildDate>Fri, 25 Oct 2019 18:26:44 -0700</lastBuildDate>
+    <pubDate>Wed, 13 Nov 2019 21:03:33 -0800</pubDate>
+    <lastBuildDate>Wed, 13 Nov 2019 21:03:33 -0800</lastBuildDate>
     <generator>Jekyll v3.8.3</generator>
+    
+      <item>
+        <title>Adding a function to the Elixir standard library that I hope will not be used</title>
+        <description>&lt;p&gt;Last week a function (&lt;code class=&quot;highlighter-rouge&quot;&gt;NaiveDateTime.local_now/0&lt;/code&gt;) was added to the Elixir master branch. That means it will most likely be present in the coming Elixir version 1.10.&lt;/p&gt;
+
+&lt;p&gt;I wrote it and I hope you will &lt;strong&gt;not&lt;/strong&gt; use it in production code! There are a few exceptions:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;If your Elixir app is an embedded or desktop app and you want to display a clock to the user, it can make sense to use the “local time” if the local time setting is already taken care of. However if you have the IANA tzdata identifier (e.g. “Europe/London”) you can use that with &lt;a href=&quot;https://hexdocs.pm/elixir/DateTime.html#now/2&quot;&gt;DateTime.now/2&lt;/a&gt; instead.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;If you are using the “iex” console on your desktop or laptop and just want a NaiveDateTime for some reason.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The main reason I think the existence of this function is good is that it comes with documentation. The documentation can tell people that in most cases it is a bad idea to get the “local time” and what to do instead. If it is not there some developers will complain that there is no such Elixir function - or use &lt;a href=&quot;http://erlang.org/doc/man/calendar.html#local_time-0&quot;&gt;Erlang’s local_time function&lt;/a&gt; instead.&lt;/p&gt;
+
+&lt;p&gt;For software running on servers connected to the internet, the users can be in all kinds of time zones and it is those time zones that are interesting. Not what the time zone on the server happens to be set to.&lt;/p&gt;
+
+&lt;p&gt;See more in the blog-post &lt;a href=&quot;http://www.creativedeletion.com/2015/08/07/why-not-to-use-server-local-time.html&quot;&gt;Why not to ask the server for its “local time”&lt;/a&gt;.&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 13 Nov 2019 04:00:00 -0800</pubDate>
+        <link>http://www.creativedeletion.com/2019/11/13/elixir-function-never-use-local-now.html</link>
+        <guid isPermaLink="true">http://www.creativedeletion.com/2019/11/13/elixir-function-never-use-local-now.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>Tzdata library downloaded 10 million times - Elixir getting more popular?</title>
@@ -894,125 +923,6 @@ That is the only datetime library I can recommend for Elixir.&lt;/p&gt;
         <pubDate>Thu, 04 Feb 2016 04:00:00 -0800</pubDate>
         <link>http://www.creativedeletion.com/2016/02/04/timetypes_prevent_bugs.html</link>
         <guid isPermaLink="true">http://www.creativedeletion.com/2016/02/04/timetypes_prevent_bugs.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Timezone updates need to be fixed</title>
-        <description>&lt;figure class=&quot;picture right_img&quot;&gt;
-  &lt;img src=&quot;http://www.creativedeletion.com/assets/plane512.jpg&quot; srcset=&quot;http://www.creativedeletion.com/assets/plane512.jpg 1x, http://www.creativedeletion.com/assets/plane1024.jpg 2x&quot; /&gt;
-  &lt;figcaption&gt;Fortunately, the technology for keeping planes airborne receive more attention that the information systems for passengers.&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;In October I went to ElixirConf &lt;a href=&quot;/2015/10/19/elixirconf-talk-date-time.html&quot;&gt;to talk about time and timezones&lt;/a&gt;. One of the things I talked about was keeping timezone data up to date.&lt;/p&gt;
-
-&lt;p&gt;A good example of that showed itself soon after: On the plane going back it had one of those screens showing the local time at the destination. It was incorrect.&lt;/p&gt;
-
-&lt;h2 id=&quot;event-reminding-software-feature-causes-area-man-to-miss-event&quot;&gt;Event reminding software feature causes area man to miss event&lt;/h2&gt;
-&lt;p&gt;About a week later I was playing a 8-a-side football game. But a player had not shown up. As the game was about to end, he showed up, confused.
-Why? Because of the way timezone data updates are handled. It is a broken system. The event was arranged with Facebook. Facebook’s timezone data is out of date. So Facebook told the player that the game started at 9pm instead of 8pm.&lt;/p&gt;
-
-&lt;p&gt;A more simple approach such as the local time written on paper, sent with Fax or a text message would not have caused such as problem. But like so many other pieces of software, the Facebook code is “clever” and uses timezone conversions. Facebook thinks it knows where you are and what time it is in that location. When it works, this cleverness can be helpful. But this time it was wrong. When you write code that is clever like that, you have to make sure that the timezone information is up to date. Otherwise it does not work and people get upset.&lt;/p&gt;
-
-&lt;h2 id=&quot;it-is-a-common-problem&quot;&gt;It is a common problem&lt;/h2&gt;
-
-&lt;p&gt;Facebook and Boeing airplanes are not alone in having out of date timezone information. The same goes for all the major operating systems such as Windows, Linux, Mac OS X. And many phones too. And telecom providers. In my experience most systems with timezone information are often out of date.&lt;/p&gt;
-
-&lt;p&gt;The company in the world with the largest market capitalisation (Apple) has this problem. So has number 8 (Facebook).
-And they are both tech companies. I think it is an interesting phenomenon. And they are not the only
-ones with that problem.&lt;/p&gt;
-
-&lt;h2 id=&quot;it-is-important&quot;&gt;It is important&lt;/h2&gt;
-
-&lt;p&gt;In this case the Facebook event feature failed pretty spectacularly. It reminds me of those photos
-with the caption “you had one job”. Facebook events are supposed to tell people about an event and
-when it takes place. It failed in this case. Because of out of date timezone data.&lt;/p&gt;
-
-&lt;h2 id=&quot;it-is-not-super-hard-to-get-up-to-date-data&quot;&gt;It is not super hard to get up to date data&lt;/h2&gt;
-
-&lt;p&gt;The timezone data is &lt;a href=&quot;http://www.iana.org/time-zones&quot;&gt;freely available at IANA’s website&lt;/a&gt;.
-You do not have to pay for it, anyone can download it and use it.&lt;/p&gt;
-
-&lt;h2 id=&quot;why-has-it-not-been-fixed&quot;&gt;Why has it not been fixed?&lt;/h2&gt;
-
-&lt;p&gt;Why is it that some of the most valueable companies in the world, and tech companies at that, cannot cope with the
-challenge of having up to date timezone data?&lt;/p&gt;
-
-&lt;p&gt;Remember when people thought that it was a good idea to only save the two last digits of a year? 90 instead of 1990.
-In my experience many programmers just do whatever everyone else is doing. Unless it is an area they care about.
-And most programmers do not care about timezone updates. Unless they personally experience problems caused by it.&lt;/p&gt;
-
-&lt;h2 id=&quot;what-people-do-today&quot;&gt;What people do today&lt;/h2&gt;
-
-&lt;p&gt;Very few people seem to take responsibility for having up-to-date timezone data, having a process for it
-or even caring much about it.&lt;/p&gt;
-
-&lt;p&gt;In Linux the common way to update timezone data is using software package updates. There is a package called tzdata that
-contains both the data and code at the same time. There are several problems with this. One is that it takes a while
-from IANA releasing new data to someone manually make a new package version with the new data. Sometimes an update will
-be release by IANA, and no packages are ever made! So even if users update their system with the newest packages the
-moment they come out, they will be old.&lt;/p&gt;
-
-&lt;p&gt;A second issue is that these
-updates are viewed the same way as other software updates. Like a new version of database software. And in order to avoid
-regressions, developers/sysadmins will usually have to spend precious time testing things before upgrading software.
-It takes time and is seen as a barrier to upgrade software running on a server. How ever small that costs is, it is there.&lt;/p&gt;
-
-&lt;p&gt;So the state of timezone updates today for most people is that it relies on two sets of people that have to manually
-do something. If just one of them fail to do that, the result is the timezone data is out of date. And right now
-the common thing is for both sets of people to not do it or do it slowly.&lt;/p&gt;
-
-&lt;h2 id=&quot;it-is-just-updated-data-not-a-new-api-or-different-functionality&quot;&gt;It is just updated data, not a new API or different functionality&lt;/h2&gt;
-
-&lt;p&gt;But the data itself is not new software. It is just data. Functionality should not change because of new data.
-New timezone data could be seen similarly to setting the clock of the server. This is commonly done automatically.
-Or it could be seen as data in a database changing. If you change software, you have to test it to see if it still
-works as required. But when a system is running and data is changed in a database due to normal use, the software
-is not tested every single time a row is changed, inserted or updated. That would be silly. Because the software
-should be made to handle different kinds of data.&lt;/p&gt;
-
-&lt;p&gt;It should be possible to automatically update the timezone data without having to treat it with the same ceremony as with a software update.&lt;/p&gt;
-
-&lt;h2 id=&quot;a-solution&quot;&gt;A solution&lt;/h2&gt;
-
-&lt;p&gt;Imagine if this problem was something that could be handled automatically by software.
-It turns out that that is in fact the case! &lt;a href=&quot;https://github.com/lau/tzdata&quot;&gt;Tzdata for Elixir&lt;/a&gt; checks the IANA servers
-once a day. If there is a new version of the timezone database available, it will be automatically
-downloaded and updated. The future is here, but in this case only distributed to Elixir ;-)&lt;/p&gt;
-
-&lt;h2 id=&quot;the-exception-to-the-rule-offline-embedded-systems&quot;&gt;The exception to the rule. Offline embedded systems&lt;/h2&gt;
-
-&lt;p&gt;Not all systems are connected to the internet. In that case you cannot do to updates automatically
-in the same way. But it needs to happen somehow in order to have timezone based calculations be correct.&lt;/p&gt;
-
-&lt;p&gt;If you make a system that uses timezone data, think ahead. The timezone data is updated as often as 10 times a year or more.
-In case you have an embedded system that is not connected to the internet all the time, how can that processes be
-put in place to make sure it is updated?&lt;/p&gt;
-
-&lt;h2 id=&quot;what-to-do-if-you-do-not-use-elixir&quot;&gt;What to do if you do not use Elixir&lt;/h2&gt;
-
-&lt;p&gt;If your system is on the Internet, but rely on timezone updates that are not from Elixir, what can you do to improve the situation?
-One solution would be to implement a similar automatic system that updates automatically using the Internet.&lt;/p&gt;
-
-&lt;p&gt;Another would be for package maintainers
-to have an improved process for manually releasing data just after it is released. I do not have high hopes
-for this to happen, but maybe someone reading this could help maintain packages and implement a process
-to make it more quick and consistent.&lt;/p&gt;
-
-&lt;p&gt;The second part is for users of those packages to have a process for making sure the data is updated as
-it become available. Someone
-needs to be responsible for it and make sure the data is updated when it is available.&lt;/p&gt;
-
-&lt;h2 id=&quot;computer-professionals-relying-on-manual-processes-for-something-that-is-perfect-for-computers&quot;&gt;Computer professionals relying on manual processes for something that is perfect for computers&lt;/h2&gt;
-
-&lt;p&gt;Not all things are easy to automate using computers. But this is. It is funny how people
-who make software to help automate things for someone else, themselves do things manually when
-it comes to timezone updates. The current system does not work well. It is time to move on to an automated system.&lt;/p&gt;
-</description>
-        <pubDate>Thu, 03 Dec 2015 04:00:00 -0800</pubDate>
-        <link>http://www.creativedeletion.com/2015/12/03/timezone-updates-need-fixing.html</link>
-        <guid isPermaLink="true">http://www.creativedeletion.com/2015/12/03/timezone-updates-need-fixing.html</guid>
         
         
       </item>
