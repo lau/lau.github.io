@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>World time is more than GMT offsets</title>
-  <meta name="description" content="A lot of technology today seems to ignore the complexities of world time, timezones and daylight savings. In fact, as far as I know, there doesn’t even seem ...">
+  <title>You might not need the Calendar or Timex libraries</title>
+  <meta name="description" content="Five years ago Elixir code would usually have to call third party applications to handle date, time and time zones. And blog posts (including on this blog), ...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://www.creativedeletion.com/2008/04/09/world-time-is-more-than-gmt-offsets.html">
+  <link rel="canonical" href="http://www.creativedeletion.com/2020/05/25/calendar-standard-library-2020.html">
   <link rel="alternate" type="application/rss+xml" title="Creative Deletion" href="http://www.creativedeletion.com/feed.xml" />
   <style>
     .right_img {
@@ -95,34 +95,73 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">World time is more than GMT offsets</h1>
-    <p class="post-meta">Apr 9, 2008</p>
+    <h1 class="post-title">You might not need the Calendar or Timex libraries</h1>
+    <p class="post-meta">May 25, 2020</p>
   </header>
 
   <article class="post-content">
-    <p>A lot of technology today seems to ignore the complexities of world time, timezones and daylight savings. In fact, as far as I know, there doesn’t even seem to exist a good watch that makes it easy to accurately know the time around the world.</p>
+    <p>Five years ago Elixir code would usually have to call third party applications to handle date, time and time zones. And blog posts (including on this blog), tutorials, books, and code still point people to using third party libraries. But today for most purposes, they are no longer necessary.</p>
 
-<p>The following picture is from Montevideo, Uruguay. It is 3 hours from GMT. And so is Nuuk (aka. Godthåb), Greenland. So while I am in Montevideo in South America I am sort of in the same time zone as Denmark - how about that? This time of year, though, most of Greenland observes DST, so local time in Nuuk is now GMT-2, not -3.</p>
+<p>Since Elixir 1.3 more and more date and time functionality has been added to the Elixir time zone library.</p>
 
-<p><img src="/assets/clock.jpg" width="452" height="320" alt="Clock in Montevideo" /></p>
+<p>Before Elixir 1.3 there were no native date/time types built into Elixir. With <a href="/2016/11/12/elixirconf-2016-date-time.html">Elixir 1.3 that changed</a>. However to do time zone calculations you still needed either the <a href="https://github.com/lau/calendar">Calendar library</a> or <a href="https://github.com/bitwalker/timex">Timex library</a> which would use the <a href="https://hex.pm/packages/tzdata">Tzdata library</a>.</p>
 
-<p>If only adjusting your clock to local time around the world was a question of offsets from GMT, figuring out the local time around the would be relatively easy. What really complicates things is summertime (aka. Daylight Savings Time or DST).</p>
+<p>In Elixir 1.8 the <code class="highlighter-rouge">Calendar.TimeZoneDatabase</code> behaviour was introduced. This means that you can use Elixir standard library functions to do time zone calculations. So today the standard library lets you do things such as:</p>
 
-<p>In Venezuala there is a certain mad man in charge that wants to create a new seperate time zone! The timezones don’t change that often, but recently there has been changes regarding DST. In USA the days when DST starts and stops was changed in 2007. DST starts and begins on different dates in different countries. Some countries within a certain timezone have DST and some don’t. A European I know asked a local person in a northern African country “Tomorrow at this time, what time is it?” The local person looked very puzzled after hearing the odd question. DST isn’t used in that particular country.</p>
+<ul>
+  <li>Comparison and difference/subtraction/addition calculations for date/time types</li>
+  <li>Time zone calculations (<a href="https://hexdocs.pm/elixir/Calendar.TimeZoneDatabase.html">with a time zone database configured</a>)</li>
+  <li>Safe polymorphism that lets you e.g. use a <code class="highlighter-rouge">DateTime</code> with a <a href="https://hexdocs.pm/elixir/Date.html#day_of_year/1"><code class="highlighter-rouge">Date</code> function</a>, but not the <a href="https://hexdocs.pm/elixir/DateTime.html#to_iso8601/2">other way around</a></li>
+  <li>Convert to and from Unix time (whole seconds, milliseconds and more)</li>
+  <li>Day of year, day of week, quarter, leap year</li>
+  <li>Date ranges</li>
+  <li>Format and parse to/from ISO 8601 formats</li>
+</ul>
 
-<p>I don’t wear a watch regularly, but use my iPhone to get the time. When travelling to a different time zone, I can go to the time settings in the phone and select the city that I am in or a city that I think is in the same time zone. The iPhone will then use it’s internal clock and timezone information for the different cities to calculate the local time in the city in question.</p>
+<p>The master branch of Elixir adds <a href="https://github.com/elixir-lang/elixir/blob/b028ac88a8b3faabcba5969944123925613f3614/lib/elixir/lib/calendar.ex#L479"><code class="highlighter-rouge">Calendar.strftime/3</code> for formatting date/time</a>. This will be released with Elixir 1.11 - scheduled for release around October 2020.</p>
 
-<p>Recently I was in Buenos Aires and, since it is a big city, of course I could find it in the settings on the iPhone. But… I came to find out that my clock was not showing the correct local time. I talked to an employee in the hotel about it and he said that Argentina in 2007 had readopted DST.</p>
+<h2 id="why-the-standard-library-over-a-third-party-library">Why the standard library over a third party library?</h2>
 
-<p>This change made by Argentina had not been reflected in my iPhone nor my <a target="_blank" href="http://www.amazon.com/gp/search?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;index=pc-hardware&amp;keywords=macbook%20pro&amp;linkCode=ur2&amp;tag=creatdelet-20&amp;linkId=LJYPT2NZA5CBNQCI">MacBook Pro</a>.</p>
+<p>The Elixir standard library is always there and the same for every developer. If an Elixir standard library function does the same thing as a third party one, I tend to choose the standard library. Some of the reasons include:</p>
 
-<p>I learned that political changes can unexpectedly change timezones and DST. And current “world time” clocks don’t seem reflect these changes.</p>
+<ul>
+  <li>Fewer dependencies to manage.</li>
+  <li>In general the standard library has more contributions and maintenance. This is also important over the long term, looking years ahead.</li>
+  <li>Every developer using Elixir uses the standard library. More developers will be familiar with it today and in the future.</li>
+</ul>
 
-<p>A lot of technology is developed in Europe or the US, where timezones don’t change that often. And some software developers seem to assume that it works the same way around the world. For instance there is JavaScript software that get a visitors local time from his browser and compare it to GMT to get the visitors GMT offset. That’s fine if you know that the user is in the US for instance. But in most of the Carribean DST isn’t used and in some parts of South America DST is reversed along with summer and winter.</p>
+<h2 id="when-should-you-use-a-third-party-library">When should you use a third party library?</h2>
 
-<p>Here’s the lesson for software developers: To accurately calculate a users time zone, knowing a GMT offset is not enough. Getting the closest (politically and geographically) city is best. Furthermore, time zones and DST policies change, so for a world clock to be up-to-date it should probably be updated with the newest time zone changes once a year or so.</p>
+<p>If the functionality you need is not available in the standard library, it can make sense to use a third party library. But you don’t have to use them for anything that the standard library can do.</p>
 
-<p><em>2015 update: This was written in 2008. Since then I have learned more about timezones and changes to timezone rules. One of those things is that timezone updates happen often. 10 times a year is not that unusual. So updating “once a year or so” will not be often enough in many cases. Today I would recommend to apply every timezone update as soon as it is released.</em></p>
+<p>If you are starting a new project and are used to using the Calendar or Timex libraries, you could first check to see if the functionality is available in the standard library before adding them as dependencies. And even if they are dependencies, make sure to only use them for functionality not available in the standard library.</p>
+
+<h2 id="mix-and-match">Mix and match</h2>
+
+<p>Today the libraries all usually use the same types (<code class="highlighter-rouge">Date</code>, <code class="highlighter-rouge">Time</code>, <code class="highlighter-rouge">NaiveDateTime</code>, <code class="highlighter-rouge">DateTime</code>) as the standard library. So you can call the standard library (e.g. <a href="https://hexdocs.pm/elixir/DateTime.html#utc_now/1"><code class="highlighter-rouge">DateTime.utc_now/1</code></a>) and pass a datetime to a third party library to do something that the standard library doesn’t do. Or take a result from a third party library and pass it to a standard library function.</p>
+
+<h2 id="getting-started">Getting started</h2>
+
+<p>For time zone calculations specifically you will have to add a timezone database library to the dependencies of your application.</p>
+
+<p>Currently the most popular option is the tzdata library by yours truly. See the <a href="https://github.com/lau/tzdata#getting-started">tzdata</a> or <a href="https://hexdocs.pm/elixir/DateTime.html#module-time-zone-database">Elixir documentation</a> for how to set it up. You basically need <code class="highlighter-rouge">:tzdata</code> as a dependency in your mix file and then this line in your configuration: <code class="highlighter-rouge">config :elixir, :time_zone_database, Tzdata.TimeZoneDatabase</code>.</p>
+
+<p>For anything else see the documentation for <a href="https://hexdocs.pm/elixir/Date.html"><code class="highlighter-rouge">Date</code></a>, <a href="https://hexdocs.pm/elixir/DateTime.html"><code class="highlighter-rouge">DateTime</code></a>, <a href="https://hexdocs.pm/elixir/NaiveDateTime.html"><code class="highlighter-rouge">NaiveDateTime</code></a> and <a href="https://hexdocs.pm/elixir/Time.html"><code class="highlighter-rouge">Time</code></a>.</p>
+
+<h2 id="library-authors">Library authors</h2>
+
+<p>If you maintain any Elixir library that needs to do time zone calculations the functions <a href="https://hexdocs.pm/elixir/DateTime.html#from_naive/3">from_naive/3</a> and <a href="https://hexdocs.pm/elixir/DateTime.html#shift_zone/3">shift_zone/3</a> can be used for time zone calculations.</p>
+
+<p>You don’t even need to have the <code class="highlighter-rouge">tzdata</code> package as a dependency. Instead require the end-user of the library to <a href="https://hexdocs.pm/elixir/DateTime.html#module-time-zone-database">set a database for Elixir</a> to allow time zone calculations. If <code class="highlighter-rouge">{error, :utc_only_time_zone_database}</code> is returned - meaning such a library hasn’t been configured - errors can be raised as seen appropriate.</p>
+
+<p>This way the user of the library is able to choose any time zone database library that implements the <a href="behaviour https://hexdocs.pm/elixir/Calendar.TimeZoneDatabase.html"><code class="highlighter-rouge">Calendar.TimeZoneDatabase</code></a>.</p>
+
+<h2 id="looking-ahead">Looking ahead</h2>
+
+<p>Many projects can get their date/time functionality covered with the functions in the standard library and tzdata (or equivalent <code class="highlighter-rouge">TimeZoneDatabase</code>). And with each new recent version of Elixir more has been added.</p>
+
+<p>However it was never meant to do everything. Third party libraries can still fill in the gaps to complement the functions in the standard library.</p>
+
 
   </article>
 
@@ -133,11 +172,11 @@
 
   <h3>More blogposts:</h3>
   
-      <li><a href="/2020/05/25/calendar-standard-library-2020.html">You might not need the Calendar or Timex libraries</a></li>
-  
       <li><a href="/2019/11/13/elixir-function-never-use-local-now.html">Adding a function to the Elixir standard library that I hope will not be used</a></li>
   
       <li><a href="/2019/10/24/elixir-tzdata-10mm-downloads.html">Tzdata library downloaded 10 million times - Elixir getting more popular?</a></li>
+  
+      <li><a href="/2019/10/18/elixirconf-2019.html">ElixirConf 2019 talk: Date, Time, and Time Zones in Elixir 1.9</a></li>
   
 
 </div>
