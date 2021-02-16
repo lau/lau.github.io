@@ -6,15 +6,17 @@
 </description>
     <link>http://www.creativedeletion.com/</link>
     <atom:link href="http://www.creativedeletion.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 15 Feb 2021 20:35:40 -0600</pubDate>
-    <lastBuildDate>Mon, 15 Feb 2021 20:35:40 -0600</lastBuildDate>
+    <pubDate>Mon, 15 Feb 2021 21:06:22 -0600</pubDate>
+    <lastBuildDate>Mon, 15 Feb 2021 21:06:22 -0600</lastBuildDate>
     <generator>Jekyll v3.8.6</generator>
     
       <item>
         <title>How to improve your video and audio call stability for $8</title>
         <description>&lt;p&gt;Wireless networking can be a bottleneck for trouble free voice and video calls over the internet.&lt;/p&gt;
 
-&lt;p&gt;For audio and video calls over the internet, a stable connection is important. High network speeds are not necessary for audio calls. Skype was made to work with 33.6 Kbps modems. Today people that have internet connections that are more than 1000 times faster can have issues with audio dropping. This can be very frustrating. The culprit is often Wi-Fi.&lt;/p&gt;
+&lt;p&gt;&lt;img title=&quot;Ethernet cable&quot; alt=&quot;Ethernet cable&quot; src=&quot;/assets/rj45.jpg&quot; srcset=&quot;/assets/rj452x.jpg 2x&quot; width=&quot;300&quot; height=&quot;295&quot; class=&quot;right_img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;For audio and video calls over the internet, a stable connection is important. High network speeds are not necessary for audio calls. &lt;a href=&quot;http://web.archive.org/web/20031204211508/http://www.skype.com/help_faq.html&quot;&gt;Skype was made to work with 33.6 Kbps modems&lt;/a&gt;. Today people that have internet connections that are more than 1000 times faster can have issues with audio dropping. This can be very frustrating. The culprit is often Wi-Fi.&lt;/p&gt;
 
 &lt;p&gt;You might run a test of the Wi-Fi speed and the average speed over many seconds could look OK. But transferring large files is not the same as audio or video calls. The stability matters. If someone turns on a microwave oven and this causes some data to not be transferred, the data can be resent when transferring a file. Maybe the file transfer takes an extra second and it isn’t noticed. However for calls, this disruption can cause visible and audible issues.&lt;/p&gt;
 
@@ -23,8 +25,6 @@
 &lt;p&gt;Because of the wireless nature of Wi-Fi it is more subject to interference. It can be interrupted by bluetooth, microwaves, other Wi-Fi networks and all kinds of other electronics.&lt;/p&gt;
 
 &lt;p&gt;Fortunately there is a simple solution: wires. Specifically Ethernet. The standard for wired networking.&lt;/p&gt;
-
-&lt;p&gt;Ethernet typically uses twisted pair cables. The twisted pairs of wires inside the cable prevent interference.&lt;/p&gt;
 
 &lt;h2 id=&quot;wi-fi-theoretical-speeds-vs-real-life-speeds&quot;&gt;Wi-Fi theoretical speeds vs real-life speeds&lt;/h2&gt;
 
@@ -36,8 +36,7 @@
 
 &lt;h2 id=&quot;security&quot;&gt;Security&lt;/h2&gt;
 
-&lt;p&gt;Ethernet is more secure than Wi-Fi. Through out the years, different encryption mechanisms for Wi-Fi have been developed and weaknesses and exploits for them have been discovered.
-KRACK for WPA2 https://www.krackattacks.com . An earlier encryption Wired Equivalent Privacy (WEP), despite its name, turned out to not have the equivalent privacy of wired networking.&lt;/p&gt;
+&lt;p&gt;Ethernet is more secure than Wi-Fi. Through out the years, different encryption mechanisms for Wi-Fi have been developed and weaknesses and exploits for them have been discovered. There is &lt;a href=&quot;https://www.krackattacks.com&quot;&gt;KRACK for WPA2&lt;/a&gt;. An earlier encryption Wired Equivalent Privacy (WEP), despite its name, turned out to not have the equivalent privacy of wired networking.&lt;/p&gt;
 
 &lt;h2 id=&quot;helps-improve-wi-fi&quot;&gt;Helps improve Wi-Fi&lt;/h2&gt;
 &lt;p&gt;Any computer or other device that uses Ethernet instead of Wi-Fi will leave more bandwidth for the devices left on Wi-Fi. So for instance if your laptop and Apple TV device is on Ethernet, those do not take away Wi-Fi bandwidth for your phone that is still using Wi-Fi.&lt;/p&gt;
@@ -57,7 +56,7 @@ KRACK for WPA2 https://www.krackattacks.com . An earlier encryption Wired Equiva
 &lt;h2 id=&quot;adapters&quot;&gt;Adapters&lt;/h2&gt;
 &lt;p&gt;Desktop computers usually already have an ethernet port. Some laptops have an ethernet port as well. For the ones that lack an ethernet port you can buy USB adapters.&lt;/p&gt;
 
-&lt;p&gt;If you use a laptop with Thunderbolt 3, you can get &lt;a href=&quot;https://www.amazon.com/CalDigit-TS3-Plus-Thunderbolt-Dock/dp/B07CZPV8DF/&quot;&gt;docking stations&lt;/a&gt; have built in ethernet ports. This way you can plug in one cable and get power delivery, connection to USB, monitors, keyboard and mouse as well as Ethernet.&lt;/p&gt;
+&lt;p&gt;If you use a laptop with Thunderbolt 3, you can get &lt;a href=&quot;https://amzn.to/3u2k4Ff&quot;&gt;docking stations&lt;/a&gt; have built in ethernet ports. This way you can plug in one cable and get power delivery, connection to USB, monitors, keyboard and mouse as well as Ethernet.&lt;/p&gt;
 
 &lt;p&gt;An alternative to a docking station is a simple USB to ethernet adapter. You can leave on always connected to an ethernet cable and then plug the adapter into a USB port of the laptop when at the desk.&lt;/p&gt;
 
