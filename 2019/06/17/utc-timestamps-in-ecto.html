@@ -110,7 +110,7 @@
   <span class="kn">use</span> <span class="no">Ecto</span><span class="o">.</span><span class="no">Schema</span>
   <span class="nv">@timestamps_opts</span> <span class="p">[</span><span class="ss">type:</span> <span class="ss">:utc_datetime</span><span class="p">]</span>
 
-  <span class="n">schema</span> <span class="sd">"</span><span class="s2">users"</span> <span class="k">do</span>
+  <span class="n">schema</span> <span class="s2">"users"</span> <span class="k">do</span>
     <span class="n">field</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:string</span>
     <span class="n">timestamps</span><span class="p">()</span>
   <span class="k">end</span>
@@ -124,7 +124,7 @@
 
 <p>An alternative to the <code class="highlighter-rouge">@timestamps_opts</code> way is to pass the type as an argument when calling the timestamps/1 function in the schema:</p>
 
-<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">schema</span> <span class="sd">"</span><span class="s2">users"</span> <span class="k">do</span>
+<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">schema</span> <span class="s2">"users"</span> <span class="k">do</span>
     <span class="n">field</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:string</span>
     <span class="n">timestamps</span><span class="p">([</span><span class="ss">type:</span> <span class="ss">:utc_datetime_usec</span><span class="p">])</span>
   <span class="k">end</span>
@@ -251,7 +251,7 @@
   <span class="k">def</span> <span class="n">change</span> <span class="k">do</span>
     <span class="c1"># For each of the listed tables, change the type of :inserted_at and :updated_at to microsecond precision</span>
     <span class="sx">~w/users products another_table/</span>
-    <span class="o">|&gt;</span> <span class="no">Enum</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="no">String</span><span class="o">.</span><span class="n">to_atom</span><span class="o">/</span><span class="m">1</span><span class="p">)</span>
+    <span class="o">|&gt;</span> <span class="no">Enum</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="no">String</span><span class="o">.</span><span class="n">to_atom</span><span class="o">/</span><span class="mi">1</span><span class="p">)</span>
     <span class="o">|&gt;</span> <span class="no">Enum</span><span class="o">.</span><span class="n">each</span><span class="p">(</span><span class="k">fn</span> <span class="n">table_name</span> <span class="o">-&gt;</span>
       <span class="n">alter</span> <span class="n">table</span><span class="p">(</span><span class="n">table_name</span><span class="p">)</span> <span class="k">do</span>
         <span class="n">modify</span> <span class="ss">:inserted_at</span><span class="p">,</span> <span class="ss">:utc_datetime_usec</span>
@@ -288,11 +288,11 @@
 
   <h3>More blogposts:</h3>
   
+      <li><a href="/2021/02/15/ethernet-wifi-8-voice-call.html">How to improve your video and audio call stability for $8</a></li>
+  
       <li><a href="/2020/05/25/calendar-standard-library-2020.html">You might not need the Calendar or Timex libraries</a></li>
   
       <li><a href="/2019/11/13/elixir-function-never-use-local-now.html">Adding a function to the Elixir standard library that I hope will not be used</a></li>
-  
-      <li><a href="/2019/10/24/elixir-tzdata-10mm-downloads.html">Tzdata library downloaded 10 million times - Elixir getting more popular?</a></li>
   
 
 </div>

@@ -6,9 +6,73 @@
 </description>
     <link>http://www.creativedeletion.com/</link>
     <atom:link href="http://www.creativedeletion.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 25 May 2020 20:06:14 -0700</pubDate>
-    <lastBuildDate>Mon, 25 May 2020 20:06:14 -0700</lastBuildDate>
-    <generator>Jekyll v3.8.3</generator>
+    <pubDate>Mon, 15 Feb 2021 20:35:40 -0600</pubDate>
+    <lastBuildDate>Mon, 15 Feb 2021 20:35:40 -0600</lastBuildDate>
+    <generator>Jekyll v3.8.6</generator>
+    
+      <item>
+        <title>How to improve your video and audio call stability for $8</title>
+        <description>&lt;p&gt;Wireless networking can be a bottleneck for trouble free voice and video calls over the internet.&lt;/p&gt;
+
+&lt;p&gt;For audio and video calls over the internet, a stable connection is important. High network speeds are not necessary for audio calls. Skype was made to work with 33.6 Kbps modems. Today people that have internet connections that are more than 1000 times faster can have issues with audio dropping. This can be very frustrating. The culprit is often Wi-Fi.&lt;/p&gt;
+
+&lt;p&gt;You might run a test of the Wi-Fi speed and the average speed over many seconds could look OK. But transferring large files is not the same as audio or video calls. The stability matters. If someone turns on a microwave oven and this causes some data to not be transferred, the data can be resent when transferring a file. Maybe the file transfer takes an extra second and it isn’t noticed. However for calls, this disruption can cause visible and audible issues.&lt;/p&gt;
+
+&lt;p&gt;Wireless solutions have a convenience advantage - when they work. The downsides include inconsistency, instability, high latency, slower overall speeds.&lt;/p&gt;
+
+&lt;p&gt;Because of the wireless nature of Wi-Fi it is more subject to interference. It can be interrupted by bluetooth, microwaves, other Wi-Fi networks and all kinds of other electronics.&lt;/p&gt;
+
+&lt;p&gt;Fortunately there is a simple solution: wires. Specifically Ethernet. The standard for wired networking.&lt;/p&gt;
+
+&lt;p&gt;Ethernet typically uses twisted pair cables. The twisted pairs of wires inside the cable prevent interference.&lt;/p&gt;
+
+&lt;h2 id=&quot;wi-fi-theoretical-speeds-vs-real-life-speeds&quot;&gt;Wi-Fi theoretical speeds vs real-life speeds&lt;/h2&gt;
+
+&lt;p&gt;One of the biggest advantages of Ethernet over Wi-Fi is stability. Ethernet is also typically faster than Wi-Fi.&lt;/p&gt;
+
+&lt;p&gt;The theoretical maximum Wi-Fi speeds do not compare directly to Ethernet. The theoretical maximum Wi-Fi speeds can only happen under special circumstances. Even with just a single device connected to Wi-Fi, distance and interference reduce the real-life speeds. Additional devices on the same Wi-Fi network also reduce the speeds. Each device on the network has to share the bandwidth so to speak. On Ethernet the speeds are much more consistent and multiple clients can all have consistent high speeds at the same time.&lt;/p&gt;
+
+&lt;p&gt;Is some device on Wi-Fi doing a backup? This slows down the whole Wi-Fi network. Is someone streaming video from the internet? This doesn’t just slow down the internet connection, but the local Wi-Fi network as well. With Ethernet one computer can back up to a storage device on the network, while not interrupting or slowing down the speed of a video call on another computer.&lt;/p&gt;
+
+&lt;h2 id=&quot;security&quot;&gt;Security&lt;/h2&gt;
+
+&lt;p&gt;Ethernet is more secure than Wi-Fi. Through out the years, different encryption mechanisms for Wi-Fi have been developed and weaknesses and exploits for them have been discovered.
+KRACK for WPA2 https://www.krackattacks.com . An earlier encryption Wired Equivalent Privacy (WEP), despite its name, turned out to not have the equivalent privacy of wired networking.&lt;/p&gt;
+
+&lt;h2 id=&quot;helps-improve-wi-fi&quot;&gt;Helps improve Wi-Fi&lt;/h2&gt;
+&lt;p&gt;Any computer or other device that uses Ethernet instead of Wi-Fi will leave more bandwidth for the devices left on Wi-Fi. So for instance if your laptop and Apple TV device is on Ethernet, those do not take away Wi-Fi bandwidth for your phone that is still using Wi-Fi.&lt;/p&gt;
+
+&lt;h2 id=&quot;practical-application&quot;&gt;Practical application&lt;/h2&gt;
+&lt;p&gt;In certain cases, wires are not practical and Wi-Fi can be a good second best solution. However when possible I prefer and recommend wired networking.&lt;/p&gt;
+
+&lt;p&gt;If you work from a desk, why not have an ethernet cable available there?&lt;/p&gt;
+
+&lt;p&gt;While Wi-Fi is still convenient, in cases where you have a desk or typically work, it can be useful to have ethernet access there. If you are already plugging in an external monitor or keyboard, why not also plug in to ethernet? Say hello to network stability and speed.&lt;/p&gt;
+
+&lt;p&gt;If you work from different places during the day, you could chose to use Wi-Fi at some parts of the day and go to a desk with Ethernet for meetings when voice call quality and stability is important.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-8-solution&quot;&gt;The $8 solution&lt;/h2&gt;
+&lt;p&gt;Ethernet cables come in different lengths and standards. For most people if the cable is shorter than 100 meters, most cables work fine and a lot better than WiFi. You can buy a &lt;a href=&quot;https://www.amazon.com/Monoprice-Flexboot-Ethernet-Patch-Cable/dp/B00AJHCC82/ref=as_li_ss_tl?&amp;amp;linkCode=ll1&amp;amp;tag=creatdelet-20&amp;amp;linkId=d6af2d6423828113dd63b727767e5c75&amp;amp;language=en_US&quot;&gt;Cat 6 cable for less than $8&lt;/a&gt;. One of those can be plugged in to your computer on one end and the other end into a router that is common at home. That’s it.&lt;/p&gt;
+
+&lt;h2 id=&quot;adapters&quot;&gt;Adapters&lt;/h2&gt;
+&lt;p&gt;Desktop computers usually already have an ethernet port. Some laptops have an ethernet port as well. For the ones that lack an ethernet port you can buy USB adapters.&lt;/p&gt;
+
+&lt;p&gt;If you use a laptop with Thunderbolt 3, you can get &lt;a href=&quot;https://www.amazon.com/CalDigit-TS3-Plus-Thunderbolt-Dock/dp/B07CZPV8DF/&quot;&gt;docking stations&lt;/a&gt; have built in ethernet ports. This way you can plug in one cable and get power delivery, connection to USB, monitors, keyboard and mouse as well as Ethernet.&lt;/p&gt;
+
+&lt;p&gt;An alternative to a docking station is a simple USB to ethernet adapter. You can leave on always connected to an ethernet cable and then plug the adapter into a USB port of the laptop when at the desk.&lt;/p&gt;
+
+&lt;p&gt;1Gbps Ethernet is more than enough for most people. I use and like the &lt;a href=&quot;https://amzn.to/2LdIAlk&quot;&gt;U Green USB C to 2.5G Ethernet Adapter&lt;/a&gt; It works with Ethernet speeds of up to 2.5 Gbps and is backwards compatible with slower speeds too. At around $22 it is relatively inexpensive. It has an aluminium housing which should help dissipate heat better than plastic - for better stability.&lt;/p&gt;
+
+&lt;h2 id=&quot;remote-work&quot;&gt;Remote work&lt;/h2&gt;
+&lt;p&gt;Ethernet is another tool you can use to make remote work more effective and pleasant for yourself and the people you work with. And although the title of this focused on audio and video calls, it can also help with any other kind of network traffic.&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 15 Feb 2021 06:00:00 -0600</pubDate>
+        <link>http://www.creativedeletion.com/2021/02/15/ethernet-wifi-8-voice-call.html</link>
+        <guid isPermaLink="true">http://www.creativedeletion.com/2021/02/15/ethernet-wifi-8-voice-call.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>You might not need the Calendar or Timex libraries</title>
@@ -75,7 +139,7 @@
 &lt;p&gt;However it was never meant to do everything. Third party libraries can still fill in the gaps to complement the functions in the standard library.&lt;/p&gt;
 
 </description>
-        <pubDate>Mon, 25 May 2020 05:00:00 -0700</pubDate>
+        <pubDate>Mon, 25 May 2020 07:00:00 -0500</pubDate>
         <link>http://www.creativedeletion.com/2020/05/25/calendar-standard-library-2020.html</link>
         <guid isPermaLink="true">http://www.creativedeletion.com/2020/05/25/calendar-standard-library-2020.html</guid>
         
@@ -104,7 +168,7 @@
 &lt;p&gt;See more in the blog-post &lt;a href=&quot;http://www.creativedeletion.com/2015/08/07/why-not-to-use-server-local-time.html&quot;&gt;Why not to ask the server for its “local time”&lt;/a&gt;.&lt;/p&gt;
 
 </description>
-        <pubDate>Wed, 13 Nov 2019 04:00:00 -0800</pubDate>
+        <pubDate>Wed, 13 Nov 2019 06:00:00 -0600</pubDate>
         <link>http://www.creativedeletion.com/2019/11/13/elixir-function-never-use-local-now.html</link>
         <guid isPermaLink="true">http://www.creativedeletion.com/2019/11/13/elixir-function-never-use-local-now.html</guid>
         
@@ -127,7 +191,7 @@
 
 &lt;p&gt;On its own the number does not mean that much. But looking at the development of the numbers over time I think it can be used as a non-scientific proxy for how much a package is used. And since the trend seem to be similar across various often-downloaded packages also a proxy for use of the Elixir language. This would suggest that Elixir is getting used more.&lt;/p&gt;
 </description>
-        <pubDate>Thu, 24 Oct 2019 05:00:00 -0700</pubDate>
+        <pubDate>Thu, 24 Oct 2019 07:00:00 -0500</pubDate>
         <link>http://www.creativedeletion.com/2019/10/24/elixir-tzdata-10mm-downloads.html</link>
         <guid isPermaLink="true">http://www.creativedeletion.com/2019/10/24/elixir-tzdata-10mm-downloads.html</guid>
         
@@ -142,7 +206,7 @@
 
 &lt;p&gt;Amongst other things it covers how you can now do time zone conversions with &lt;a href=&quot;https://hexdocs.pm/elixir/DateTime.html#module-time-zone-database&quot;&gt;Elixir standard library functions&lt;/a&gt; - without libraries such as Calendar or Timex.&lt;/p&gt;
 </description>
-        <pubDate>Fri, 18 Oct 2019 05:00:00 -0700</pubDate>
+        <pubDate>Fri, 18 Oct 2019 07:00:00 -0500</pubDate>
         <link>http://www.creativedeletion.com/2019/10/18/elixirconf-2019.html</link>
         <guid isPermaLink="true">http://www.creativedeletion.com/2019/10/18/elixirconf-2019.html</guid>
         
@@ -161,7 +225,7 @@
   &lt;span class=&quot;kn&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Ecto&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Schema&lt;/span&gt;
   &lt;span class=&quot;nv&quot;&gt;@timestamps_opts&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;type:&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:utc_datetime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 
-  &lt;span class=&quot;n&quot;&gt;schema&lt;/span&gt; &lt;span class=&quot;sd&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;users&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;schema&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;users&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;field&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:string&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;timestamps&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
@@ -175,7 +239,7 @@
 
 &lt;p&gt;An alternative to the &lt;code class=&quot;highlighter-rouge&quot;&gt;@timestamps_opts&lt;/code&gt; way is to pass the type as an argument when calling the timestamps/1 function in the schema:&lt;/p&gt;
 
-&lt;div class=&quot;language-elixir highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;n&quot;&gt;schema&lt;/span&gt; &lt;span class=&quot;sd&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;users&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+&lt;div class=&quot;language-elixir highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;n&quot;&gt;schema&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;users&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;field&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:string&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;timestamps&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;type:&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:utc_datetime_usec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
@@ -302,7 +366,7 @@
   &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;change&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
     &lt;span class=&quot;c1&quot;&gt;# For each of the listed tables, change the type of :inserted_at and :updated_at to microsecond precision&lt;/span&gt;
     &lt;span class=&quot;sx&quot;&gt;~w/users products another_table/&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;|&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Enum&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_atom&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;|&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Enum&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_atom&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;|&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Enum&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;each&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;table_name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;
       &lt;span class=&quot;n&quot;&gt;alter&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;table&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;table_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;modify&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:inserted_at&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:utc_datetime_usec&lt;/span&gt;
@@ -330,7 +394,7 @@
 
 &lt;p&gt;P.S. At the end of August I will be speaking about Date, Time and Timezones in Elixir 1.9 at &lt;a href=&quot;https://elixirconf.com/2019&quot;&gt;ElixirConf US 2019&lt;/a&gt; in Colorado.&lt;/p&gt;
 </description>
-        <pubDate>Mon, 17 Jun 2019 05:00:00 -0700</pubDate>
+        <pubDate>Mon, 17 Jun 2019 07:00:00 -0500</pubDate>
         <link>http://www.creativedeletion.com/2019/06/17/utc-timestamps-in-ecto.html</link>
         <guid isPermaLink="true">http://www.creativedeletion.com/2019/06/17/utc-timestamps-in-ecto.html</guid>
         
@@ -367,7 +431,7 @@
 &lt;/ul&gt;
 
 &lt;div class=&quot;language-elixir highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;ss&quot;&gt;price_amount:&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#Decimal&amp;lt;10.00&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;ss&quot;&gt;price_currency:&lt;/span&gt; &lt;span class=&quot;sd&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;USD&quot;&lt;/span&gt;
+  &lt;span class=&quot;ss&quot;&gt;price_currency:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;USD&quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
@@ -438,7 +502,7 @@ And the consumer of the API would read and verify the unit. On the consumer side
 
 &lt;p&gt;P.S. In a future post I will expand on these ideas and how it relates to the date and time types in &lt;a href=&quot;https://www.elixir-lang.org/&quot;&gt;Elixir&lt;/a&gt;.&lt;/p&gt;
 </description>
-        <pubDate>Tue, 08 Jan 2019 04:00:00 -0800</pubDate>
+        <pubDate>Tue, 08 Jan 2019 06:00:00 -0600</pubDate>
         <link>http://www.creativedeletion.com/2019/01/08/data-types-assumptions.html</link>
         <guid isPermaLink="true">http://www.creativedeletion.com/2019/01/08/data-types-assumptions.html</guid>
         
@@ -493,7 +557,7 @@ And the consumer of the API would read and verify the unit. On the consumer side
 
 &lt;p&gt;This means possibilities to reduce dependencies, simplify development, deployment, provisioning and monitoring.&lt;/p&gt;
 </description>
-        <pubDate>Tue, 04 Sep 2018 05:00:00 -0700</pubDate>
+        <pubDate>Tue, 04 Sep 2018 07:00:00 -0500</pubDate>
         <link>http://www.creativedeletion.com/2018/09/04/using-elixir-instead-of-cron.html</link>
         <guid isPermaLink="true">http://www.creativedeletion.com/2018/09/04/using-elixir-instead-of-cron.html</guid>
         
@@ -510,7 +574,7 @@ And the consumer of the API would read and verify the unit. On the consumer side
 
 &lt;p&gt;If this subject interests you, also check out &lt;a href=&quot;/2015/10/19/elixirconf-talk-date-time.html&quot;&gt;my talk from ElixirConf 2015&lt;/a&gt;.&lt;/p&gt;
 </description>
-        <pubDate>Sat, 12 Nov 2016 04:00:00 -0800</pubDate>
+        <pubDate>Sat, 12 Nov 2016 06:00:00 -0600</pubDate>
         <link>http://www.creativedeletion.com/2016/11/12/elixirconf-2016-date-time.html</link>
         <guid isPermaLink="true">http://www.creativedeletion.com/2016/11/12/elixirconf-2016-date-time.html</guid>
         
@@ -598,190 +662,9 @@ Maybe even send them a link to this blog post so that you are all on the same pa
   &lt;/li&gt;
 &lt;/ul&gt;
 </description>
-        <pubDate>Fri, 29 Apr 2016 05:00:00 -0700</pubDate>
+        <pubDate>Fri, 29 Apr 2016 07:00:00 -0500</pubDate>
         <link>http://www.creativedeletion.com/2016/04/29/programmers-know-dates.html</link>
         <guid isPermaLink="true">http://www.creativedeletion.com/2016/04/29/programmers-know-dates.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Compare date and time in Elixir with protocols</title>
-        <description>&lt;p&gt;The &lt;a href=&quot;https://github.com/lau/calendar&quot;&gt;Calendar&lt;/a&gt; library has functionality for comparing dates and datetimes.
-The &lt;code class=&quot;highlighter-rouge&quot;&gt;Calendar.Date&lt;/code&gt; module has a function for getting the difference
-between two dates. You can for instance pass date tuples
-or Calendar structs to the &lt;code class=&quot;highlighter-rouge&quot;&gt;Calendar.Date.diff/2&lt;/code&gt; funciton. This will return the difference in days
-between the two dates.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-elixir&quot; data-lang=&quot;elixir&quot;&gt;&lt;span class=&quot;n&quot;&gt;iex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;diff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2016&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2016&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-&lt;span class=&quot;m&quot;&gt;6&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;iex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;diff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2016&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;day:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;month:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;year:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2016&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-&lt;span class=&quot;m&quot;&gt;6&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;diff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2016&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2016&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;6&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;diff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2016&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2016&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/elixir-lang/ecto&quot;&gt;Ecto&lt;/a&gt; is another library that has structs for dates and datetimes.&lt;/p&gt;
-
-&lt;p&gt;To get an Ecto date struct you can use the &lt;code class=&quot;highlighter-rouge&quot;&gt;Ecto.Date.from_erl&lt;/code&gt; function like this:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-elixir&quot; data-lang=&quot;elixir&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Ecto&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from_erl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2016&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#Ecto.Date&amp;lt;2016-03-10&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;What if you could use the same function in the calendar library to compare
-&lt;code class=&quot;highlighter-rouge&quot;&gt;Ecto.Date&lt;/code&gt; structs? You can!&lt;/p&gt;
-
-&lt;p&gt;The &lt;a href=&quot;https://github.com/lau/calecto&quot;&gt;Calecto&lt;/a&gt; library contains a protocol implementation that makes this possible.
-It looks like this:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-elixir&quot; data-lang=&quot;elixir&quot;&gt;&lt;span class=&quot;k&quot;&gt;defimpl&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;ContainsDate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;for:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Ecto&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Date&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;date_struct&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-    &lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from_erl!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;year&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;month&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;day&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;This means that if you have added Calecto to your Elixir project, you can pass Ecto.Date structs to
-the same function:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-elixir&quot; data-lang=&quot;elixir&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Ecto&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from_erl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2016&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;diff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2016&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-&lt;span class=&quot;m&quot;&gt;6&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;In the above example an Ecto.Date struct is compared to a tuple.
-Whatever implements the &lt;code class=&quot;highlighter-rouge&quot;&gt;ContainsDate&lt;/code&gt; protocol can be used as parameters.&lt;/p&gt;
-
-&lt;p&gt;We can also compare two Ecto.Date structs:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-elixir&quot; data-lang=&quot;elixir&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Ecto&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from_erl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2016&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;diff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Ecto&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from_erl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2016&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}))&lt;/span&gt;
-&lt;span class=&quot;m&quot;&gt;38&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;h2 id=&quot;all-the-other-functions&quot;&gt;All the other functions&lt;/h2&gt;
-
-&lt;p&gt;But that is not all. &lt;code class=&quot;highlighter-rouge&quot;&gt;diff/2&lt;/code&gt; is just one of the functions in the &lt;code class=&quot;highlighter-rouge&quot;&gt;Calendar.Date&lt;/code&gt; module.
-Any place where a date is expected you can use &lt;code class=&quot;highlighter-rouge&quot;&gt;Ecto.Date&lt;/code&gt; structs, &lt;code class=&quot;highlighter-rouge&quot;&gt;Calendar.Date&lt;/code&gt; structs
-or tuples as you please. In addition to that you can implement the &lt;code class=&quot;highlighter-rouge&quot;&gt;Calendar.ContainsDate&lt;/code&gt; for your own custom
-date types.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-elixir&quot; data-lang=&quot;elixir&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# what day of the week it is:&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Ecto&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from_erl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2016&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;day_of_week_name&lt;/span&gt;
-&lt;span class=&quot;sd&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Thursday&quot;&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# ISO 8601 basic format&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Ecto&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from_erl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2016&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iso8601_basic&lt;/span&gt;
-&lt;span class=&quot;sd&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;20160310&quot;&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# Format as ordinal date&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;Ecto&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from_erl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2016&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ordinal&lt;/span&gt;
-&lt;span class=&quot;sd&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;2016-070&quot;&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# Is it on a tuesday?&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Ecto&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from_erl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2016&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tuesday?&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;false&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# Get an infinite Stream of all Dates after the Ecto.Date&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Ecto&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from_erl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2016&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;days_after&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#Function&amp;lt;32.16851754/2 in Stream.unfold/2&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# Add 10 days to the Date&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Ecto&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from_erl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2016&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;day:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;month:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;year:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2016&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# Subtract a day&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Ecto&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from_erl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2016&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;subtract!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;day:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;month:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;year:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2016&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# Format with strftime&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Ecto&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from_erl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2016&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Strftime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strftime!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sd&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;The year is %Y&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;sd&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;The year is 2016&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Those are just a few examples of the available functionality.&lt;/p&gt;
-
-&lt;h2 id=&quot;comparing-ectodatetime-structs&quot;&gt;Comparing Ecto.DateTime structs&lt;/h2&gt;
-
-&lt;p&gt;Because &lt;code class=&quot;highlighter-rouge&quot;&gt;Ecto.DateTime&lt;/code&gt; structs have datetimes, but no timezone information
-they are equivalent to Calendars &lt;code class=&quot;highlighter-rouge&quot;&gt;NaiveDateTime&lt;/code&gt; structs.&lt;/p&gt;
-
-&lt;p&gt;Like &lt;code class=&quot;highlighter-rouge&quot;&gt;Calendar.Date&lt;/code&gt; functions take arguments that implement the &lt;code class=&quot;highlighter-rouge&quot;&gt;Calendar.ContainsDate&lt;/code&gt;
-protocol, &lt;code class=&quot;highlighter-rouge&quot;&gt;Calendar.NaiveDateTime&lt;/code&gt; functions take arguments that implement the
-&lt;code class=&quot;highlighter-rouge&quot;&gt;Calendar.ContainsNaiveDateTime&lt;/code&gt; protocol. Out of the box Calendar has implemented
-these protocols for &lt;code class=&quot;highlighter-rouge&quot;&gt;Calendar.NaiveDateTime&lt;/code&gt; structs and erlang style tuples.&lt;/p&gt;
-
-&lt;p&gt;Calecto implements the protocol for &lt;code class=&quot;highlighter-rouge&quot;&gt;Ecto.DateTime&lt;/code&gt; structs.
-This means we can use the &lt;code class=&quot;highlighter-rouge&quot;&gt;Calendar.NaiveDateTime.diff/2&lt;/code&gt; function to compare
-&lt;code class=&quot;highlighter-rouge&quot;&gt;Ecto.DateTime&lt;/code&gt; structs too.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-elixir&quot; data-lang=&quot;elixir&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ecto_dt1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{{&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2016&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Ecto&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from_erl&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#Ecto.DateTime&amp;lt;2016-01-01 00:00:00&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ecto_dt2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{{&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2016&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Ecto&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from_erl&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#Ecto.DateTime&amp;lt;2016-01-01 00:10:03&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;NaiveDateTime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;diff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ecto_dt1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ecto_dt2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:ok&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;603&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:before&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;The difference between the two structs is 603 seconds and 0 microseconds.
-You can pattern match on the fourth tuple element to get &lt;code class=&quot;highlighter-rouge&quot;&gt;:before&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;:after&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;:same_time&lt;/code&gt;.
-Alternatively if you do not want to know how big the difference is, but just want
-to know if the first datetime is before the second one or not, there is a function for that:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-elixir&quot; data-lang=&quot;elixir&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;NaiveDateTime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;before?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ecto_dt1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ecto_dt2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;true&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ecto_dt1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;NaiveDateTime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;after?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ecto_dt2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;false&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;And as with the &lt;code class=&quot;highlighter-rouge&quot;&gt;Date&lt;/code&gt; module you can also use &lt;code class=&quot;highlighter-rouge&quot;&gt;Ecto.DateTime&lt;/code&gt;s in the other functions
-in the &lt;code class=&quot;highlighter-rouge&quot;&gt;NaiveDateTime&lt;/code&gt; module:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-elixir&quot; data-lang=&quot;elixir&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# Add 10 seconds&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ecto_dt1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;NaiveDateTime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:ok&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;NaiveDateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;day:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;hour:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;min:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;month:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;sec:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;usec:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;year:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2016&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# Subtract 3600 seconds&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ecto_dt1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;NaiveDateTime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;subtract!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3600&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;NaiveDateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;day:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;31&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;hour:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;23&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;min:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;month:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;sec:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;usec:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;year:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2015&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# Format as ISO 8601 basic&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ecto_dt1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;NaiveDateTime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iso8601_basic&lt;/span&gt;
-&lt;span class=&quot;sd&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;20160101T000000&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;h2 id=&quot;comparing-just-the-date-part-of-a-datetime&quot;&gt;Comparing just the date part of a datetime&lt;/h2&gt;
-
-&lt;p&gt;Because &lt;code class=&quot;highlighter-rouge&quot;&gt;Ecto.Datetime&lt;/code&gt; contains a date - the
-&lt;code class=&quot;highlighter-rouge&quot;&gt;ContainsDate&lt;/code&gt; protocol is also implemented for &lt;code class=&quot;highlighter-rouge&quot;&gt;Ecto.Datetime&lt;/code&gt;. As with a simple date we can also use
-the functions in the &lt;code class=&quot;highlighter-rouge&quot;&gt;Calendar.Date&lt;/code&gt; module with an &lt;code class=&quot;highlighter-rouge&quot;&gt;Ecto.DateTime&lt;/code&gt; as an argument.&lt;/p&gt;
-
-&lt;p&gt;What if you have two datetimes and you want to know if they are on the same date - not
-if they are on the exact same time, just if they are on the same date. There is not a special
-function for that made for date-times. Instead we can simply use the same function as before:
-&lt;code class=&quot;highlighter-rouge&quot;&gt;Date.diff/2&lt;/code&gt;. When passing datetimes, the protocols simply discards the time and just
-uses the date part of the date-time:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-elixir&quot; data-lang=&quot;elixir&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;diff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ecto_dt1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ecto_dt2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;same_date?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ecto_dt1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ecto_dt2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;true&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ecto_dt1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;day_of_week_name&lt;/span&gt;
-&lt;span class=&quot;sd&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Friday&quot;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ecto_dt1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Calendar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;week_number&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2015&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;53&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;h2 id=&quot;how-to-get-all-of-this-goodness&quot;&gt;How to get all of this goodness&lt;/h2&gt;
-
-&lt;p&gt;Just add &lt;a href=&quot;https://github.com/lau/calendar&quot;&gt;Calendar&lt;/a&gt; (and &lt;a href=&quot;https://github.com/lau/calecto&quot;&gt;Calecto&lt;/a&gt; if you use Ecto) to your mix file. Then you can start using the features
-of Calendar without changing anything else in your existing code.&lt;/p&gt;
-
-&lt;h2 id=&quot;the-whole-way&quot;&gt;The whole way&lt;/h2&gt;
-
-&lt;p&gt;So far we have seen how the protocols effortlessly allow using date and time types
-from Ecto with Calendar modules.&lt;/p&gt;
-
-&lt;p&gt;If you go a bit further and use Calecto types e.g.
-&lt;code class=&quot;highlighter-rouge&quot;&gt;Calecto.DateTimeUTC&lt;/code&gt; instead of &lt;code class=&quot;highlighter-rouge&quot;&gt;Ecto.DateTime&lt;/code&gt;, you get more functionality,
-&lt;a href=&quot;http://www.creativedeletion.com/2016/02/04/timetypes_prevent_bugs.html&quot;&gt;convenience&lt;/a&gt; and &lt;a href=&quot;http://www.creativedeletion.com/2015/03/19/persisting_future_datetimes.html&quot;&gt;protection from bugs&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;protocols&quot;&gt;Protocols&lt;/h2&gt;
-
-&lt;p&gt;With Elixir protocols it is possible to build functionality once in one library and then use it
-with data from other libraries without changing a single line of code in either!
-All you have to do is implement the necessary protocols. In this example those libraries
-are Calendar and Ecto. And Calecto provides the protocol implementation.&lt;/p&gt;
-
-&lt;p&gt;Even within one library the protocols provide a clean way of making one function usable
-with different data-types.&lt;/p&gt;
-
-</description>
-        <pubDate>Mon, 07 Mar 2016 04:00:00 -0800</pubDate>
-        <link>http://www.creativedeletion.com/2016/03/07/comparing_dates_in_elixir.html</link>
-        <guid isPermaLink="true">http://www.creativedeletion.com/2016/03/07/comparing_dates_in_elixir.html</guid>
         
         
       </item>

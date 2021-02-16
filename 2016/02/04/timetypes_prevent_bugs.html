@@ -141,7 +141,7 @@ We get a date as a string in ISO format.
 This data will be saved in a database.
 You use JavaScript’s Date.</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="s2">"2016-1-17"</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="dl">"</span><span class="s2">2016-1-17</span><span class="dl">"</span><span class="p">)</span>
 <span class="nx">Sun</span> <span class="nx">Jan</span> <span class="mi">17</span> <span class="mi">2016</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span> <span class="nx">GMT</span><span class="o">+</span><span class="mi">0100</span> <span class="p">(</span><span class="nx">CET</span><span class="p">)</span></code></pre></figure>
 
 <p>This gets you not just a Date, but a certain millisecond in time. Midnight at that
@@ -216,18 +216,18 @@ The RFC 3339 string needs to contain a datetime and a timezone offset.
 A unix timestamp contains all of that. So we can parse a unix timestamp number,
 and then pass the datetime on to a function that formats that.</p>
 
-<figure class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="sd">"</span><span class="s2">1453303516"</span> <span class="o">|&gt;</span> <span class="no">DateTime</span><span class="o">.</span><span class="no">Parse</span><span class="o">.</span><span class="n">unix!</span> <span class="o">|&gt;</span> <span class="no">DateTime</span><span class="o">.</span><span class="no">Format</span><span class="o">.</span><span class="n">rfc3339</span>
-<span class="sd">"</span><span class="s2">2016-01-20T15:25:16Z"</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="s2">"1453303516"</span> <span class="o">|&gt;</span> <span class="no">DateTime</span><span class="o">.</span><span class="no">Parse</span><span class="o">.</span><span class="n">unix!</span> <span class="o">|&gt;</span> <span class="no">DateTime</span><span class="o">.</span><span class="no">Format</span><span class="o">.</span><span class="n">rfc3339</span>
+<span class="s2">"2016-01-20T15:25:16Z"</span></code></pre></figure>
 
 <p>If you have a date you can parse that as a Date:</p>
 
-<figure class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="sd">"</span><span class="s2">2016-01-16"</span> <span class="o">|&gt;</span> <span class="no">Calendar</span><span class="o">.</span><span class="no">Date</span><span class="o">.</span><span class="no">Parse</span><span class="o">.</span><span class="n">iso8601!</span>
-<span class="p">%</span><span class="no">Calendar</span><span class="o">.</span><span class="no">Date</span><span class="p">{</span><span class="ss">day:</span> <span class="m">16</span><span class="p">,</span> <span class="ss">month:</span> <span class="m">1</span><span class="p">,</span> <span class="ss">year:</span> <span class="m">2016</span><span class="p">}</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="s2">"2016-01-16"</span> <span class="o">|&gt;</span> <span class="no">Calendar</span><span class="o">.</span><span class="no">Date</span><span class="o">.</span><span class="no">Parse</span><span class="o">.</span><span class="n">iso8601!</span>
+<span class="p">%</span><span class="no">Calendar</span><span class="o">.</span><span class="no">Date</span><span class="p">{</span><span class="ss">day:</span> <span class="mi">16</span><span class="p">,</span> <span class="ss">month:</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">year:</span> <span class="mi">2016</span><span class="p">}</span></code></pre></figure>
 
 <p>That simply gets you a date. What if we try to format that as an RFC3339 string?</p>
 
-<figure class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="sd">"</span><span class="s2">2016-01-16"</span> <span class="o">|&gt;</span> <span class="no">Calendar</span><span class="o">.</span><span class="no">Date</span><span class="o">.</span><span class="no">Parse</span><span class="o">.</span><span class="n">iso8601!</span> <span class="o">|&gt;</span> <span class="no">DateTime</span><span class="o">.</span><span class="no">Format</span><span class="o">.</span><span class="n">rfc3339</span>
-<span class="o">**</span> <span class="p">(</span><span class="no">Protocol</span><span class="o">.</span><span class="no">UndefinedError</span><span class="p">)</span> <span class="n">protocol</span> <span class="no">Calendar</span><span class="o">.</span><span class="no">ContainsDateTime</span> <span class="ow">not</span> <span class="n">implemented</span> <span class="n">for</span> <span class="p">%</span><span class="no">Calendar</span><span class="o">.</span><span class="no">Date</span><span class="p">{</span><span class="ss">day:</span> <span class="m">16</span><span class="p">,</span> <span class="ss">month:</span> <span class="m">1</span><span class="p">,</span> <span class="ss">year:</span> <span class="m">2016</span><span class="p">}</span>
+<figure class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="s2">"2016-01-16"</span> <span class="o">|&gt;</span> <span class="no">Calendar</span><span class="o">.</span><span class="no">Date</span><span class="o">.</span><span class="no">Parse</span><span class="o">.</span><span class="n">iso8601!</span> <span class="o">|&gt;</span> <span class="no">DateTime</span><span class="o">.</span><span class="no">Format</span><span class="o">.</span><span class="n">rfc3339</span>
+<span class="o">**</span> <span class="p">(</span><span class="no">Protocol</span><span class="o">.</span><span class="no">UndefinedError</span><span class="p">)</span> <span class="n">protocol</span> <span class="no">Calendar</span><span class="o">.</span><span class="no">ContainsDateTime</span> <span class="ow">not</span> <span class="n">implemented</span> <span class="n">for</span> <span class="p">%</span><span class="no">Calendar</span><span class="o">.</span><span class="no">Date</span><span class="p">{</span><span class="ss">day:</span> <span class="mi">16</span><span class="p">,</span> <span class="ss">month:</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">year:</span> <span class="mi">2016</span><span class="p">}</span>
 <span class="p">[</span><span class="o">...</span><span class="p">]</span></code></pre></figure>
 
 <p>We get an error, and that is great! The DateTime.Format.rfc3339 function does not
@@ -269,7 +269,7 @@ to get a RFC3339 (which is an ISO 8601 profile) that contains the Z telling the 
 datetime is in UTC.</p>
 
 <figure class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="n">post</span><span class="o">.</span><span class="n">inserted_at</span> <span class="o">|&gt;</span> <span class="no">DateTime</span><span class="o">.</span><span class="no">Format</span><span class="o">.</span><span class="n">rfc3339</span>
-<span class="sd">"</span><span class="s2">2016-01-20T15:25:16Z"</span></code></pre></figure>
+<span class="s2">"2016-01-20T15:25:16Z"</span></code></pre></figure>
 
 <p>On the other hand if we use a normal Ecto.DateTime type or a Calecto.NaiveDateTime
 type for our field, we are saying that we do not know which timezone that
@@ -282,7 +282,7 @@ timezone information and know that it is in UTC, you can promote a naive datetim
 to a DateTime:</p>
 
 <figure class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="n">post</span><span class="o">.</span><span class="n">some_naive_datetime</span> <span class="o">|&gt;</span> <span class="no">NaiveDateTime</span><span class="o">.</span><span class="n">to_date_time_utc</span> <span class="o">|&gt;</span> <span class="no">DateTime</span><span class="o">.</span><span class="no">Format</span><span class="o">.</span><span class="n">rfc3339</span>
-<span class="sd">"</span><span class="s2">2016-01-20T15:25:16Z"</span></code></pre></figure>
+<span class="s2">"2016-01-20T15:25:16Z"</span></code></pre></figure>
 
 <p>The point is that for Calendar to generate a string that says something about the
 timezone, it has to get that information from somewhere. It does not “magically”
@@ -313,11 +313,11 @@ That is the only datetime library I can recommend for Elixir.</p>
 
   <h3>More blogposts:</h3>
   
+      <li><a href="/2021/02/15/ethernet-wifi-8-voice-call.html">How to improve your video and audio call stability for $8</a></li>
+  
       <li><a href="/2020/05/25/calendar-standard-library-2020.html">You might not need the Calendar or Timex libraries</a></li>
   
       <li><a href="/2019/11/13/elixir-function-never-use-local-now.html">Adding a function to the Elixir standard library that I hope will not be used</a></li>
-  
-      <li><a href="/2019/10/24/elixir-tzdata-10mm-downloads.html">Tzdata library downloaded 10 million times - Elixir getting more popular?</a></li>
   
 
 </div>

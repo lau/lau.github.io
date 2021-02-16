@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>ElixirConf 2019 talk: Date, Time, and Time Zones in Elixir 1.9</title>
-  <meta name="description" content="I went to ElixirConf 2019 in Aurora, Colorado, USA to give a talk: “Date, Time, and Time Zones in Elixir 1.9”. A video recording is available on YouTube:">
+  <title>How to improve your video and audio call stability for $8</title>
+  <meta name="description" content="Wireless networking can be a bottleneck for trouble free voice and video calls over the internet.">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://www.creativedeletion.com/2019/10/18/elixirconf-2019.html">
+  <link rel="canonical" href="http://www.creativedeletion.com/2021/02/15/ethernet-wifi-8-voice-call.html">
   <link rel="alternate" type="application/rss+xml" title="Creative Deletion" href="http://www.creativedeletion.com/feed.xml" />
   <style>
     .right_img {
@@ -95,16 +95,65 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">ElixirConf 2019 talk: Date, Time, and Time Zones in Elixir 1.9</h1>
-    <p class="post-meta">Oct 18, 2019</p>
+    <h1 class="post-title">How to improve your video and audio call stability for $8</h1>
+    <p class="post-meta">Feb 15, 2021</p>
   </header>
 
   <article class="post-content">
-    <p>I went to ElixirConf 2019 in Aurora, Colorado, USA to give a talk: “Date, Time, and Time Zones in Elixir 1.9”. <a href="https://www.youtube.com/watch?v=_E988mvPIzU">A video recording</a> is available on YouTube:</p>
+    <p>Wireless networking can be a bottleneck for trouble free voice and video calls over the internet.</p>
 
-<iframe width="720" height="405" src="https://www.youtube.com/embed/_E988mvPIzU" frameborder="0" allowfullscreen=""></iframe>
+<p>For audio and video calls over the internet, a stable connection is important. High network speeds are not necessary for audio calls. Skype was made to work with 33.6 Kbps modems. Today people that have internet connections that are more than 1000 times faster can have issues with audio dropping. This can be very frustrating. The culprit is often Wi-Fi.</p>
 
-<p>Amongst other things it covers how you can now do time zone conversions with <a href="https://hexdocs.pm/elixir/DateTime.html#module-time-zone-database">Elixir standard library functions</a> - without libraries such as Calendar or Timex.</p>
+<p>You might run a test of the Wi-Fi speed and the average speed over many seconds could look OK. But transferring large files is not the same as audio or video calls. The stability matters. If someone turns on a microwave oven and this causes some data to not be transferred, the data can be resent when transferring a file. Maybe the file transfer takes an extra second and it isn’t noticed. However for calls, this disruption can cause visible and audible issues.</p>
+
+<p>Wireless solutions have a convenience advantage - when they work. The downsides include inconsistency, instability, high latency, slower overall speeds.</p>
+
+<p>Because of the wireless nature of Wi-Fi it is more subject to interference. It can be interrupted by bluetooth, microwaves, other Wi-Fi networks and all kinds of other electronics.</p>
+
+<p>Fortunately there is a simple solution: wires. Specifically Ethernet. The standard for wired networking.</p>
+
+<p>Ethernet typically uses twisted pair cables. The twisted pairs of wires inside the cable prevent interference.</p>
+
+<h2 id="wi-fi-theoretical-speeds-vs-real-life-speeds">Wi-Fi theoretical speeds vs real-life speeds</h2>
+
+<p>One of the biggest advantages of Ethernet over Wi-Fi is stability. Ethernet is also typically faster than Wi-Fi.</p>
+
+<p>The theoretical maximum Wi-Fi speeds do not compare directly to Ethernet. The theoretical maximum Wi-Fi speeds can only happen under special circumstances. Even with just a single device connected to Wi-Fi, distance and interference reduce the real-life speeds. Additional devices on the same Wi-Fi network also reduce the speeds. Each device on the network has to share the bandwidth so to speak. On Ethernet the speeds are much more consistent and multiple clients can all have consistent high speeds at the same time.</p>
+
+<p>Is some device on Wi-Fi doing a backup? This slows down the whole Wi-Fi network. Is someone streaming video from the internet? This doesn’t just slow down the internet connection, but the local Wi-Fi network as well. With Ethernet one computer can back up to a storage device on the network, while not interrupting or slowing down the speed of a video call on another computer.</p>
+
+<h2 id="security">Security</h2>
+
+<p>Ethernet is more secure than Wi-Fi. Through out the years, different encryption mechanisms for Wi-Fi have been developed and weaknesses and exploits for them have been discovered.
+KRACK for WPA2 https://www.krackattacks.com . An earlier encryption Wired Equivalent Privacy (WEP), despite its name, turned out to not have the equivalent privacy of wired networking.</p>
+
+<h2 id="helps-improve-wi-fi">Helps improve Wi-Fi</h2>
+<p>Any computer or other device that uses Ethernet instead of Wi-Fi will leave more bandwidth for the devices left on Wi-Fi. So for instance if your laptop and Apple TV device is on Ethernet, those do not take away Wi-Fi bandwidth for your phone that is still using Wi-Fi.</p>
+
+<h2 id="practical-application">Practical application</h2>
+<p>In certain cases, wires are not practical and Wi-Fi can be a good second best solution. However when possible I prefer and recommend wired networking.</p>
+
+<p>If you work from a desk, why not have an ethernet cable available there?</p>
+
+<p>While Wi-Fi is still convenient, in cases where you have a desk or typically work, it can be useful to have ethernet access there. If you are already plugging in an external monitor or keyboard, why not also plug in to ethernet? Say hello to network stability and speed.</p>
+
+<p>If you work from different places during the day, you could chose to use Wi-Fi at some parts of the day and go to a desk with Ethernet for meetings when voice call quality and stability is important.</p>
+
+<h2 id="the-8-solution">The $8 solution</h2>
+<p>Ethernet cables come in different lengths and standards. For most people if the cable is shorter than 100 meters, most cables work fine and a lot better than WiFi. You can buy a <a href="https://www.amazon.com/Monoprice-Flexboot-Ethernet-Patch-Cable/dp/B00AJHCC82/ref=as_li_ss_tl?&amp;linkCode=ll1&amp;tag=creatdelet-20&amp;linkId=d6af2d6423828113dd63b727767e5c75&amp;language=en_US">Cat 6 cable for less than $8</a>. One of those can be plugged in to your computer on one end and the other end into a router that is common at home. That’s it.</p>
+
+<h2 id="adapters">Adapters</h2>
+<p>Desktop computers usually already have an ethernet port. Some laptops have an ethernet port as well. For the ones that lack an ethernet port you can buy USB adapters.</p>
+
+<p>If you use a laptop with Thunderbolt 3, you can get <a href="https://www.amazon.com/CalDigit-TS3-Plus-Thunderbolt-Dock/dp/B07CZPV8DF/">docking stations</a> have built in ethernet ports. This way you can plug in one cable and get power delivery, connection to USB, monitors, keyboard and mouse as well as Ethernet.</p>
+
+<p>An alternative to a docking station is a simple USB to ethernet adapter. You can leave on always connected to an ethernet cable and then plug the adapter into a USB port of the laptop when at the desk.</p>
+
+<p>1Gbps Ethernet is more than enough for most people. I use and like the <a href="https://amzn.to/2LdIAlk">U Green USB C to 2.5G Ethernet Adapter</a> It works with Ethernet speeds of up to 2.5 Gbps and is backwards compatible with slower speeds too. At around $22 it is relatively inexpensive. It has an aluminium housing which should help dissipate heat better than plastic - for better stability.</p>
+
+<h2 id="remote-work">Remote work</h2>
+<p>Ethernet is another tool you can use to make remote work more effective and pleasant for yourself and the people you work with. And although the title of this focused on audio and video calls, it can also help with any other kind of network traffic.</p>
+
 
   </article>
 
@@ -115,11 +164,11 @@
 
   <h3>More blogposts:</h3>
   
-      <li><a href="/2021/02/15/ethernet-wifi-8-voice-call.html">How to improve your video and audio call stability for $8</a></li>
-  
       <li><a href="/2020/05/25/calendar-standard-library-2020.html">You might not need the Calendar or Timex libraries</a></li>
   
       <li><a href="/2019/11/13/elixir-function-never-use-local-now.html">Adding a function to the Elixir standard library that I hope will not be used</a></li>
+  
+      <li><a href="/2019/10/24/elixir-tzdata-10mm-downloads.html">Tzdata library downloaded 10 million times - Elixir getting more popular?</a></li>
   
 
 </div>
