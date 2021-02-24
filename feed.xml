@@ -6,19 +6,19 @@
 </description>
     <link>http://www.creativedeletion.com/</link>
     <atom:link href="http://www.creativedeletion.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 15 Feb 2021 21:06:22 -0600</pubDate>
-    <lastBuildDate>Mon, 15 Feb 2021 21:06:22 -0600</lastBuildDate>
+    <pubDate>Tue, 23 Feb 2021 22:09:33 -0600</pubDate>
+    <lastBuildDate>Tue, 23 Feb 2021 22:09:33 -0600</lastBuildDate>
     <generator>Jekyll v3.8.6</generator>
     
       <item>
-        <title>How to improve your video and audio call stability for $8</title>
-        <description>&lt;p&gt;Wireless networking can be a bottleneck for trouble free voice and video calls over the internet.&lt;/p&gt;
+        <title>Wi-Fi is not ideal for audio and video calls</title>
+        <description>&lt;p&gt;“You’re cutting out”, “Can you repeat that?”. Connection issues can be really frustrating during audio and video calls. With work-from-home being more prevalent in 2020 and 2021, so is audio and video calls via computers.&lt;/p&gt;
 
 &lt;p&gt;&lt;img title=&quot;Ethernet cable&quot; alt=&quot;Ethernet cable&quot; src=&quot;/assets/rj45.jpg&quot; srcset=&quot;/assets/rj452x.jpg 2x&quot; width=&quot;300&quot; height=&quot;295&quot; class=&quot;right_img&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;For audio and video calls over the internet, a stable connection is important. High network speeds are not necessary for audio calls. &lt;a href=&quot;http://web.archive.org/web/20031204211508/http://www.skype.com/help_faq.html&quot;&gt;Skype was made to work with 33.6 Kbps modems&lt;/a&gt;. Today people that have internet connections that are more than 1000 times faster can have issues with audio dropping. This can be very frustrating. The culprit is often Wi-Fi.&lt;/p&gt;
 
-&lt;p&gt;You might run a test of the Wi-Fi speed and the average speed over many seconds could look OK. But transferring large files is not the same as audio or video calls. The stability matters. If someone turns on a microwave oven and this causes some data to not be transferred, the data can be resent when transferring a file. Maybe the file transfer takes an extra second and it isn’t noticed. However for calls, this disruption can cause visible and audible issues.&lt;/p&gt;
+&lt;p&gt;You might run a test of the Wi-Fi speed and the average speed over many seconds could look OK. But transferring large files is not the same as audio or video calls. The stability matters. If someone turns on a microwave oven and this causes some data to not be transferred, the data can be automatically resent when transferring a file. Maybe the file transfer takes an extra second and it isn’t noticed. However for calls, this disruption can cause visible and audible issues.&lt;/p&gt;
 
 &lt;p&gt;Wireless solutions have a convenience advantage - when they work. The downsides include inconsistency, instability, high latency, slower overall speeds.&lt;/p&gt;
 
@@ -35,7 +35,6 @@
 &lt;p&gt;Is some device on Wi-Fi doing a backup? This slows down the whole Wi-Fi network. Is someone streaming video from the internet? This doesn’t just slow down the internet connection, but the local Wi-Fi network as well. With Ethernet one computer can back up to a storage device on the network, while not interrupting or slowing down the speed of a video call on another computer.&lt;/p&gt;
 
 &lt;h2 id=&quot;security&quot;&gt;Security&lt;/h2&gt;
-
 &lt;p&gt;Ethernet is more secure than Wi-Fi. Through out the years, different encryption mechanisms for Wi-Fi have been developed and weaknesses and exploits for them have been discovered. There is &lt;a href=&quot;https://www.krackattacks.com&quot;&gt;KRACK for WPA2&lt;/a&gt;. An earlier encryption Wired Equivalent Privacy (WEP), despite its name, turned out to not have the equivalent privacy of wired networking.&lt;/p&gt;
 
 &lt;h2 id=&quot;helps-improve-wi-fi&quot;&gt;Helps improve Wi-Fi&lt;/h2&gt;
@@ -64,7 +63,6 @@
 
 &lt;h2 id=&quot;remote-work&quot;&gt;Remote work&lt;/h2&gt;
 &lt;p&gt;Ethernet is another tool you can use to make remote work more effective and pleasant for yourself and the people you work with. And although the title of this focused on audio and video calls, it can also help with any other kind of network traffic.&lt;/p&gt;
-
 </description>
         <pubDate>Mon, 15 Feb 2021 06:00:00 -0600</pubDate>
         <link>http://www.creativedeletion.com/2021/02/15/ethernet-wifi-8-voice-call.html</link>
